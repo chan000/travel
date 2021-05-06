@@ -291,6 +291,7 @@
 		<!-- class="container d-flex h-100 align-items-center" -->
 	</header>
 	<script>
+	
 		document.getElementsByClassName("tablink")[0].click();
 
 		function openCity(evt, cityName) {
@@ -306,6 +307,8 @@
 			document.getElementById(cityName).style.display = "block";
 			evt.currentTarget.classList.add("w3-light-grey");
 		}
+		
+		
 	</script>
 </body>
 </html>

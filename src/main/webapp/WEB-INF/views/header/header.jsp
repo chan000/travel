@@ -35,7 +35,7 @@
                         <div class="dropdown"><a class="nav-link js-scroll-trigger">커뮤니티</a>
                             <div class="dropdown-content">
                                 <a href="/board/freeboard">자유게시판</a>
-                                <a href="reviewboard.html">리뷰게시판</a>
+                                <a href="/board/reviewboard">리뷰게시판</a>
                             </div>
                         </div>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login/login">로그인</a></li>

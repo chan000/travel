@@ -22,6 +22,7 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
+
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
@@ -33,7 +34,7 @@
 				<h2 class="ui teal image header"></h2>
 				<div class="ui large form">
 					<div class="ui stacked segment">
-						<h1 style="text-align: center;">자유게시판</h1>
+						<h1 style="text-align: center;">리뷰게시판</h1>
 						<table class="ui celled table">
 							<thead>
 								<tr>
@@ -54,10 +55,7 @@
 									</tr>
 								</c:forEach>
 							</thead>
-
 						</table>
-
-
 						<div class="container">
 							<div class="row">
 								<div class="col-md-9">
@@ -74,7 +72,7 @@
 								</div>
 								<div class="col-md-3" style="float: right;">
 
-									<a class="btn btn-warning " href="/board/freeboardregi">글쓰기</a>
+									<a class="btn btn-warning " href="/board/reviewboardregi">글쓰기</a>
 								</div>
 							</div>
 						</div>

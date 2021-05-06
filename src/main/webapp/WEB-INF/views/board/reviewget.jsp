@@ -28,7 +28,36 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		
+		<section id="main-content">
+			<section class="wrapper">
+				<div class="row"></div>
+			</section>
+			<div class="panel-body">
+				<div class="table-responsive" style="margin-top: 17%;">
+					<table class="table table-bordered">
+						<tbody>
+							<div style="text-align: center;">
+								<h3>제목</h3>
+							</div>
+							<tr>
+								<td class="text-center gr"><strong>작성자</strong></td>
+								<td>${board.bwriter }</td>
+							</tr>
+							<tr>
+								<td class="text-center gr"><strong>작성일</strong></td>
+								<td>${board.bwrite_date }</td>
+							</tr>
+							<tr>
+								<td class="text-center gr"><strong>내용 </strong></td>
+								<td>${board.bcontent }</td>
+							</tr>
+						</tbody>
+					</table>
+					<a href="/mine/general" class="btn btn-primary"
+						style="float: right;">목록</a>
+				</div>
+			</div>
+			</section>
 	</header>
 </body>
 </html>

@@ -22,6 +22,7 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
+<link href="/resources/css/login.css" rel="stylesheet" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
@@ -53,14 +54,16 @@
 									<div class="col-lg-6 login-btm login-button">
 										<button type="submit" class="btn btn-outline-primary">로그인</button>
 									</div>
+									<div class="col-lg-6 login-btm login-button">
+										<a href="/login/join" type="submit"
+											class="btn btn-outline-primary">회원가입</a>
+									</div>
 								</div>
 							</form>
 						</div>
 					</div>
-					<div class="col-lg-3 col-md-2"></div>
 				</div>
 			</div>
-		</div>
 	</header>
 </body>
 </html>

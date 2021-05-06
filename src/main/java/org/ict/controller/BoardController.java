@@ -15,7 +15,27 @@ public class BoardController {
 	private BoardService service;
 	
 	@GetMapping("/freeboard")
-	public void list(Model model) {
+	public void freeboard(Model model) {
+		model.addAttribute("list",service.getList());
+	}
+	@GetMapping("/toursite")
+	public void tour(Model model) {
+		model.addAttribute("list",service.getList());
+	}
+	@GetMapping("/foodsite")
+	public void food(Model model) {
+		model.addAttribute("list",service.getList());
+	}
+	@GetMapping("/culturesite")
+	public void culture(Model model) {
+		model.addAttribute("list",service.getList());
+	}
+	@GetMapping("/reviewboard")
+	public void review(Model model) {
+		model.addAttribute("list",service.getList());
+	}
+	@GetMapping("/freeboardregi")
+	public void freeregister(Model model) {
 		model.addAttribute("list",service.getList());
 	}
 }

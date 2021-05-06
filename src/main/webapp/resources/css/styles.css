@@ -4643,7 +4643,8 @@ input[type=button].btn-block {
 
 .pagination {
   display: flex;
-  padding-left: 0;
+  margin-left: 30%;
+  justify-content: center;
   list-style: none;
   border-radius: 0.25rem;
 }
@@ -10440,8 +10441,8 @@ a {
     padding: 0;
   }
   .masthead h1 {
-    font-size: 6.5rem;
-    line-height: 6.5rem;
+    font-size: 3rem;
+    line-height:3rem;
     letter-spacing: 0.8rem;
   }
   .masthead h2 {
