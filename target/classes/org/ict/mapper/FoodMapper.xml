@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper 
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.ict.mapper.FoodMapper">
+	
+	<select id="foodList" resultType="org.ict.domain.FoodVO">
+		select a.fno, a.fname, a.fimg, a.finfo,
+		b.ccno, c.ccarea, c.cctype, c.ccpost
+        from food as a, localkr as b, chungcheong as c
+        where a.lno = b.lno and b.ccno = c.ccno and fno > 0
+	</select>
+	
+	<select id="foodRead" resultType="org.ict.domain.FoodVO">
+		select a.fno, a.fname, a.fimg, a.finfo,
+		b.ccno, c.ccarea, c.cctype, c.ccpost
+        from food as a, localkr as b, chungcheong as c
+        where a.lno = b.lno and b.ccno = c.ccno and fno = #{fno}
+	</select>
+</mapper>
