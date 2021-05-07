@@ -12,6 +12,13 @@ public interface BoardService {
 
 	public BoardVO get(Long bno);
 	
+	public void register(BoardVO board);
+	
+	public boolean remove(Long bno);
+	
+	public List<BoardVO> getListPage(SearchCriteria cri);
+	public int getCountPage(SearchCriteria cri);
+	
 
 
 }

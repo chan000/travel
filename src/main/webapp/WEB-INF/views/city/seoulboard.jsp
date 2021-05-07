@@ -14,6 +14,7 @@
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"
 	crossorigin="anonymous"></script>
+
 <!-- Google fonts-->
 <link href="https://fonts.googleapis.com/css?family=Varela+Round"
 	rel="stylesheet" />
@@ -23,6 +24,8 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+ <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 <style>
 .city {
 	display: none
@@ -31,7 +34,46 @@
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
+	<div class="modal" id="testModal1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- header -->
+				<div class="modal-header">
+					<!-- 모달 팝업의 제목이 옵니다. -->
+					<h1>태안</h1>
+
+					<button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+
+				</div>
+				<!-- body -->
+				<div class="modal-body">
+					<!-- 모달 팝업의 내용은 여기에 옵니다. -->
+					<h5>관광지</h5>
+					<!-- 데이터 넣으면 되려나 -->
+					<h6 style="float: right;">
+						<a href="/board/tourlist">상세보기</a>
+					</h6>
+					<br>
+					<hr style="width: 100%;">
+					<h5>음식</h5>
+					<!-- 데이터 넣으면 되려나 -->
+					<h6 style="float: right;">
+						<a href="/board/tourlist">상세보기</a>
+					</h6>
+					<br>
+				</div>
+				<!-- footer -->
+				<div class="modal-footer">
+					<!-- 모달 팝업에서 버튼 등 기타 요소들이 여기에 옵니다. -->
+					<button type="button" class="btn btn-primary">확인</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">
+						닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<header class="masthead">
+
 		<!-- 메인 내용 들어가는 곳 -->
 		<div class="container d-flex h-100 align-items-center">
 
@@ -39,44 +81,10 @@
 				<img src="/resources/assets/img/do/서울.png">
 
 				<!-- ---------- 송파구 ---------- -->
-				<button
-					onclick="document.getElementById('id01').style.display='block'"
+				<button data-toggle='modal' data-target='#testModal1'
 					style="position: absolute; left: 650px; top: 430px; height: 170px; width: 90px; transform: rotate(-33deg);"
 					class="w3-button w3-black">송파구</button>
-				<div id="id01" class="w3-modal">
-					<div class="w3-modal-content w3-card-4 w3-animate-zoom">
 
-
-						<span
-							onclick="document.getElementById('id01').style.display='none'"
-							class="w3-button w3-white w3-xlarge w3-display-topright">&times;</span>
-						<h2>송파구</h2>
-
-						<div class="w3-bar w3-border-bottom">
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'London')">관광</button>
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'Paris')">문화</button>
-
-						</div>
-						<div id="London" class="w3-container city">
-							<p>송파구 관광</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						</div>
-						<div id="Paris" class="w3-container city">
-							<p>Paris is the capital of France.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-
-						<div class="w3-container w3-light-grey w3-padding">
-							<button class="w3-button w3-right w3-white w3-border"
-								onclick="document.getElementById('id01').style.display='none'">닫기</button>
-						</div>
-					</div>
-				</div>
 
 				<!-- ---------- 강남구 ---------- -->
 				<button

@@ -8,5 +8,18 @@
 		SELECT * FROM board WHERE bno > 0
 		
 	</select>
+	
+	<insert id="insert">
+	INSERTO INTO board(title, contents, writer)
+	VALUES (#{title}, #{contents}, #{writer})
+	</insert>
+	
+	<delete id="delete">
+	DELETE FROM board WHERE bno = #{bno}
+	</delete>
+	
+	<select id="read" resultType="org.ict.domain.BoardVO">
+		SELECT * FROM board WHERE bno = #{bno}
+	</select>
 
 </mapper>

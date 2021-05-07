@@ -18,6 +18,9 @@ public interface BoardMapper {
 	public boolean delete(Long bno);
 	
 	public void insert(BoardVO board);
+	public List<BoardVO> listPage(SearchCriteria cri);
+	
+	public int countPageNum(SearchCriteria cri);
 
 
 	

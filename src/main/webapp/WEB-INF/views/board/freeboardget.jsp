@@ -31,31 +31,34 @@
 			<section class="wrapper">
 				<div class="row"></div>
 			</section>
+			<form>
+			<input type="hidden" name="bno" value="${freeboard.bno}">
 			<div class="panel-body">
 				<div class="table-responsive" style="margin-top: 17%;">
 					<table class="table table-bordered">
 						<tbody>
 							<div style="text-align: center;">
-								<h3>제목</h3>
+								<h3>${freeboard.title }</h3>
 							</div>
 							<tr>
 								<td class="text-center gr"><strong>작성자</strong></td>
-								<td>${board.bwriter }</td>
+								<td>${freeboard.writer }</td>
 							</tr>
 							<tr>
 								<td class="text-center gr"><strong>작성일</strong></td>
-								<td>${board.bwrite_date }</td>
+								<td>${freeboard.date }</td>
 							</tr>
 							<tr>
 								<td class="text-center gr"><strong>내용 </strong></td>
-								<td>${board.bcontent }</td>
+								<td>${freeboard.contents }</td>
 							</tr>
 						</tbody>
 					</table>
-					<a href="/mine/general" class="btn btn-primary"
+					<a href="/board/freeboard" class="btn btn-primary"
 						style="float: right;">목록</a>
 				</div>
 			</div>
+			</form>
 			</section>
 	</header>
 </body>
