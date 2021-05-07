@@ -16,13 +16,8 @@ public class BoardServiceImpl implements BoardService{
 	private BoardMapper mapper;
 
 	@Override
-	public List<BoardVO> docuList(Integer bno) {
-		return mapper.docuList(bno);
-	}
-
-	@Override
-	public List<BoardVO> getListPage(Integer bno, Criteria cri) {
-			return mapper.docuListPage(bno, cri);
+	public List<BoardVO> getList() {
+		return mapper.getList();
 	}
 
 	@Override
@@ -30,20 +25,8 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.read(bno);
 	}
 
-	@Override
-	public List<BoardVO> getListPageSearch(Integer bno, Criteria cri, SearchCriteria search) {
-		return mapper.docuListPageSearch(bno, cri, search);
-	}
-
-	@Override
-	public int getCountPage(Integer bno) {
-		return mapper.countPageNum(bno);
-	}
-
-	@Override
-	public int getCountPageSearch(Integer bno, SearchCriteria search) {
-		return mapper.countPageNumSearch(bno, search);
-	}
+	
+	
 
 	
 	

@@ -11,19 +11,15 @@ public interface BoardMapper {
 
 	public BoardVO read(Long bno);
 
-	public List<BoardVO> docuList(Integer bno);
+	public List<BoardVO> getList();
 
 	public int update(BoardVO board);
 
 	public boolean delete(Long bno);
+	
+	public void insert(BoardVO board);
 
-	public List<BoardVO> docuListPage(@Param("bno") Integer bno, @Param("cri") Criteria cri);
 
-	public int countPageNum(Integer bno);
-
-	public List<BoardVO> docuListPageSearch(@Param("bno") Integer bno, @Param("cri") Criteria cri,
-			@Param("search") SearchCriteria search);
-
-	public int countPageNumSearch(@Param("bno") Integer bno, @Param("search") SearchCriteria search);
+	
 
 }

@@ -8,15 +8,10 @@ import org.ict.domain.SearchCriteria;
 
 public interface BoardService {
 
-	public List<BoardVO> docuList(Integer bno);
+	public List<BoardVO> getList();
 
 	public BoardVO get(Long bno);
+	
 
-	public List<BoardVO> getListPage(Integer bno, Criteria cri);
 
-	public List<BoardVO> getListPageSearch(Integer bno, Criteria cri, SearchCriteria search);
-
-	public int getCountPage(Integer bno);
-
-	public int getCountPageSearch(Integer bno, SearchCriteria search);
 }
