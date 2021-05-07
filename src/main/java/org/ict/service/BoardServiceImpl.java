@@ -8,7 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class BoardServiceImpl implements BoardService{
+public class BoardServiceImpl implements BoardService {
 
 	@Autowired
 	private BoardMapper mapper;
@@ -23,11 +23,25 @@ public class BoardServiceImpl implements BoardService{
 		return mapper.read(bno);
 	}
 
-	
-	
+	@Override
+	public void register(BoardVO board) {
 
-	
-	
-	
+	}
+
+	@Override
+	public boolean remove(Long bno) {
+		return mapper.delete(bno);
+	}
+
+	@Override
+	public List<BoardVO> getListPage(SearchCriteria cri) {
+		return mapper.listPage(cri);
+	}
+
+	@Override
+	public int getCountPage(SearchCriteria cri) {
+
+		return mapper.countPageNum(cri);
+	}
 
 }

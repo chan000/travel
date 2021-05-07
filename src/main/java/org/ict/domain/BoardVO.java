@@ -11,7 +11,7 @@ public class BoardVO {
 	private String title;
 	private String contents;
 	private String writer;
-	private Date updateDate;
+	private Date date;
 	
 	
 }

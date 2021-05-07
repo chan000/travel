@@ -44,13 +44,13 @@
 									<th>작성일</th>
 								</tr>
 
-								<c:forEach var="board" items="${list}">
+								<c:forEach var="board" items="${freeboard}">
 									<tr>
 										<td>${board.bno }</td>
-										<td>${board.title }</td>
+										<td><a href="/board/freeboardget?bno=${board.bno}">${board.title }</a></td>
 										<td>${board.contents }</td>
 										<td>${board.writer }</td>
-										<td>${board.updateDate }</td>
+										<td>${board.date }</td>
 									</tr>
 								</c:forEach>
 							</thead>
