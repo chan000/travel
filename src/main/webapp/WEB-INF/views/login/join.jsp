@@ -55,10 +55,18 @@
 
 				</form>
 				<form class="form-inline d-flex">
-					성별 : <input
-						class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-						id="inputEmail" type="email" placeholder="이메일을 입력해주세요." />
-
+					성별
+					<div class="col-lg-2">
+						<input class="form-control" id="gender" type="text"
+							value=<c:choose>
+                  			<c:when test="${detail.gender eq 1}">
+                  				<c:out value="남자"/>
+                  			</c:when>
+                  			<c:when test="${detail.gender eq 2}">
+                  				<c:out value="여자"/>
+                  			</c:when>
+                  		</c:choose>>
+                  		</div>
 				</form>
 				<a class="btn btn-warning ">회원가입</a>
 
