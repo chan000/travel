@@ -27,6 +27,8 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
+		<form action="/board/freeboardregi" method="post">
+		</form>
 		<section class="container">
                   <div class="row" style="width:1000px">
                   </div>
@@ -38,26 +40,26 @@
                             <div class="form-group">
                               <label class="col-sm-1 ">제목</label>
                               <div class="col-sm-11">
-                                <input type="text" class="form-control" id="btitle" name="btitle" >
+                                <input type="text" class="form-control"  name="title" >
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-1 control-label">작성자</label>
                               <div class="col-sm-11">
-                                <input class="form-control" id="mname" type="text" name="mname" value="${login.mname}" readonly> <!-- readonly 예정 -->
+                                <input class="form-control"  type="text" name="writer" >
                               </div>
                             </div>
-                            <input type="hidden" name="mno" value="${login.mno}">
+                            <input type="hidden" name="mno" >
                             <div class="form-group">
                               <label class="col-sm-1 control-label">작성일</label>
                               <div class="col-sm-11">
-                                <input class="form-control" id="bwrite_date" name="bwrite_date" type="text" value="" readonly >
+                                <input class="form-control" name="date" type="text" value="" >
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-1 control-label">내용</label>
                               <div class="col-sm-11">
-                                <textarea class="form-control" rows="6" id="bcontent" name="bcontent"></textarea>
+                                <textarea class="form-control" rows="6" id="contents" name="bcontent"></textarea>
                               </div>
                             </div>
                             <div class="container">

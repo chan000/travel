@@ -23,9 +23,9 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
 </head>
+	<header class="masthead">
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
-	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
 		<section id="main-content">
 			<section class="wrapper">
@@ -54,7 +54,7 @@
 							</tr>
 						</tbody>
 					</table>
-					<a href="/board/freeboard" class="btn btn-primary"
+					<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
 						style="float: right;">목록</a>
 				</div>
 			</div>

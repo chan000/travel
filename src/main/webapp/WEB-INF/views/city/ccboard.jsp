@@ -20,47 +20,45 @@
 <link
 	href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
 	rel="stylesheet" />
-	 <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css"
+	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<style>
-.city {
-	display: none
-}
-</style>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script
+		src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
+<%@ include file="/WEB-INF/views/header/header.jsp"%>
 <body>
-	<%@ include file="/WEB-INF/views/header/header.jsp"%>
-			 <div class="modal" id="testModal1">
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <!-- header -->
-                    <div class="modal-header">
-                    <!-- 모달 팝업의 제목이 옵니다. -->
-                      <h5>투표결과 보기</h5>
-                      <button type="button" class="btn btn-danger"
-                          data-dismiss="modal">&times;</button>
-                    </div>
-                    <!-- body -->
-                    <div class="modal-body">
-                      <!-- 모달 팝업의 내용은 여기에 옵니다. -->
-                      투표결과<br>
-                      득표수 : <br>
-                      <div id="foodInfo"></div>
-                      
-                      승률 : <br>
-                    </div>
-                    <!-- footer -->
-                    <div class="modal-footer">
-                      <!-- 모달 팝업에서 버튼 등 기타 요소들이 여기에 옵니다. -->
-                      <button type="button" class="btn btn-primary"> 확인 </button>
-                      <button type="button" class="btn btn-danger"
-                          data-dismiss="modal"> 닫기 </button>
-                        </div>
-                      </div>
-                    </div>
-                </div>
+	<div class="modal" id="testModal1">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<!-- header -->
+				<div class="modal-header">
+					<!-- 모달 팝업의 제목이 옵니다. -->
+					<h5>투표결과 보기</h5>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
+				</div>
+				<!-- body -->
+				<div class="modal-body">
+					<!-- 모달 팝업의 내용은 여기에 옵니다. -->
+					투표결과<br> 득표수 : <br>
+					<div id="foodInfo"></div>
+
+					승률 : <br>
+				</div>
+				<!-- footer -->
+				<div class="modal-footer">
+					<!-- 모달 팝업에서 버튼 등 기타 요소들이 여기에 옵니다. -->
+					<button type="button" class="btn btn-primary">확인</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal">
+						닫기</button>
+				</div>
+			</div>
+		</div>
+	</div>
 	<header class="masthead w3-container w3-white">
 		<!-- 메인 내용 들어가는 곳 -->
 		<div class="container d-flex h-100 align-items-center">
@@ -69,244 +67,64 @@
 
 
 				<!-- ---------- 제천, 단양 버튼 ---------- -->
-				<button
-					onclick="document.getElementById('id01').style.display='block'"
+				<button data-toggle='modal' data-target='#testModal1'
 					style="position: absolute; left: 830px; height: 200px; width: 230px; opacity: 0;"
 					class="w3-button w3-black">제천, 단양</button>
-				<div id="id01" class="w3-modal">
-					<div class="w3-modal-content w3-card-4 w3-animate-zoom">
 
-
-						<span
-							onclick="document.getElementById('id01').style.display='none'"
-							class="w3-button w3-white w3-xlarge w3-display-topright">&times;</span>
-						<h2>제천, 단양</h2>
-
-						<div class="w3-bar w3-border-bottom">
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'London')">관광</button>
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'Paris')">문화</button>
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'Tokyo')">음식</button>
-						</div>
-						<div id="London" class="w3-container city">
-							<p>제천, 단양 관광지</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						</div>
-						<div id="Paris" class="w3-container city">
-							<p>Paris is the capital of France.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-						<div id="Tokyo" class="w3-container city">
-							<p>Tokyo is the capital of Japan.</p>
-							<br>
-						</div>
-						<div class="w3-container w3-light-grey w3-padding">
-							<button class="w3-button w3-right w3-white w3-border"
-								onclick="document.getElementById('id01').style.display='none'">닫기</button>
-						</div>
-					</div>
-				</div>
 
 				<!-- ---------- 태안 버튼 ------------>
-					
-				<button
+
+				<button data-toggle='modal' data-target='#testModal1'
 					style="position: absolute; left: 20px; top: 170px; height: 130px; width: 80px;"
-					class="w3-button w3-black" data-toggle='modal' data-target='#testModal1'>태안</button>
-					
+					class="w3-button w3-black">태안</button>
+
 
 				<!-- ---------- 보령 버튼 ------------>
-				<button
-					onclick="document.getElementById('id01').style.display='block'"
+				<button data-toggle='modal' data-target='#testModal1'
 					style="position: absolute; left: 175px; top: 380px; height: 130px; width: 80px;"
 					class="w3-button w3-black">보령</button>
-				<div id="id01" class="w3-modal">
-					<div class="w3-modal-content w3-card-4 w3-animate-zoom">
-						<span
-							onclick="document.getElementById('id01').style.display='none'"
-							class="w3-button w3-white w3-xlarge w3-display-topright">&times;</span>
-						<h2>보령시</h2>
 
-						<div class="w3-bar w3-border-bottom">
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'London')">관광</button>
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'Paris')">문화</button>
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'Tokyo')">음식</button>
-						</div>
-						<div id="London" class="w3-container city">
-							<p>태안 관광지</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						</div>
-						<div id="Paris" class="w3-container city">
-							<p>Paris is the capital of France.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-						<div id="Tokyo" class="w3-container city">
-							<p>Tokyo is the capital of Japan.</p>
-							<br>
-						</div>
-						<div class="w3-container w3-light-grey w3-padding">
-							<button class="w3-button w3-right w3-white w3-border"
-								onclick="document.getElementById('id01').style.display='none'">닫기</button>
-						</div>
-					</div>
-				</div>
 
 				<!-- ---------- 대전광역시 버튼 ------------>
-				<button
-					onclick="document.getElementById('id01').style.display='block'"
+				<button data-toggle='modal' data-target='#testModal1'
 					style="position: absolute; left: 530px; top: 380px; height: 110px; width: 55px;"
 					class="w3-button w3-black">대전</button>
-				<div id="id01" class="w3-modal">
-					<div class="w3-modal-content w3-card-4 w3-animate-zoom">
-						<span
-							onclick="document.getElementById('id01').style.display='none'"
-							class="w3-button w3-white w3-xlarge w3-display-topright">&times;</span>
-						<h2>대전광역시</h2>
 
-						<div class="w3-bar w3-border-bottom">
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'London')">관광</button>
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'Paris')">문화</button>
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'Tokyo')">음식</button>
-						</div>
-						<div id="London" class="w3-container city">
-							<p>태안 관광지</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						</div>
-						<div id="Paris" class="w3-container city">
-							<p>Paris is the capital of France.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-						<div id="Tokyo" class="w3-container city">
-							<p>Tokyo is the capital of Japan.</p>
-							<br>
-						</div>
-						<div class="w3-container w3-light-grey w3-padding">
-							<button class="w3-button w3-right w3-white w3-border"
-								onclick="document.getElementById('id01').style.display='none'">닫기</button>
-						</div>
-					</div>
-				</div>
 
 				<!-- ---------- 세종특별 버튼 ------------>
-				<button
-					onclick="document.getElementById('id01').style.display='block'"
+				<button data-toggle='modal' data-target='#testModal1'
 					style="position: absolute; left: 475px; top: 280px; height: 110px; width: 55px; transform: rotate(-33deg);"
 					class="w3-button w3-black">세종</button>
-				<div id="id01" class="w3-modal">
-					<div class="w3-modal-content w3-card-4 w3-animate-zoom">
-						<span
-							onclick="document.getElementById('id01').style.display='none'"
-							class="w3-button w3-white w3-xlarge w3-display-topright">&times;</span>
-						<h2>세종시</h2>
 
-						<div class="w3-bar w3-border-bottom">
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'London')">관광</button>
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'Paris')">문화</button>
-							<button class="tablink w3-bar-item w3-button"
-								onclick="openCity(event, 'Tokyo')">음식</button>
-						</div>
-						<div id="London" class="w3-container city">
-							<p>태안 관광지</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-								sed do eiusmod tempor incididunt ut labore et dolore magna
-								aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-								ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-						</div>
-						<div id="Paris" class="w3-container city">
-							<p>Paris is the capital of France.</p>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-						</div>
-						<div id="Tokyo" class="w3-container city">
-							<p>Tokyo is the capital of Japan.</p>
-							<br>
-						</div>
-						<div class="w3-container w3-light-grey w3-padding">
-							<button class="w3-button w3-right w3-white w3-border"
-								onclick="document.getElementById('id01').style.display='none'">닫기</button>
-						</div>
-					</div>
-				</div>
 				<!-- ---------- 청주시 버튼 ------------>
-				<button onclick="document.getElementById('id01').style.display='block'"
-                    style="position: absolute; left: 540px; top: 260px; height: 60px;"
-                    class="w3-button w3-black">청주</button>
-                <div id="id01" class="w3-modal">
-                    <div class="w3-modal-content w3-card-4 w3-animate-zoom">
-                        <span onclick="document.getElementById('id01').style.display='none'"
-                            class="w3-button w3-white w3-xlarge w3-display-topright">&times;</span>
-                        <h2>청주시</h2>
+				<button data-toggle='modal' data-target='#testModal1'
+					style="position: absolute; left: 540px; top: 260px; height: 60px;"
+					class="w3-button w3-black">청주</button>
 
-                        <div class="w3-bar w3-border-bottom">
-                            <button class="tablink w3-bar-item w3-button"
-                                onclick="openCity(event, 'London')">관광</button>
-                            <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Paris')">문화</button>
-                            <button class="tablink w3-bar-item w3-button" onclick="openCity(event, 'Tokyo')">음식</button>
-                        </div>
-                        <div id="London" class="w3-container city">
-                            <p>태안 관광지</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-                                sed do eiusmod tempor incididunt ut labore et dolore magna
-                                aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-                        </div>
-                        <div id="Paris" class="w3-container city">
-                            <p>Paris is the capital of France.</p>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                        </div>
-                        <div id="Tokyo" class="w3-container city">
-                            <p>Tokyo is the capital of Japan.</p>
-                            <br>
-                        </div>
-                        <div class="w3-container w3-light-grey w3-padding">
-                            <button class="w3-button w3-right w3-white w3-border"
-                                onclick="document.getElementById('id01').style.display='none'">닫기</button>
-                        </div>
-                    </div>
-                </div>
 
-			</div><!-- style="position: relative; top: 30px;" -->
+			</div>
+			<!-- style="position: relative; top: 30px;" -->
 		</div>
 		<!-- class="container d-flex h-100 align-items-center" -->
 	</header>
-		  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
-	<script type="text/javascript">
-	$(document).ready(function(data){
-		
-		var fno = 2;
-			console.log(fno);
-		function getFood1(){
-			
-			$.getJSON("/city/ccboard/" + fno, function(){
-			
-			console.log(data.fname);
-			
-			})
-		}
-		
-		getFood1();
-		
-	})
 	
+	<script type="text/javascript">
+		$(document).ready(function(data) {
+
+			var fno = 2;
+			console.log(fno);
+			function getFood1() {
+
+				$.getJSON("/city/ccboard/" + fno, function() {
+
+					console.log(data.fname);
+
+				})
+			}
+
+			getFood1();
+
+		})
 	</script>
 </body>
 </html>

@@ -22,6 +22,7 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
@@ -47,7 +48,7 @@
 								<c:forEach var="board" items="${freeboard}">
 									<tr>
 										<td>${board.bno }</td>
-										<td><a href="/board/freeboardget?bno=${board.bno}">${board.title }</a></td>
+										<td><a href="/board/freeboardget?bno=${board.bno}&page=${cri.page}">${board.title }</a></td>
 										<td>${board.contents }</td>
 										<td>${board.writer }</td>
 										<td>${board.date }</td>
@@ -61,15 +62,31 @@
 						<div class="container">
 							<div class="row">
 								<div class="col-md-9">
-
+						
 									<ul class="pagination">
-										<li class="page-item"><a class="page-link" href="#">이전</a></li>
-										<li class="page-item"><a class="page-link" href="#">1</a></li>
-										<li class="page-item"><a class="page-link" href="#">2</a></li>
-										<li class="page-item"><a class="page-link" href="#">3</a></li>
-										<li class="page-item"><a class="page-link" href="#">4</a></li>
-										<li class="page-item"><a class="page-link" href="#">5</a></li>
-										<li class="page-item"><a class="page-link" href="#">다음</a></li>
+									<!-- 이전 페이지 버튼 -->
+										<c:if test="${pageMaker.prev }">
+											<li class="page-item"><a class="page-link"
+												href="/board/freeboard?page=${pageMaker.startPage -1 }">
+													&laquo; </a></li>
+										</c:if>
+
+										<!-- 페이지 번호 버튼 -->
+										<c:forEach begin="${pageMaker.startPage }"
+											end="${pageMaker.endPage }" var="idx">
+											<li class="page-item
+	   									 		<c:out value="${pageMaker.cri.page == idx ? 'active' : '' }" />">
+												<a class="page-link"
+												href="/board/freeboard?page=${idx }">${idx }</a>
+											</li>
+										</c:forEach>
+
+										<!-- 다음 페이지 버튼 -->
+										<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+											<li class="page-item"><a class="page-link"
+												href="/board/freeboard?page=${pageMaker.endPage +1 }">
+													&raquo; </a></li>
+										</c:if>
 									</ul>
 								</div>
 								<div class="col-md-3" style="float: right;">

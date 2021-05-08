@@ -1,24 +1,16 @@
 package org.ict.controller;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-
 import org.ict.domain.BoardVO;
-import org.ict.domain.Criteria;
 import org.ict.domain.PageMaker;
 import org.ict.domain.SearchCriteria;
 import org.ict.service.BoardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/board/*")
@@ -29,14 +21,34 @@ public class BoardController {
 	
 	@RequestMapping("/freeboard")
 	public void freeboard(Model model, SearchCriteria cri) {
-		model.addAttribute("freeboard", service.getList());
+		model.addAttribute("freeboard", service.getListPage(cri));
 		model.addAttribute("cri", cri);
+		PageMaker pageMaker = new PageMaker();
+		
+		pageMaker.setCri(cri);
+		pageMaker.setTotalBoard(service.getCountPage(cri));
+		model.addAttribute("pageMaker", pageMaker);
 	}
 	@GetMapping("/freeboardget")
 	public void get(Long bno, Model model, SearchCriteria cri) {
 		model.addAttribute("freeboard", service.get(bno));
 		model.addAttribute("cri", cri);
 	}
+	
+	@PostMapping("/freeboardregi")
+	public String register(BoardVO board, SearchCriteria cri, RedirectAttributes rttr) {
+		service.register(board);
+		
+		rttr.addFlashAttribute("result", board.getBno());
+		
+		return "redirect:/board/freeboard";
+	}
+	
+	@GetMapping("freeboardregi")
+	public String register() {
+		return "/board/freeboardregi";
+	}
+	
 	
 	@RequestMapping("/reviewboard")
 	public void reviewboard(Model model, SearchCriteria cri) {
