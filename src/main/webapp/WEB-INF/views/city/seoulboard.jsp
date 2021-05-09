@@ -28,7 +28,7 @@
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 </head>
-	<%@ include file="/WEB-INF/views/header/header.jsp"%>
+<%@ include file="/WEB-INF/views/header/header.jsp"%>
 <body>
 	<div class="modal" id="testModal1">
 		<div class="modal-dialog">
@@ -75,7 +75,7 @@
 				<img src="/resources/assets/img/do/서울.png">
 
 				<!-- ---------- 송파구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1'
+				<button data-toggle='modal' data-target='#testModal1' id="songpa"
 					style="position: absolute; left: 650px; top: 430px; height: 170px; width: 90px; transform: rotate(-33deg);"
 					class="w3-button w3-black">송파구</button>
 
@@ -120,7 +120,24 @@
 		</div>
 		<!-- class="container d-flex h-100 align-items-center" -->
 	</header>
-
+	<script>
+		$(document).ready(function() {
+			var tno = 1;
+			console.log(tno);
+			$("#songpa").click(function(data) {
+				$.ajax({
+					type: "get",
+					dataType:"text",
+				data : JSON.stringify({
+					tno : tno
+				}),
+				success : function(data, textStatus) {
+					
+				}
+				}); //ajax
+			}); // click
+		}); // document
+	</script>
 
 </body>
 </html>
