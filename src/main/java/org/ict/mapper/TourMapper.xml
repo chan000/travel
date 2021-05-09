@@ -5,10 +5,10 @@
 
 <mapper namespace="org.ict.mapper.TourMapper">
 	<select id="tourList" resultType="org.ict.domain.TourVO">
-	SELECT * FROM tour where bno > 0
+	SELECT * FROM tour where tno > 0
 	</select>
 	
 	<select id="tourRead" resultType="org.ict.domain.TourVO">
-	SELECT * FROM tour where bno = #{bno}
+	SELECT * FROM tour where tno = #{tno}
 	</select>
 </mapper>

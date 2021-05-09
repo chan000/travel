@@ -20,8 +20,7 @@ public class TourRestController {
 	@Autowired
 	TourService service;
 
-	@GetMapping(value = "/seoulboard", produces = { MediaType.APPLICATION_XML_VALUE,
-			MediaType.APPLICATION_JSON_UTF8_VALUE })
+	@GetMapping(value = "/seoulboard", produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<List<TourVO>> tourList() {
 		ResponseEntity<List<TourVO>> entity = null;
 
@@ -30,19 +29,22 @@ public class TourRestController {
 		} catch (Exception e) {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
+
 		return entity;
 	}
 
-	@GetMapping(value = "/seoulboard/{tno}")
+	@GetMapping(value = "/seoulboard/{tno}",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
 	public ResponseEntity<List<TourVO>> tourRead(@PathVariable("tno") int tno) {
+
 		ResponseEntity<List<TourVO>> entity = null;
+
 		try {
 			entity = new ResponseEntity<List<TourVO>>(service.getTourRead(tno), HttpStatus.OK);
-		} catch (Exception e) {
-			e.printStackTrace();
-			entity = new ResponseEntity<List<TourVO>>(HttpStatus.BAD_REQUEST);
-		}
 
+		} catch (Exception e) {
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+		}
 		return entity;
 	}
 

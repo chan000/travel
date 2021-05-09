@@ -1,6 +1,6 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"
-	language="java"%>
 <html>
 <head>
 <meta charset="utf-8" />
@@ -27,6 +27,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script
 	src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <%@ include file="/WEB-INF/views/header/header.jsp"%>
 <body>
@@ -36,14 +38,14 @@
 				<!-- header -->
 				<div class="modal-header">
 					<!-- 모달 팝업의 제목이 옵니다. -->
-					<h1>송파구</h1>
+					<h1>도.</h1>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
 				</div>
 				<!-- body -->
 				<div class="modal-body">
 					<!-- 모달 팝업의 내용은 여기에 옵니다. -->
-					<h5>관광지</h5>
-					<!-- 데이터 넣으면 되려나 -->
+					<h4>관광지</h4>
+					<h5 id="tourbody"></h5>
 					<h6 style="float: right;">
 						<a href="/board/tourlist">상세보기</a>
 					</h6>
@@ -120,21 +122,22 @@
 		</div>
 		<!-- class="container d-flex h-100 align-items-center" -->
 	</header>
-	<script>
+	<script type="text/javascript">
 		$(document).ready(function() {
 			var tno = 1;
 			console.log(tno);
+
 			$("#songpa").click(function(data) {
-				$.ajax({
-					type: "get",
-					dataType:"text",
-				data : JSON.stringify({
-					tno : tno
-				}),
-				success : function(data, textStatus) {
+				var str = "";
+				var tno = 2;
+				$.getJSON("/city/seoulboard/" + tno, function(data) {
+					console.log(tno);
+
 					
-				}
-				}); //ajax
+					str =  "<div>" +data.tinfo +"</div>"; 
+					$("#tourbody").html(str);
+				});// getJSON
+
 			}); // click
 		}); // document
 	</script>
