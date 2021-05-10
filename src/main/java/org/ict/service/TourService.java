@@ -7,6 +7,6 @@ import org.ict.domain.TourVO;
 public interface TourService {
 	
 	public List<TourVO> getTourList();
-	public List<TourVO> getTourRead(int tno);
+	public TourVO getTourRead(int tno);
 
 }

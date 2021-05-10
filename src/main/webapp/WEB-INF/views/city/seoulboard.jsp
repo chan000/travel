@@ -124,19 +124,19 @@
 	</header>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var tno = 1;
+			var tno = "";
 			console.log(tno);
 
 			$("#songpa").click(function(data) {
-				var str = "";
+				var str = " ";
 				var tno = 2;
 				$.getJSON("/city/seoulboard/" + tno, function(data) {
 					console.log(tno);
 
-					
-					str =  "<div>" +data.tinfo +"</div>"; 
-					$("#tourbody").html(str);
+					str = "<div>" + data.tinfo + "</div>";
+				$("#tourbody").html(str);
 				});// getJSON
+
 
 			}); // click
 		}); // document

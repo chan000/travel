@@ -34,12 +34,12 @@ public class TourRestController {
 	}
 
 	@GetMapping(value = "/seoulboard/{tno}",produces = {MediaType.APPLICATION_JSON_UTF8_VALUE})
-	public ResponseEntity<List<TourVO>> tourRead(@PathVariable("tno") int tno) {
+	public ResponseEntity<TourVO> tourRead(@PathVariable("tno") int tno) {
 
-		ResponseEntity<List<TourVO>> entity = null;
+		ResponseEntity<TourVO> entity = null;
 
 		try {
-			entity = new ResponseEntity<List<TourVO>>(service.getTourRead(tno), HttpStatus.OK);
+			entity = new ResponseEntity<TourVO>(service.getTourRead(tno), HttpStatus.OK);
 
 		} catch (Exception e) {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);

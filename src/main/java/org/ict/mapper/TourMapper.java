@@ -8,6 +8,6 @@ public interface TourMapper {
 	
 	public List<TourVO> tourList();
 	
-	public List<TourVO> tourRead(int tno);
+	public TourVO tourRead(int tno);
 
 }
