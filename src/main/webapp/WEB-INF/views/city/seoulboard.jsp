@@ -32,6 +32,11 @@
 </head>
 <%@ include file="/WEB-INF/views/header/header.jsp"%>
 <body>
+		
+	<c:forEach var = "a" items = "${list}">
+		<input type="hidden" value = "${a.sno}">
+	</c:forEach>
+	
 	<div class="modal" id="testModal1">
 		<div class="modal-dialog">
 			<div class="modal-content">
@@ -73,17 +78,17 @@
 		<!-- 메인 내용 들어가는 곳 -->
 		<div class="container d-flex h-100 align-items-center">
 
-			<div style="position: relative; top: 5px; left: 75px;">
+			<div id="type" style="position: relative; top: 5px; left: 75px;">
 				<img src="/resources/assets/img/do/서울.png">
 
 				<!-- ---------- 송파구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1' id="songpa"
+				<button data-toggle='modal' data-target='#testModal1' data-sno="${5}" id="songpa" 
 					style="position: absolute; left: 650px; top: 430px; height: 170px; width: 90px; transform: rotate(-33deg);"
 					class="w3-button w3-black">송파구</button>
 
 
 				<!-- ---------- 강남구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1'
+				<button data-toggle='modal' data-target='#testModal1' data-sno="${4}"
 					style="position: absolute; left: 550px; top: 430px; height: 250px; width: 80px; transform: rotate(-40deg);"
 					class="w3-button w3-black">강남구</button>
 
@@ -124,16 +129,17 @@
 	</header>
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var tno = "";
-			console.log(tno);
+			
+			
+			$(".container").on("click", "#type button", function(data) {
+				var str = "";
+				
+				var sno = $(this).data("sno");
+				
+					console.log(sno);
+				$.getJSON("/city/seoulboard/" + sno, function(data) {
 
-			$("#songpa").click(function(data) {
-				var str = " ";
-				var tno = 2;
-				$.getJSON("/city/seoulboard/" + tno, function(data) {
-					console.log(tno);
-
-					str = "<div>" + data.tinfo + "</div>";
+					str = "<div><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + data.timg + "'></div>";
 				$("#tourbody").html(str);
 				});// getJSON
 

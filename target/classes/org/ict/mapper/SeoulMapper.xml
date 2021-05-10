@@ -4,11 +4,13 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="org.ict.mapper.SeoulMapper">
-	<select id="tourList" resultType="org.ict.domain.SeoulVO">
-	SELECT * FROM tour where tno > 0
+	<select id="seoulList" resultType="org.ict.domain.SeoulVO">
+		SELECT * FROM seoul where sno > 0
 	</select>
-	
-	<select id="tourRead" resultType="org.ict.domain.SeoulVO">
-	SELECT * FROM tour where tno = #{tno}
-	</select>
+
+	<select id="seoulRead" resultType="org.ict.domain.SeoulVO">
+		select a.sno, b.lno, a.sarea, a.spost, c.tname, c.timg, c.tinfo
+FROM seoul as a, localkr as b, tour as c
+			WHERE a.lno = b.lno and a.sno = c.sno and a.sno = #{sno}
+		</select>
 </mapper>
