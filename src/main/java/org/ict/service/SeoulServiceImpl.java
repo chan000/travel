@@ -19,7 +19,7 @@ public class SeoulServiceImpl implements SeoulService{
 	}
 
 	@Override
-	public SeoulVO getSeoulRead(int sno) {
+	public List<SeoulVO> getSeoulRead(int sno) {
 		return mapper.seoulRead(sno);
 	}
 }

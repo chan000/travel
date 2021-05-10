@@ -10,7 +10,7 @@
 
 	<select id="seoulRead" resultType="org.ict.domain.SeoulVO">
 		select a.sno, b.lno, a.sarea, a.spost, c.tname, c.timg, c.tinfo
-FROM seoul as a, localkr as b, tour as c
+		FROM seoul as a, localkr as b, tour as c
 			WHERE a.lno = b.lno and a.sno = c.sno and a.sno = #{sno}
 		</select>
 </mapper>

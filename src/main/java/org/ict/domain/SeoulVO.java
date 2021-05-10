@@ -8,7 +8,6 @@ public class SeoulVO {
 	private int lno;
 	private String sarea;
 	private String spost;
-	private int stype;
 	
 	private int tno;
 	private String tname;

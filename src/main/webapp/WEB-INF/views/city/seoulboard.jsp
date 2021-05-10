@@ -43,14 +43,15 @@
 				<!-- header -->
 				<div class="modal-header">
 					<!-- 모달 팝업의 제목이 옵니다. -->
-					<h1>도.</h1>
+					<h1></h1>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
 				</div>
 				<!-- body -->
 				<div class="modal-body">
 					<!-- 모달 팝업의 내용은 여기에 옵니다. -->
 					<h4>관광지</h4>
-					<h5 id="tourbody"></h5>
+					<h5 id="tourbody"><br></h5>
+					
 					<h6 style="float: right;">
 						<a href="/board/tourlist">상세보기</a>
 					</h6>
@@ -81,46 +82,41 @@
 			<div id="type" style="position: relative; top: 5px; left: 75px;">
 				<img src="/resources/assets/img/do/서울.png">
 
-				<!-- ---------- 송파구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1' data-sno="${5}" id="songpa" 
-					style="position: absolute; left: 650px; top: 430px; height: 170px; width: 90px; transform: rotate(-33deg);"
-					class="w3-button w3-black">송파구</button>
-
-
-				<!-- ---------- 강남구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1' data-sno="${4}"
-					style="position: absolute; left: 550px; top: 430px; height: 250px; width: 80px; transform: rotate(-40deg);"
-					class="w3-button w3-black">강남구</button>
-
-
-				<!-- ---------- 용산구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 380px; top: 410px; height: 80px; width: 100px;"
-					class="w3-button w3-black">용산구</button>
-
-
-				<!-- ---------- 영등포구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 230px; top: 430px; height: 90px; width: 80px; transform: rotate(25deg);"
-					class="w3-button w3-black">영등포구</button>
-
+				<!-- ---------- 종로구 ---------- -->
+				<button data-toggle='modal' data-target='#testModal1' data-sno="${1}"
+					style="position: absolute; left: 390px; top: 200px; height: 150px; width: 70px;"
+					class="w3-button w3-black">종로구</button>	
 
 				<!-- ---------- 마포구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1'
+				<button data-toggle='modal' data-target='#testModal1' data-sno="${2}"
 					style="position: absolute; left: 250px; top: 270px; height: 200px; width: 60px; transform: rotate(-52deg);"
 					class="w3-button w3-black">마포구</button>
 
 
 				<!-- ---------- 중구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1'
+				<button data-toggle='modal' data-target='#testModal1' data-sno="${3}"
 					style="position: absolute; left: 400px; top: 360px; height: 40px; width: 100px;"
 					class="w3-button w3-black">중구</button>
 
+				<!-- ---------- 영등포구 ---------- -->
+				<button data-toggle='modal' data-target='#testModal1' data-sno="${4}"
+					style="position: absolute; left: 230px; top: 430px; height: 90px; width: 80px; transform: rotate(25deg);"
+					class="w3-button w3-black">영등포구</button>
 
-				<!-- ---------- 종로구 ---------- -->
-				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 390px; top: 200px; height: 150px; width: 70px;"
-					class="w3-button w3-black">종로구</button>
+				<!-- ---------- 용산구 ---------- -->
+				<button data-toggle='modal' data-target='#testModal1' data-sno="${5}"
+					style="position: absolute; left: 380px; top: 410px; height: 80px; width: 100px;"
+					class="w3-button w3-black">용산구</button>	
+				
+				<!-- ---------- 강남구 ---------- -->
+				<button data-toggle='modal' data-target='#testModal1' data-sno="${6}"
+					style="position: absolute; left: 550px; top: 430px; height: 250px; width: 80px; transform: rotate(-40deg);"
+					class="w3-button w3-black">강남구</button>
+				
+				<!-- ---------- 송파구 ---------- -->
+				<button data-toggle='modal' data-target='#testModal1' data-sno="${7}" id="songpa" 
+					style="position: absolute; left: 650px; top: 430px; height: 170px; width: 90px; transform: rotate(-33deg);"
+					class="w3-button w3-black">송파구</button>
 
 			</div>
 			<!-- style="position: relative; top: 30px;" -->
@@ -130,21 +126,22 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			
-			
 			$(".container").on("click", "#type button", function(data) {
-				var str = "";
+				//var str = "";
 				
 				var sno = $(this).data("sno");
-				
-					console.log(sno);
-				$.getJSON("/city/seoulboard/" + sno, function(data) {
-
-					str = "<div><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + data.timg + "'></div>";
-				$("#tourbody").html(str);
-				});// getJSON
-
-
-			}); // click
+				console.log(sno);
+					$.getJSON("/city/seoulboard/" + sno, function(data) {
+						var str = "";
+						$.each(data, function(sno,data) {
+							str = "<div><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + data.timg + "'></div>";
+							
+							$("#tourbody").html(str);
+						}); // each
+						
+					});// getJSON
+					
+				}); // click
 		}); // document
 	</script>
 

@@ -7,5 +7,5 @@ import org.ict.domain.SeoulVO;
 public interface SeoulMapper {
 
 	public List<SeoulVO> seoulList();
-	public SeoulVO seoulRead(int sno);
+	public List<SeoulVO> seoulRead(int sno);
 }

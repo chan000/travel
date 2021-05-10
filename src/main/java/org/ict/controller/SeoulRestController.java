@@ -34,12 +34,12 @@ public class SeoulRestController {
 	}
 
 	@GetMapping(value = "/seoulboard/{sno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<SeoulVO> seoulRead(@PathVariable("sno") int sno) {
+	public ResponseEntity<List<SeoulVO>> seoulRead(@PathVariable("sno") int sno) {
 
-		ResponseEntity<SeoulVO> entity = null;
+		ResponseEntity<List<SeoulVO>> entity = null;
 
 		try {
-			entity = new ResponseEntity<SeoulVO>(service.getSeoulRead(sno), HttpStatus.OK);
+			entity = new ResponseEntity<List<SeoulVO>>(service.getSeoulRead(sno), HttpStatus.OK);
 
 		} catch (Exception e) {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
