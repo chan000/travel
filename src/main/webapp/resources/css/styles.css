@@ -10577,7 +10577,7 @@ a {
 .seoullist:hover #seoulmap{display:inline-block}
 
 .ggglist #ggmap{display:none}
-.ggglist:hover #ggmap{display:inline-block}
+.gglist:hover #ggmap{display:inline-block}
 
 .gwlist #gwmap{display: none;}
 .gwlist:hover #gwmap{display: inline-block;}
