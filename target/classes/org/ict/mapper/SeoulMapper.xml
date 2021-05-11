@@ -9,8 +9,8 @@
 	</select>
 
 	<select id="seoulRead" resultType="org.ict.domain.SeoulVO">
-		select a.sno, b.lno, a.sarea, a.spost, c.tname, c.timg, c.tinfo
-		FROM seoul as a, localkr as b, tour as c
-			WHERE a.lno = b.lno and a.sno = c.sno and a.sno = #{sno}
+		select a.sno, b.lno, a.sarea, a.spost, c.tbtitle ,c.tinfo, c.tbthumnail, c.tbcontents1, c.tbimg1, c.tbimg2, c.tbimg3, c.tbimg4, c.tbimg5, c.tbaddr1, c.tbaddr2
+      FROM seoul as a, localkr as b, tourboard as c
+         WHERE a.lno = b.lno and a.sno = c.sno  and a.sno = #{sno};
 		</select>
 </mapper>

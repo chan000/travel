@@ -5,10 +5,17 @@
 
 <mapper namespace="org.ict.mapper.TourMapper">
 	<select id="tourList" resultType="org.ict.domain.TourVO">
-	SELECT * FROM tour where tno > 0
+	 select a.tbno, a.tbtitle, a.tbthumnail, a.tbcontents1, a.tbcontents2, a.tbimg1, a.tbimg2, a.tbimg3, a.tbimg4, a.tbimg5,
+ a.tbaddr1, a.tbaddr2, a.tbupdatedate, b.lno
+	from tourboard as a, localkr as b
+     where a.lno = b.lno and tbno > 0 order by lno asc
 	</select>
+	<!-- 투어 테이블의 리스트를 1번부터 오름차순으로 뽑는다 1번 서울 부터 뽑기 위해서  -->
 	
 	<select id="tourRead" resultType="org.ict.domain.TourVO">
-	SELECT * FROM tour where tno = #{tno}
+	select a.tbno, a.tbtitle, a.tbthumnail, a.tbcontents1, a.tbcontents2, a.tbimg1, a.tbimg2, a.tbimg3, a.tbimg4, a.tbimg5,
+ a.tbaddr1, a.tbaddr2, a.tbupdatedate, b.lno
+	from tourboard as a, localkr as b
+     where a.lno = b.lno and tbno = #{tbno}
 	</select>
 </mapper>
