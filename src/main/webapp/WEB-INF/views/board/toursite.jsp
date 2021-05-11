@@ -83,7 +83,7 @@
                                 <li id="1"><button type="button" class="btn"><span>#충청</span></button></li>
                                 <li id="1"><button type="button" class="btn"><span>#경상</span></button></li>
                                 <li id="1"><button type="button" class="btn"><span>#전라</span></button></li>
-                                <li id="39"><button type="button" class="btn"><span>#제주</span></button></li>
+                                <li id="39"><button type="button" class="btn"><span>#제dddd주</span></button></li>
                             </ul>
                            
                             <ul class="tag_list cnt_list js_multi" id="taglist">
