@@ -43,7 +43,7 @@
 				<!-- header -->
 				<div class="modal-header">
 					<!-- 모달 팝업의 제목이 옵니다. -->
-					<h1></h1>
+					<h1 id="chan"></h1>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
 				</div>
 				<!-- body -->
@@ -133,10 +133,14 @@
 				console.log(sno);
 					$.getJSON("/city/seoulboard/" + sno, function(data) {
 						var str = "";
+						var chan = "";
+						
 						$.each(data, function(sno,data) {
-							str = "<div><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + data.timg + "'></div>";
+							chan = this.sarea;
+							str += "<div style='width:150;height:120;'><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.tbthumnail + "'></div>";
 							
 							$("#tourbody").html(str);
+						$("#chan").html(chan);
 						}); // each
 						
 					});// getJSON
