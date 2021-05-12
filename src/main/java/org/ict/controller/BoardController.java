@@ -55,5 +55,9 @@ public class BoardController {
 		model.addAttribute("freeboard", service.getList());
 		model.addAttribute("cri", cri);
 	}
+	@RequestMapping("/toursite")
+	public void toursite() {
+		
+	}
 
 }

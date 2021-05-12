@@ -1,9 +1,13 @@
 package org.ict.controller;
 
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-import org.ict.domain.SeoulVO;
+import org.ict.domain.Criteria;
+import org.ict.domain.PageMaker;
+import org.ict.domain.SearchCriteria;
 import org.ict.domain.TourVO;
 import org.ict.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,11 +27,25 @@ public class TourRestController {
 	private TourService service;
 	
 	@GetMapping(value = "/toursite", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<TourVO>> seoulList() {
-		ResponseEntity<List<TourVO>> entity = null;
+	public ResponseEntity<Map<String, Object>> tourList(SearchCriteria cri) {
+		ResponseEntity<Map<String, Object>> entity = null;
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		
+		
+		PageMaker pageMaker = new PageMaker();
+		pageMaker.setCri(cri);
+		pageMaker.setTotalBoard(service.getCountPage(cri));
+		
+		List<TourVO> list = service.getTourList(cri);
+		
+		result.put("list", list);
+		result.put("pageMaker", pageMaker);
+		
 
 		try {
-			entity = new ResponseEntity<List<TourVO>>(service.getTourList(), HttpStatus.OK);
+			entity = new ResponseEntity<Map<String, Object>>(result, HttpStatus.OK);
 		} catch (Exception e) {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
@@ -36,7 +54,7 @@ public class TourRestController {
 	}
 
 	@GetMapping(value = "/tourboardget/{tbno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<TourVO> seoulRead(@PathVariable("tbno") int tbno) {
+	public ResponseEntity<TourVO> tourRead(@PathVariable("tbno") int tbno) {
 
 		ResponseEntity<TourVO> entity = null;
 

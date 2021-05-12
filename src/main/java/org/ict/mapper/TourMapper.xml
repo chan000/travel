@@ -9,6 +9,7 @@
  a.tbaddr1, a.tbaddr2, a.tbupdatedate, b.lno
 	from tourboard as a, localkr as b
      where a.lno = b.lno and tbno > 0 order by lno asc
+     	limit #{pageStart}, #{number}
 	</select>
 	<!-- 투어 테이블의 리스트를 1번부터 오름차순으로 뽑는다 1번 서울 부터 뽑기 위해서  -->
 	
@@ -17,5 +18,12 @@
  a.tbaddr1, a.tbaddr2, a.tbupdatedate, b.lno
 	from tourboard as a, localkr as b
      where a.lno = b.lno and tbno = #{tbno}
+	</select>
+	
+	<select id="countPageNum" resultType="int">
+
+			SELECT COUNT(tbno) FROM tourboard WHERE tbno > 0
+
+	
 	</select>
 </mapper>

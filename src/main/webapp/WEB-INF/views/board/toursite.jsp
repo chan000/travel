@@ -22,9 +22,9 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
-<link href="css/footprint.css" rel="stylesheet" />
-    <link href="css/common.css" rel="stylesheet" />
-    <link href="css/content.css" rel="stylesheet" />
+<link href="/resources/css/footprint.css" rel="stylesheet" />
+    <link href="/resources/css/common.css" rel="stylesheet" />
+    <link href="/resources/css/content.css" rel="stylesheet" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
@@ -35,7 +35,7 @@
                 <div class="tit_cont">
                    
                     <h2 class="tag">ddd</h2>
-                    <a href="javascript:" class="btn_represch">새로고침</a>
+                   
                     
                 </div>
         
@@ -48,19 +48,9 @@
                         </div>
                         <h3 class="blind" id="blindsearchtype">최신순</h3>
                         <ul class="list_thumType flnon">
-                            <li  class="bdr_nor">
-                                <div class="photo">
-                                    <a></a>                                    
-                                    <img src="\assets\img\map\s1.png" >
-                                </div>
-                                    <div class="area_txt">
-                                        <div class="tit">
-                                            
-                                            <a>ddd</a>
-                                            <p>ddd</p>
-                                    </div>
-                                </div>
-                            </li>
+                        	<div id="list1"></div>
+                        	
+                            
                         </ul>
                         
                             <!-- paging -->
@@ -94,8 +84,82 @@
                        
                 </div>
             </div>
+            <div class="row">
+	  <ul class="col-md-11 pagination justify-content-center">
+	    <!-- 이전 페이지 버튼 -->
+	    <c:if test="${pageMaker.prev }">
+	    	<li class="page-item">
+	    		<a class="page-link"
+	    			href="/board/list?page=${pageMaker.startPage -1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">
+	    			&laquo;	
+	    		</a>
+	    	</li>
+	    </c:if>
+	    
+	    <!-- 페이지 번호 버튼 -->
+	    <c:forEach begin="${pageMaker.startPage }"
+	    			end="${pageMaker.endPage }"
+	    			var="idx">		
+	    	<li class="page-item
+	    		<c:out value="${pageMaker.cri.page == idx ? 'active' : '' }" />">
+	    		<a class="page-link"
+	    			href="/board/list?page=${idx }&searchType=${cri.searchType}&keyword=${cri.keyword}">${idx }</a>
+	    	</li>
+	    </c:forEach>
+	    
+	    <!-- 다음 페이지 버튼 -->
+	    <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+	    	<li class="page-item">
+	    		<a class="page-link"
+	    			href="/board/list?page=${pageMaker.endPage +1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">
+	    			&raquo;	
+	    		</a>
+	    	</li>
+	    </c:if>
+	    
+	  </ul>
+    </div>
+            
             </div>
             <!-- //contents -->
 	</header>
 </body>
+<script type="text/javascript">
+$(document).ready(function(){
+	
+	
+	function getTourList(){
+		$.getJSON("/board/toursite" , function(data){
+			
+			console.log(data.list);
+			var str = "";
+			
+			$(data.list).each(function(){
+				
+				str += "<ul class='list_thumType flnon'><li class='bdr_nor'> <div class='photo'>"
+                		+"<a href='#'><img src='/resources/assets/img/seoul/tour/"+this.tbimg1+"'></a>"
+            			+"</div> <div class='area_txt'><div class='tit'>"
+                        +"<a>"+this.tbtitle+"</a><p>"+this.tbaddr1+"</p></div></div></li></ul>";
+                        
+                        
+                        
+			})//each
+			$("#list1").html(str);
+			
+			
+			
+			
+		})//getJSON
+		
+		
+	}//getTourList
+	getTourList();	
+	
+	
+})//document
+
+	
+</script>
+
+
 </html>
