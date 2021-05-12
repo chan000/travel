@@ -19,7 +19,13 @@ public class SeoulServiceImpl implements SeoulService{
 	}
 
 	@Override
-	public List<SeoulVO> getSeoulRead(int sno) {
-		return mapper.seoulRead(sno);
+	public List<SeoulVO> getTourRead(int sno) {
+		return mapper.tourRead(sno);
 	}
+
+	@Override
+	public List<SeoulVO> getFoodRead(int sno) {
+		return mapper.foodRead(sno);
+	}
+
 }

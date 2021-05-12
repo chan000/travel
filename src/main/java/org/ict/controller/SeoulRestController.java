@@ -33,13 +33,27 @@ public class SeoulRestController {
 		return entity;
 	}
 
-	@GetMapping(value = "/seoulboard/{sno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<SeoulVO>> seoulRead(@PathVariable("sno") int sno) {
+	@GetMapping(value = "/seoulboard/tour/{sno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<List<SeoulVO>> tourRead(@PathVariable("sno") int sno) {
 
 		ResponseEntity<List<SeoulVO>> entity = null;
 
 		try {
-			entity = new ResponseEntity<List<SeoulVO>>(service.getSeoulRead(sno), HttpStatus.OK);
+			entity = new ResponseEntity<List<SeoulVO>>(service.getTourRead(sno), HttpStatus.OK);
+
+		} catch (Exception e) {
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+
+		}
+		return entity;
+	}
+	@GetMapping(value = "/seoulboard/food/{sno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<List<SeoulVO>> foodRead(@PathVariable("sno") int sno) {
+
+		ResponseEntity<List<SeoulVO>> entity = null;
+
+		try {
+			entity = new ResponseEntity<List<SeoulVO>>(service.getFoodRead(sno), HttpStatus.OK);
 
 		} catch (Exception e) {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);

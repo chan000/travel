@@ -43,21 +43,26 @@
 				<!-- header -->
 				<div class="modal-header">
 					<!-- 모달 팝업의 제목이 옵니다. -->
-					<h1 id="chan"></h1>
+					<h1 id="btntitle"></h1>
 					<button type="button" class="btn btn-danger" data-dismiss="modal">&times;</button>
 				</div>
 				<!-- body -->
 				<div class="modal-body">
 					<!-- 모달 팝업의 내용은 여기에 옵니다. -->
 					<h4>관광지</h4>
-					<h5 id="tourbody"><br></h5>
+					<h5 id="tourbody"> </h5>
 					
 					<h6 style="float: right;">
 						<a href="/board/tourlist">상세보기</a>
 					</h6>
 					<br>
-					<hr style="width: 100%;">
-					<h5>음식</h5>
+					
+				</div>
+				<div class="modal-body" style="margin-top: 2%">
+					<!-- 모달 팝업의 내용은 여기에 옵니다. -->
+					<hr>
+					<h4>음식</h4>
+					<h5 id="tourbody1"> </h5>
 					<!-- 데이터 넣으면 되려나 -->
 					<h6 style="float: right;">
 						<a href="/board/tourlist">상세보기</a>
@@ -131,16 +136,31 @@
 				
 				var sno = $(this).data("sno");
 				console.log(sno);
-					$.getJSON("/city/seoulboard/" + sno, function(data) {
+					$.getJSON("/city/seoulboard/tour/" + sno, function(data) {
 						var str = "";
-						var chan = "";
+						var str1 = "";
+						var btntitle = "";
+
 						
 						$.each(data, function(sno,data) {
-							chan = this.sarea;
-							str += "<div style='width:150;height:120;'><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.tbthumnail + "'></div>";
-							
+							btntitle = this.sarea;
+							str += "<div style='width:150;height:120; float:left;'><p>"+this.tbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.tbthumnail+"'></div>";
+							tbtitle="<div>"+ this.tbtitle+"</div>";
 							$("#tourbody").html(str);
-						$("#chan").html(chan);
+							str1 += "<div style='width:150;height:120; float:left;'><p>"+this.fbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.fbthumnail+"'></div>";
+							fbtitle="<div>"+ this.fbtitle+"</div>";
+							$("#tourbody").html(str);
+							$("#tourbody1").html(str1);
+						$("#btntitle").html(btntitle);
+						}); // each
+						
+					});// getJSON
+					$.getJSON("/city/seoulboard/food/" + sno, function(data) {
+						var str1 = "";						
+						$.each(data, function(sno,data) {
+							str1 += "<div style='width:150;height:120; float:left;'><p>"+this.fbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.fbthumnail+"'></div>";
+							fbtitle="<div>"+ this.fbtitle+"</div>";
+							$("#tourbody1").html(str1);
 						}); // each
 						
 					});// getJSON
