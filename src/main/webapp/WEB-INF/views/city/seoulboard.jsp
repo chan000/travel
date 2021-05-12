@@ -176,8 +176,9 @@
 						var str1 = "";
 						var btntitle = "";
 
+					console.log(data);
 						
-						$.each(data, function(sno,data) {
+						$(data.list).each(function(sno,data) {
 							btntitle = this.sarea;
 							str += "<div style='width:150;height:120; float:left; margin-bottom:7%'><p>"+this.tbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.tbthumnail+"'></div>";
 							tbtitle="<div>"+ this.tbtitle+"</div>";

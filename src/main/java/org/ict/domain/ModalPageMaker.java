@@ -16,11 +16,11 @@ public class ModalPageMaker {
 	private int displayPageNum;
 	
 	// 현재 조회중인 페이지를 알아야 버튼을 생성할 수 있음
-	private Criteria cri;
+	private ModalCriteria cri;
 	
 	// 페이지가 바뀔 때마다 버튼 갯수 및 범위를 산출하는 메서드
 	public void calcData() {
-		this.displayPageNum = 10;
+		this.displayPageNum = 3;
 		
 		this.endPage = (int)(Math.ceil(cri.getPage() /
 			(double) displayPageNum) *  displayPageNum);
@@ -41,7 +41,7 @@ public class ModalPageMaker {
 	}
 	// 페이지가 바뀔 때마다 버튼 갯수 및 범위를 산출하는 메서드
 	public void calcData2() {
-		this.displayPageNum = 10;
+		this.displayPageNum = 3;
 		
 		this.endPage = (int)(Math.ceil(cri.getPage() /
 				(double) displayPageNum) *  displayPageNum);
@@ -71,6 +71,10 @@ public class ModalPageMaker {
 		this.totalReply = totalReply;
 		
 		calcData2();
+	}
+	public void setTotalCount(int count) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	

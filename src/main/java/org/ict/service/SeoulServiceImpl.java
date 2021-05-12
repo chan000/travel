@@ -2,6 +2,7 @@ package org.ict.service;
 
 import java.util.List;
 
+import org.ict.domain.ModalCriteria;
 import org.ict.domain.SeoulVO;
 import org.ict.mapper.SeoulMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,13 +20,21 @@ public class SeoulServiceImpl implements SeoulService{
 	}
 
 	@Override
-	public List<SeoulVO> getTourRead(int sno) {
-		return mapper.tourRead(sno);
+	public List<SeoulVO> getTourRead(int sno, ModalCriteria cri) {
+		return mapper.tourRead(sno , cri);
 	}
 
 	@Override
 	public List<SeoulVO> getFoodRead(int sno) {
 		return mapper.foodRead(sno);
 	}
+
+
+	@Override
+	public int boardCount() {
+		return mapper.boardCount();
+	}
+
+
 
 }

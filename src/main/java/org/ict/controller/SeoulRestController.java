@@ -1,7 +1,14 @@
 package org.ict.controller;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.ict.domain.BoardVO;
+import org.ict.domain.Criteria;
+import org.ict.domain.ModalCriteria;
+import org.ict.domain.ModalPageMaker;
+import org.ict.domain.PageMaker;
 import org.ict.domain.SeoulVO;
 import org.ict.service.SeoulService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,12 +41,28 @@ public class SeoulRestController {
 	}
 
 	@GetMapping(value = "/seoulboard/tour/{sno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<List<SeoulVO>> tourRead(@PathVariable("sno") int sno) {
+	public ResponseEntity<Map<String, Object>> tourRead(@PathVariable("sno") int sno) {
 
-		ResponseEntity<List<SeoulVO>> entity = null;
+		ResponseEntity<Map<String, Object>> entity = null;
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		ModalCriteria cri = new ModalCriteria();
+		
+		List<SeoulVO> list = service.getTourRead(sno, cri);
+		
+		ModalPageMaker modalPageMaker = new ModalPageMaker();
+		
+		modalPageMaker.setCri(cri);
+		modalPageMaker.setTotalCount(service.boardCount());
+		
+		result.put("list", list);
+		result.put("pageMaker", modalPageMaker);
+		
+		
 
 		try {
-			entity = new ResponseEntity<List<SeoulVO>>(service.getTourRead(sno), HttpStatus.OK);
+			entity = new ResponseEntity<Map<String, Object>>(result, HttpStatus.OK);
 
 		} catch (Exception e) {
 			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);

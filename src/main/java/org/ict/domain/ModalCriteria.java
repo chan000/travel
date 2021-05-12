@@ -9,7 +9,7 @@ public class ModalCriteria {
 	
 	public ModalCriteria () {
 		this.page = 1;
-		this.number = 10;
+		this.number = 3;
 	}
 	
 	public int getPageStart() {
