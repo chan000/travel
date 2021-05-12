@@ -3,13 +3,13 @@ package org.ict.domain;
 import lombok.Data;
 
 @Data
-public class Criteria {
+public class ModalCriteria {
 	private int page;
 	private int number;
 	
-	public Criteria () {
+	public ModalCriteria () {
 		this.page = 1;
-		this.number = 3;
+		this.number = 10;
 	}
 	
 	public int getPageStart() {

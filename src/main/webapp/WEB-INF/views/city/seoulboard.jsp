@@ -49,15 +49,50 @@
 				<!-- body -->
 				<div class="modal-body">
 					<!-- 모달 팝업의 내용은 여기에 옵니다. -->
+					
 					<h4>관광지</h4>
+					
 					<h5 id="tourbody"> </h5>
 					
 					<h6 style="float: right;">
-						<a href="/board/tourlist">상세보기</a>
+						<a href="/board/tourlist">상세보기
+						</a>
+						
 					</h6>
 					<br>
 					
 				</div>
+				<div class="container">
+							<div class="row">
+								<div class="col-md-9">
+									<ul class="pagination">
+									<!-- 이전 페이지 버튼 -->
+										<c:if test="${pageMaker.prev }">
+											<li class="page-item"><a class="page-link"
+												href="/board/freeboard?page=${pageMaker.startPage -1 }">
+													&laquo; </a></li>
+										</c:if>
+
+										<!-- 페이지 번호 버튼 -->
+										<c:forEach begin="${pageMaker.startPage }"
+											end="${pageMaker.endPage }" var="idx">
+											<li class="page-item
+	   									 		<c:out value="${pageMaker.cri.page == idx ? 'active' : '' }" />">
+												<a class="page-link"
+												href="/board/freeboard?page=${idx }">${idx }</a>
+											</li>
+										</c:forEach>
+
+										<!-- 다음 페이지 버튼 -->
+										<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
+											<li class="page-item"><a class="page-link"
+												href="/board/freeboard?page=${pageMaker.endPage +1 }">
+													&raquo; </a></li>
+										</c:if>
+									</ul>
+								</div>
+							</div>
+						</div>
 				<div class="modal-body" style="margin-top: 2%">
 					<!-- 모달 팝업의 내용은 여기에 옵니다. -->
 					<hr>
@@ -144,7 +179,7 @@
 						
 						$.each(data, function(sno,data) {
 							btntitle = this.sarea;
-							str += "<div style='width:150;height:120; float:left;'><p>"+this.tbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.tbthumnail+"'></div>";
+							str += "<div style='width:150;height:120; float:left; margin-bottom:7%'><p>"+this.tbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.tbthumnail+"'></div>";
 							tbtitle="<div>"+ this.tbtitle+"</div>";
 							$("#tourbody").html(str);
 							str1 += "<div style='width:150;height:120; float:left;'><p>"+this.fbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.fbthumnail+"'></div>";
