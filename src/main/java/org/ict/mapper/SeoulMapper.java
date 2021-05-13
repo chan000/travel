@@ -16,5 +16,5 @@ public interface SeoulMapper {
 	
 	
 	
-	public int boardCount();
+	public int boardCount(int sno);
 }

@@ -62,11 +62,11 @@
 					<br>
 					
 				</div>
-				<div class="container">
+				<div class="container1">
 							<div class="row">
 								<div class="col-md-9">
 									<ul class="pagination">
-									
+
 									</ul>
 								</div>
 							</div>
@@ -148,12 +148,40 @@
 				
 			
 			$(".container").on("click", "#type button", function(data) {
-				//var str = "";
 				var sno = $(this).data("sno");
-				var page = 1;
+				//var str = "";
 				
 				console.log(sno);
 					$.getJSON("/city/seoulboard/tour/" + sno + "/" + page, function(data) {
+						function printPaging(pageMaker){
+							console.log(pageMaker.startPage);
+							var str2 = "";
+							
+							if(pageMaker.prev){
+								str2 += "<li><a href='" + (pageMaker.startPage - 1) + "'> << </a></li>";
+							}
+							
+							for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){
+								var strClass = pageMaker.page == i ? 'class=active':'';
+								str2 += "<li " + strClass + "><a href='/city/seoulboard/tour/"+sno+"/" + i + "'>" + i + "</a></li>";
+							}
+							if(pageMaker.next){
+								str2 += "<li class='page-item'><a class='page-link' href='" + (pageMaker.endPage + 1) + "'> >> </a></li>";
+							}
+							
+							$('.pagination').html(str2);
+							
+							
+						} // pritPaging
+						printPaging(data.pageMaker);
+// 						$(".pagination").on("click", "li a", function(e) {
+							
+// 							e.preventDefault();
+							
+// 							formPage = $(this).attr("href");
+							
+// 							printPaging(formPage);
+// 						}); // pagination click
 						var str = "";
 						var str1 = "";
 						var btntitle = "";
@@ -165,51 +193,24 @@
 							str += "<div style='width:150;height:120; float:left; margin-bottom:7%'><p>"+this.tbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.tbthumnail+"'></div>";
 							tbtitle="<div>"+ this.tbtitle+"</div>";
 							$("#tourbody").html(str);
-							str1 += "<div style='width:150;height:120; float:left;'><p>"+this.fbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.fbthumnail+"'></div>";
-							fbtitle="<div>"+ this.fbtitle+"</div>";
-							$("#tourbody").html(str);
-							$("#tourbody1").html(str1);
 						$("#btntitle").html(btntitle);
-						}); // each
-						printPaging(data.pageMaker);
-						
+						}); // each	
 					});// getJSON
 			
-					$.getJSON("/city/seoulboard/food/" + sno, function(data) {
-						var str1 = "";						
-						$.each(data, function(sno,data) {
-							str1 += "<div style='width:150;height:120; float:left;'><p>"+this.fbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.fbthumnail+"'></div>";
-							fbtitle="<div>"+ this.fbtitle+"</div>";
-							$("#tourbody1").html(str1);
-						}); // each
-					
-						
-					});// getJSON
+// 					$.getJSON("/city/seoulboard/food/" + sno, function(data) {
+// 						var str1 = "";						
+// 						$.each(data, function(sno,data) {
+// 							str1 += "<div style='width:150;height:120; float:left;'><p>"+this.fbtitle+"</p><img class='img-fluid img-thumbnai' src='/resources/assets/img/seoul/tour/" + this.fbthumnail+"'></div>";
+// 							fbtitle="<div>"+ this.fbtitle+"</div>";
+// 							$("#tourbody1").html(str1);
+// 						}); // each		
+// 					});// getJSON
 					
 				}); // click
-			};//getTourList
+			}//getTourList
 			getTourList(1);
-				
-			function printPaging(pageMaker){
-				
-				var str = "";
-				
-				if(pageMaker.prev){
-					str += "<li><a href='" + (pageMaker.startPage - 1) + "'> << </a></li>";
-				}
-				
-				for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){
-					var strClass = pageMaker.page == i ? 'class=active':'';
-					str += "<li " + strClass + "><a href='" + i + "'>" + i + "</a></li>";
-				}
-				if(pageMaker.next){
-					str += "<li class='page-item'><a class='page-link' href='" + (pageMaker.endPage + 1) + "'> >> </a></li>";
-				}
-				
-				$('.pagination').html(str);
-				
-				
-			}
+			
+			
 		}); // document
 	</script>
 

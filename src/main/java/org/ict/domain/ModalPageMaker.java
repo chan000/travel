@@ -61,6 +61,27 @@ public class ModalPageMaker {
 		
 	}
 	
+	public void calcData3() {
+		this.displayPageNum = 3;
+		
+		this.endPage = (int)(Math.ceil(cri.getPage() /
+				(double) displayPageNum) *  displayPageNum);
+		
+		this.startPage = (endPage - displayPageNum) + 1;
+		
+		int tempEndPage = (int)(Math.ceil(totalReply /
+				(double)cri.getNumber()));
+		if(endPage > tempEndPage) {
+			endPage = tempEndPage;
+		}
+		
+		prev = startPage == 1 ? false : true;
+		
+		next = endPage * cri.getNumber() >= 
+				totalReply ? false : true;
+		
+	}
+	
 	public void setTotalBoard(int totalBoard) {
 		this.totalBoard = totalBoard;
 		
@@ -73,7 +94,9 @@ public class ModalPageMaker {
 		calcData2();
 	}
 	public void setTotalCount(int count) {
-		// TODO Auto-generated method stub
+		this.totalBoard = totalBoard;
+		
+		calcData3();
 		
 	}
 	

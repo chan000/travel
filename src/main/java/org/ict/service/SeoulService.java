@@ -12,5 +12,5 @@ public interface SeoulService {
 	public List<SeoulVO> getTourRead(int sno, ModalCriteria cri);
 	public List<SeoulVO> getFoodRead(int sno);
 	
-	public int boardCount();
+	public int boardCount(int sno);
 }

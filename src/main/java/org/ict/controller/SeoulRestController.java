@@ -17,8 +17,11 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import lombok.extern.log4j.Log4j;
+
 @RestController
 @RequestMapping("/city/*")
+@Log4j
 public class SeoulRestController {
 
 	@Autowired
@@ -41,6 +44,8 @@ public class SeoulRestController {
 	public ResponseEntity<Map<String, Object>> tourRead(
 			@PathVariable("page") int page ,@PathVariable("sno") int sno) {
 
+		
+		
 		ResponseEntity<Map<String, Object>> entity = null;
 		
 		Map<String, Object> result = new HashMap<>();
@@ -53,13 +58,13 @@ public class SeoulRestController {
 		ModalPageMaker modalPageMaker = new ModalPageMaker();
 		
 		modalPageMaker.setCri(cri);
-		modalPageMaker.setTotalCount(service.boardCount());
+		modalPageMaker.setTotalBoard(service.boardCount(sno));
 		
 		result.put("list", list);
 		result.put("pageMaker", modalPageMaker);
 		result.put("cri", cri);
 		
-		
+		log.info(modalPageMaker);
 
 		try {
 			entity = new ResponseEntity<Map<String, Object>>(result, HttpStatus.OK);

@@ -31,8 +31,8 @@ public class SeoulServiceImpl implements SeoulService{
 
 
 	@Override
-	public int boardCount() {
-		return mapper.boardCount();
+	public int boardCount(int sno) {
+		return mapper.boardCount(sno);
 	}
 
 
