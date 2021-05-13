@@ -4,11 +4,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.ict.domain.BoardVO;
-import org.ict.domain.Criteria;
 import org.ict.domain.ModalCriteria;
 import org.ict.domain.ModalPageMaker;
-import org.ict.domain.PageMaker;
 import org.ict.domain.SeoulVO;
 import org.ict.service.SeoulService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,14 +37,16 @@ public class SeoulRestController {
 		return entity;
 	}
 
-	@GetMapping(value = "/seoulboard/tour/{sno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<Map<String, Object>> tourRead(@PathVariable("sno") int sno) {
+	@GetMapping(value = "/seoulboard/tour/{sno}/{page}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<Map<String, Object>> tourRead(
+			@PathVariable("page") int page ,@PathVariable("sno") int sno) {
 
 		ResponseEntity<Map<String, Object>> entity = null;
 		
 		Map<String, Object> result = new HashMap<>();
 		
 		ModalCriteria cri = new ModalCriteria();
+		cri.setPage(page);
 		
 		List<SeoulVO> list = service.getTourRead(sno, cri);
 		
@@ -58,6 +57,7 @@ public class SeoulRestController {
 		
 		result.put("list", list);
 		result.put("pageMaker", modalPageMaker);
+		result.put("cri", cri);
 		
 		
 

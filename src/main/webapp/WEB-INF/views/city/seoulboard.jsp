@@ -66,29 +66,7 @@
 							<div class="row">
 								<div class="col-md-9">
 									<ul class="pagination">
-									<!-- 이전 페이지 버튼 -->
-										<c:if test="${pageMaker.prev }">
-											<li class="page-item"><a class="page-link"
-												href="/board/freeboard?page=${pageMaker.startPage -1 }">
-													&laquo; </a></li>
-										</c:if>
-
-										<!-- 페이지 번호 버튼 -->
-										<c:forEach begin="${pageMaker.startPage }"
-											end="${pageMaker.endPage }" var="idx">
-											<li class="page-item
-	   									 		<c:out value="${pageMaker.cri.page == idx ? 'active' : '' }" />">
-												<a class="page-link"
-												href="/board/freeboard?page=${idx }">${idx }</a>
-											</li>
-										</c:forEach>
-
-										<!-- 다음 페이지 버튼 -->
-										<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
-											<li class="page-item"><a class="page-link"
-												href="/board/freeboard?page=${pageMaker.endPage +1 }">
-													&raquo; </a></li>
-										</c:if>
+									
 									</ul>
 								</div>
 							</div>
@@ -166,12 +144,16 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			
+			function getTourList(page){
+				
+			
 			$(".container").on("click", "#type button", function(data) {
 				//var str = "";
-				
 				var sno = $(this).data("sno");
+				var page = 1;
+				
 				console.log(sno);
-					$.getJSON("/city/seoulboard/tour/" + sno, function(data) {
+					$.getJSON("/city/seoulboard/tour/" + sno + "/" + page, function(data) {
 						var str = "";
 						var str1 = "";
 						var btntitle = "";
@@ -189,8 +171,10 @@
 							$("#tourbody1").html(str1);
 						$("#btntitle").html(btntitle);
 						}); // each
+						printPaging(data.pageMaker);
 						
 					});// getJSON
+			
 					$.getJSON("/city/seoulboard/food/" + sno, function(data) {
 						var str1 = "";						
 						$.each(data, function(sno,data) {
@@ -198,10 +182,34 @@
 							fbtitle="<div>"+ this.fbtitle+"</div>";
 							$("#tourbody1").html(str1);
 						}); // each
+					
 						
 					});// getJSON
 					
 				}); // click
+			};//getTourList
+			getTourList(1);
+				
+			function printPaging(pageMaker){
+				
+				var str = "";
+				
+				if(pageMaker.prev){
+					str += "<li><a href='" + (pageMaker.startPage - 1) + "'> << </a></li>";
+				}
+				
+				for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){
+					var strClass = pageMaker.page == i ? 'class=active':'';
+					str += "<li " + strClass + "><a href='" + i + "'>" + i + "</a></li>";
+				}
+				if(pageMaker.next){
+					str += "<li class='page-item'><a class='page-link' href='" + (pageMaker.endPage + 1) + "'> >> </a></li>";
+				}
+				
+				$('.pagination').html(str);
+				
+				
+			}
 		}); // document
 	</script>
 

@@ -85,7 +85,13 @@
                 </div>
             </div>
             <div class="row">
-	  <ul class="col-md-11 pagination justify-content-center">
+            
+            <ul class="pagination">
+            
+            </ul>
+            
+            
+	<%--   <ul class="col-md-11 pagination justify-content-center">
 	    <!-- 이전 페이지 버튼 -->
 	    <c:if test="${pageMaker.prev }">
 	    	<li class="page-item">
@@ -117,7 +123,7 @@
 	    	</li>
 	    </c:if>
 	    
-	  </ul>
+	  </ul> --%>
     </div>
             
             </div>
@@ -129,7 +135,7 @@ $(document).ready(function(){
 	
 	
 	function getTourList(){
-		$.getJSON("/board/toursite" , function(data){
+		$.getJSON("/board/toursite", function(data){
 			
 			console.log(data.list);
 			var str = "";
@@ -147,13 +153,36 @@ $(document).ready(function(){
 			$("#list1").html(str);
 			
 			
-			
+			printPaging(data.pageMaker);
 			
 		})//getJSON
 		
 		
 	}//getTourList
 	getTourList();	
+	
+	
+	function printPaging(pageMaker){
+		
+		var str = "";
+		
+		if(pageMaker.prev){
+			str += "<li><a href='" + (pageMaker.startPage - 1) + "'> << </a></li>";
+		}
+		
+		for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){
+			var strClass = pageMaker.page == i ? 'class=active':'';
+			str += "<li " + strClass + "><a href='" + i + "'>" + i + "</a></li>";
+		}
+		if(pageMaker.next){
+			str += "<li class='page-item'><a class='page-link' href='" + (pageMaker.endPage + 1) + "'> >> </a></li>";
+		}
+		
+		$('.pagination').html(str);
+		
+		
+	}
+
 	
 	
 })//document

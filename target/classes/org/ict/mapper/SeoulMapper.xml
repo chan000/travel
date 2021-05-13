@@ -12,7 +12,7 @@
 		select a.sno, b.lno, a.sarea, a.spost, c.tbno, c.tbtitle ,c.tinfo, c.tbthumnail, c.tbcontents1, c.tbimg1, c.tbimg2, c.tbimg3, c.tbimg4, c.tbimg5, c.tbaddr1, c.tbaddr2
       FROM seoul as a, localkr as b, tourboard as c
          WHERE a.lno = b.lno and a.sno = c.sno  and a.sno = #{sno}
-         limit #{pageStart}, #{number}
+         limit #{cri.pageStart}, #{cri.number}
 
 		</select>
 	<select id="foodRead" resultType="org.ict.domain.SeoulVO">
