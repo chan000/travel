@@ -5,9 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.ict.domain.Criteria;
-import org.ict.domain.PageMaker;
-import org.ict.domain.SearchCriteria;
+import org.ict.domain.ListPageMaker;
+import org.ict.domain.ListSearchCriteria;
 import org.ict.domain.TourVO;
 import org.ict.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,16 +26,16 @@ public class TourRestController {
 	private TourService service;
 	
 	@GetMapping(value = "/toursite", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<Map<String, Object>> tourList(SearchCriteria cri) {
+	public ResponseEntity<Map<String, Object>> tourList(ListSearchCriteria cri) {
 		ResponseEntity<Map<String, Object>> entity = null;
 		
 		Map<String, Object> result = new HashMap<>();
 		
 		
 		
-		PageMaker pageMaker = new PageMaker();
+		ListPageMaker pageMaker = new ListPageMaker();
 		pageMaker.setCri(cri);
-		pageMaker.setTotalBoard(service.getCountPage(cri));
+		pageMaker.setTotalCount(service.getCountPage(cri));
 		
 		List<TourVO> list = service.getTourList(cri);
 		

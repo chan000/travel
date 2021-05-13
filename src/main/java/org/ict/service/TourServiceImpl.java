@@ -2,7 +2,7 @@ package org.ict.service;
 
 import java.util.List;
 
-import org.ict.domain.SearchCriteria;
+import org.ict.domain.ListSearchCriteria;
 import org.ict.domain.TourVO;
 import org.ict.mapper.TourMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +15,7 @@ public class TourServiceImpl implements TourService{
 	TourMapper mapper;
 	
 	@Override
-	public List<TourVO> getTourList(SearchCriteria cri) {
+	public List<TourVO> getTourList(ListSearchCriteria cri) {
 		return mapper.tourList(cri);
 	}
 
@@ -25,7 +25,7 @@ public class TourServiceImpl implements TourService{
 	}
 
 	@Override
-	public int getCountPage(SearchCriteria cri) {
+	public int getCountPage(ListSearchCriteria cri) {
 		return mapper.countPageNum(cri);
 	}
 

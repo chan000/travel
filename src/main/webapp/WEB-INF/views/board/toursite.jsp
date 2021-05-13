@@ -30,7 +30,7 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		<div id="contents" style="position: relative; top: 150px;">
+		<div id="contents" style="position: relative; top: 85px;">
 
                 <div class="tit_cont">
                    
@@ -55,7 +55,12 @@
                         
                             <!-- paging -->
                         <div class="page_box">
-                            
+                            <div class="row">
+            
+           					 <ul class="pagination">
+            
+           					 </ul>
+   						 </div>
                         </div>
                         <!-- //paging -->
                     </div>
@@ -78,53 +83,11 @@
                            
                             <ul class="tag_list cnt_list js_multi" id="taglist">
                             </ul>
-        
                         </div>
-                        
-                       
+    
                 </div>
             </div>
-            <div class="row">
             
-            <ul class="pagination">
-            
-            </ul>
-            
-            
-	<%--   <ul class="col-md-11 pagination justify-content-center">
-	    <!-- 이전 페이지 버튼 -->
-	    <c:if test="${pageMaker.prev }">
-	    	<li class="page-item">
-	    		<a class="page-link"
-	    			href="/board/list?page=${pageMaker.startPage -1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">
-	    			&laquo;	
-	    		</a>
-	    	</li>
-	    </c:if>
-	    
-	    <!-- 페이지 번호 버튼 -->
-	    <c:forEach begin="${pageMaker.startPage }"
-	    			end="${pageMaker.endPage }"
-	    			var="idx">		
-	    	<li class="page-item
-	    		<c:out value="${pageMaker.cri.page == idx ? 'active' : '' }" />">
-	    		<a class="page-link"
-	    			href="/board/list?page=${idx }&searchType=${cri.searchType}&keyword=${cri.keyword}">${idx }</a>
-	    	</li>
-	    </c:forEach>
-	    
-	    <!-- 다음 페이지 버튼 -->
-	    <c:if test="${pageMaker.next && pageMaker.endPage >0 }">
-	    	<li class="page-item">
-	    		<a class="page-link"
-	    			href="/board/list?page=${pageMaker.endPage +1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">
-	    			&raquo;	
-	    		</a>
-	    	</li>
-	    </c:if>
-	    
-	  </ul> --%>
-    </div>
             
             </div>
             <!-- //contents -->
