@@ -55,10 +55,12 @@ public class SeoulRestController {
 		
 		List<SeoulVO> list = service.getTourRead(sno, cri);
 		
+		int count = service.boardCount(sno);
+		
 		ModalPageMaker modalPageMaker = new ModalPageMaker();
 		
 		modalPageMaker.setCri(cri);
-		modalPageMaker.setTotalBoard(service.boardCount(sno));
+		modalPageMaker.setTotalBoard(count);
 		
 		result.put("list", list);
 		result.put("pageMaker", modalPageMaker);

@@ -1,6 +1,7 @@
 package org.ict.controller;
 
 import org.ict.domain.BoardVO;
+import org.ict.domain.ListSearchCriteria;
 import org.ict.domain.PageMaker;
 import org.ict.domain.SearchCriteria;
 import org.ict.service.BoardService;
@@ -56,7 +57,11 @@ public class BoardController {
 		model.addAttribute("cri", cri);
 	}
 	@RequestMapping("/toursite")
-	public void toursite() {
+	public void toursite(Model model, ListSearchCriteria cri) {
+		
+	}
+	@RequestMapping("/tourboardget")
+	public void tourboardget() {
 		
 	}
 

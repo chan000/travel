@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>자유 게시판</title>
+<title>관광 게시판</title>
 <link rel="icon" type="image/x-icon"
 	href="/resources/assets/img/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
@@ -34,7 +34,7 @@
 
                 <div class="tit_cont">
                    
-                    <h2 class="tag">ddd</h2>
+                    <h2 class="tag">관광지</h2>
                    
                     
                 </div>
@@ -48,7 +48,8 @@
                         </div>
                         <h3 class="blind" id="blindsearchtype">최신순</h3>
                         <ul class="list_thumType flnon">
-                        	<div id="list1"></div>
+                        	<div id="list1">
+                        	</div>
                         	
                             
                         </ul>
@@ -78,7 +79,7 @@
                                 <li id="1"><button type="button" class="btn"><span>#충청</span></button></li>
                                 <li id="1"><button type="button" class="btn"><span>#경상</span></button></li>
                                 <li id="1"><button type="button" class="btn"><span>#전라</span></button></li>
-                                <li id="39"><button type="button" class="btn"><span>#제dddd주</span></button></li>
+                                <li id="39"><button type="button" class="btn"><span>#제주</span></button></li>
                             </ul>
                            
                             <ul class="tag_list cnt_list js_multi" id="taglist">
@@ -97,8 +98,8 @@
 $(document).ready(function(){
 	
 	
-	function getTourList(){
-		$.getJSON("/board/toursite", function(data){
+	function getTourList(page){
+		$.getJSON("/board/toursite/"+page, function(data){
 			
 			console.log(data.list);
 			var str = "";
@@ -108,7 +109,7 @@ $(document).ready(function(){
 				str += "<ul class='list_thumType flnon'><li class='bdr_nor'> <div class='photo'>"
                 		+"<a href='#'><img src='/resources/assets/img/seoul/tour/"+this.tbimg1+"'></a>"
             			+"</div> <div class='area_txt'><div class='tit'>"
-                        +"<a>"+this.tbtitle+"</a><p>"+this.tbaddr1+"</p></div></div></li></ul>";
+                        +"<a href='/board/tourboardget?tbno="+this.tbno+"'>"+this.tbtitle+"</a><p>"+this.tbaddr1+"</p></div></div></li></ul>";
                         
                         
                         
@@ -122,7 +123,7 @@ $(document).ready(function(){
 		
 		
 	}//getTourList
-	getTourList();	
+	getTourList(1);	
 	
 	
 	function printPaging(pageMaker){
@@ -145,6 +146,13 @@ $(document).ready(function(){
 		
 		
 	}
+	$(".pagination").on("click", "li a", function(e) {
+		e.preventDefault();
+		
+		formPage = $(this).attr("href");
+		
+		getTourList(formPage);
+	});
 
 	
 	

@@ -25,19 +25,22 @@ public class TourRestController {
 	@Autowired
 	private TourService service;
 	
-	@GetMapping(value = "/toursite", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<Map<String, Object>> tourList(ListSearchCriteria cri) {
+	@GetMapping(value = "/toursite/{page}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<Map<String, Object>> tourList(@PathVariable("page") int page,ListSearchCriteria cri) {
 		ResponseEntity<Map<String, Object>> entity = null;
 		
 		Map<String, Object> result = new HashMap<>();
 		
-		
-		
-		ListPageMaker pageMaker = new ListPageMaker();
-		pageMaker.setCri(cri);
-		pageMaker.setTotalCount(service.getCountPage(cri));
+		cri.setPage(page);
 		
 		List<TourVO> list = service.getTourList(cri);
+		int count = service.getCountPage(cri);
+
+		ListPageMaker pageMaker = new ListPageMaker();
+		
+		pageMaker.setCri(cri);
+		pageMaker.setTotalCount(count);
+		
 		
 		result.put("list", list);
 		result.put("pageMaker", pageMaker);
