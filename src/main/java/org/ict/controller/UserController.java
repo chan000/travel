@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @RequestMapping("/login/*")
-public class LoginController {
-	
+public class UserController {
+
 	@GetMapping("/login")
 	public void login() {
 		
@@ -16,5 +16,4 @@ public class LoginController {
 	public void join() {
 		
 	}
-	
 }
