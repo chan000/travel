@@ -8,13 +8,15 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Grayscale - Start Bootstrap Theme</title>
+<title>회원가입창</title>
 <link rel="icon" type="image/x-icon"
 	href="/resources/assets/img/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
 <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"
 	crossorigin="anonymous"></script>
 <!-- Google fonts-->
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <link href="https://fonts.googleapis.com/css?family=Varela+Round"
 	rel="stylesheet" />
 <link
@@ -27,53 +29,75 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		<div class="container">
-			<div class="column" style="position: relative; top: 200px;">
-				<h1 style="text-align: center;">회원가입</h1>
-				<form class="form-inline d-flex">
-					아이디 : <input
-						class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-						id="inputEmail" type="email" placeholder="이메일을 입력해주세요." />
+		<form action="/login/joinmember" method="post">
+			<div class="container">
+				<div class="column" style="position: relative; top: 200px;">
+					<h1 style="text-align: center;">회원가입</h1>
+					<form class="form-inline d-flex">
+						아이디 : <input
+							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
+							id="uidInput" name="uid" placeholder="아이디를 입력해주세요." /> <span
+							id="checkID">중복체크</span><br> <span id="resultComment"></span>
 
-				</form>
-				<form class="form-inline d-flex">
-					비밀번호 : <input
-						class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-						id="inputEmail" type="email" placeholder="이메일을 입력해주세요." />
+					</form>
+					<form class="form-inline d-flex">
+						비밀번호 : <input
+							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
+							id="inputEmail" name="upwd" placeholder="비밀번호를 입력해주세요." />
 
-				</form>
-				<form class="form-inline d-flex">
-					이름 : <input
-						class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-						id="inputEmail" type="email" placeholder="이메일을 입력해주세요." />
+					</form>
+					<form class="form-inline d-flex">
+						이름 : <input
+							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
+							id="inputEmail" name="uname" placeholder="이름을 입력해주세요." />
 
-				</form>
-				<form class="form-inline d-flex">
-					이메일 : <input
-						class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-						id="inputEmail" type="email" placeholder="이메일을 입력해주세요." />
+					</form>
+					<form class="form-inline d-flex">
+						이메일 : <input
+							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
+							id="inputEmail" name="uemail" placeholder="이메일을 입력해주세요." />
 
-				</form>
-				<form class="form-inline d-flex">
-					성별
-					<div class="col-lg-2">
-						<input class="form-control" id="gender" type="text"
-							value=<c:choose>
-                  			<c:when test="${detail.gender eq 1}">
-                  				<c:out value="남자"/>
-                  			</c:when>
-                  			<c:when test="${detail.gender eq 2}">
-                  				<c:out value="여자"/>
-                  			</c:when>
-                  		</c:choose>>
-                  		</div>
-				</form>
-				<a class="btn btn-warning ">회원가입</a>
+					</form>
+					<div id="inputSubmit">
+						<a class="btn btn-warning ">회원가입</a>
+					</div>
 
+
+				</div>
 			</div>
-		</div>
+		</form>
 
 
 	</header>
+
+	<script type="text/javascript">
+		$("checkID").on("click", function(e) {
+			e.preventDefault();
+
+			var uidValue = $("#uidInput").val();
+
+			var str = "";
+
+			$.ajax({
+				type : 'post',
+				url : '/login/check/' + uidValue,
+				headers : {
+					"Content-Type" : "Application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				dataType : 'text',
+				success : function(result) {
+					if (result.uid === uidValue) {
+						str += "아이디 사용 가능합니다.";
+						$("resultComment").html(str);
+					}
+
+				},
+				error : function(result) {
+
+				}
+			}); // ajax
+		}); // checkID
+	</script>
 </body>
 </html>

@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>Grayscale - Start Bootstrap Theme</title>
+<title>로그인 화면</title>
 <link rel="icon" type="image/x-icon"
 	href="/resources/assets/img/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
@@ -28,42 +28,46 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		<div class="container">
-			<div class="row">
-				<div class="col-lg-3 col-md-2"></div>
-				<div class="col-lg-6 col-md-8 login-box">
+		<form action="/login/loginPost" method="post">
 
-					<div class="col-lg-12 login-title">로그인 페이지</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-2"></div>
+					<div class="col-lg-6 col-md-8 login-box">
 
-					<div class="col-lg-12 login-form">
+						<div class="col-lg-12 login-title">로그인 페이지</div>
+
 						<div class="col-lg-12 login-form">
-							<form>
-								<div class="form-group">
-									<label class="form-control-label">아이디</label> <input
-										type="text" class="form-control">
-								</div>
-								<div class="form-group">
-									<label class="form-control-label">패스워드</label> <input
-										type="password" class="form-control" i>
-								</div>
+							<div class="col-lg-12 login-form">
+								<form>
+									<div class="form-group">
+										<label class="form-control-label">아이디</label> <input
+											type="text" class="form-control">
+									</div>
+									<div class="form-group">
+										<label class="form-control-label">패스워드</label> <input
+											type="password" class="form-control" i>
+									</div>
 
-								<div class="col-lg-12 loginbttm">
-									<div class="col-lg-6 login-btm login-text">
-										<!-- Error Message -->
+									<div class="col-lg-12 loginbttm">
+										<div class="col-lg-6 login-btm login-text">
+											<!-- Error Message -->
+										</div>
+										<div class="col-lg-6 login-btm login-button">
+											<button type="submit" class="btn btn-outline-primary">로그인</button>
+										</div>
+										<div class="col-lg-6 login-btm login-button">
+											<a href="/login/join" type="submit"
+												class="btn btn-outline-primary">회원가입</a>
+										</div>
 									</div>
-									<div class="col-lg-6 login-btm login-button">
-										<button type="submit" class="btn btn-outline-primary">로그인</button>
-									</div>
-									<div class="col-lg-6 login-btm login-button">
-										<a href="/login/join" type="submit"
-											class="btn btn-outline-primary">회원가입</a>
-									</div>
-								</div>
-							</form>
+								</form>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
+		</form>
 	</header>
 </body>
 </html>
