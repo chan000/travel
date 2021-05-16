@@ -27,9 +27,6 @@
 <link href="/resources/css/slide.css" rel="stylesheet" />
 </head>
 <body>
-<input type="hidden" 
-					   name="bno" 
-					   value="${board.tbno }">
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
@@ -40,8 +37,8 @@
 			<div class="titleType1">
 				<div class="area_tag">
 
-					<div id="tbtitle" class="" style="text-align: center;">
-						<h1></h1>
+					<div  class="" style="text-align: center;">
+						<h1 id="tbtitle"></h1>
 					</div>
 					<div id="tbaddr1">
 						<h5 style="text-align: center;"></h5>
@@ -56,9 +53,9 @@
 						name="slide" id="slide3"> <input type="radio" name="slide"
 						id="slide4">
 					<ul id="imgholder" class="imgs">
-						<li><img src="/resources/assets/img/seoul/tour/경상도1.png"></li>
-						<li><img src="/resources/assets/img/seoul/tour/경상도1.png"></li>
-						<li><img src="/resources/assets/img/seoul/tour/경상도1.png"></li>
+						<li><img src="/resources/assets/img/seoul/tour/경복궁1.png"></li>
+						<li><img src="/resources/assets/img/seoul/tour/경복궁2.png"></li>
+						<li><img src="/resources/assets/img/seoul/tour/경복궁3.png"></li>
 					</ul>
 					<div class="bullets">
 						<label for="slide1">&nbsp;</label> <label for="slide2">&nbsp;</label>
@@ -95,12 +92,13 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var tbno = $(this).data("tbno");
+			var tbno = $(this).data(tbno);
 			console.log(tbno);
 			function tourGet() {
 				$.getJSON("/board/tourboardget/" + tbno, function(data) {
 					var tbtitle = data.tbtitle;
 					$("#tbitle").val(tbtitle);
+					console.log(tbtitle);
 					var tbaddr1 = data.tbaddr1;
 					$("#tbaddr1").val(tbaddr1);
 					var tbcontents1 = data.tbcontents1;

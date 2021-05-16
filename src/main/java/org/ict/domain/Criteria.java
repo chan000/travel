@@ -9,7 +9,7 @@ public class Criteria {
 	
 	public Criteria () {
 		this.page = 1;
-		this.number = 3;
+		this.number = 10;
 	}
 	
 	public int getPageStart() {

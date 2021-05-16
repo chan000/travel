@@ -32,16 +32,12 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/board/toursite">관광</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/board/culturesite">문화</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/board/foodsite">음식</a></li>
-                        <div class="dropdown"><a class="nav-link js-scroll-trigger">커뮤니티</a>
-                            <div class="dropdown-content">
-                                <a href="/board/freeboard">자유게시판</a>
-                                <a href="/board/reviewboard">리뷰게시판</a>
-                            </div>
-                        </div>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/board/freeboard">자유게시판</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login/login">로그인</a></li>
+                            
                     </ul>
+                        </div>
                 </div>
-            </div>
         
         </nav>
 

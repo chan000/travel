@@ -55,7 +55,7 @@
 					<h5 id="tourbody"> </h5>
 					
 					<h6 style="float: right;">
-						<a href="/board/tourlist">상세보기
+						<a href="/board/toursite">상세보기
 						</a>
 						
 					</h6>
@@ -78,7 +78,7 @@
 					<h5 id="tourbody1"> </h5>
 					<!-- 데이터 넣으면 되려나 -->
 					<h6 style="float: right;">
-						<a href="/board/tourlist">상세보기</a>
+						<a href="/board/toursite">상세보기</a>
 					</h6>
 					<br>
 				</div>
