@@ -27,6 +27,7 @@
 <link href="/resources/css/slide.css" rel="stylesheet" />
 </head>
 <body>
+<%-- <input type="hidden" name="tbno" value="${tour.tbno}"> --%>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
@@ -77,7 +78,7 @@
 							<div class="area_txtView top ms_detail">
 								<div class="inr_wrap">
 									<div class="inr">
-										<p></p>
+										<p name="tbcontents1"></p>
 									</div>
 								</div>
 							</div>
@@ -92,8 +93,11 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
-			var tbno = $(this).data(tbno);
+			var tbno = window.location.search.split("=").reverse()[0];
+			//현재 주소의 파라미터값을 가져온다. split으로 "="로 파라미터를 나눈뒤 reverse로 뒤부터 0번지를 꺼낸다.
+		
 			console.log(tbno);
+			
 			function tourGet() {
 				$.getJSON("/board/tourboardget/" + tbno, function(data) {
 					var tbtitle = data.tbtitle;
@@ -101,8 +105,10 @@
 					console.log(tbtitle);
 					var tbaddr1 = data.tbaddr1;
 					$("#tbaddr1").val(tbaddr1);
+					console.log(tbaddr1);
 					var tbcontents1 = data.tbcontents1;
 					$("#tbcontents1").val(tbcontents1);
+					console.log(tbcontents1);
 				}); // getJSON
 			}// tourGet
 			tourGet();

@@ -7,8 +7,8 @@
 	<select id="login" resultType="org.ict.domain.UserVO">
 		SELECT uno, uid, upwd, uname, uemail, ugender  
 		FROM user 
-		WHERE uid={#uid}
-		and upwd={#upwd}
+		WHERE uid=#{uid}
+		and upwd=#{upwd}
 
 	</select>
 	

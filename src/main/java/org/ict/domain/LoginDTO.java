@@ -6,6 +6,6 @@ import lombok.Data;
 public class LoginDTO {
 
 	private String uid;
-	private String upw;
+	private String upwd;
 	private boolean useCookie;
 }

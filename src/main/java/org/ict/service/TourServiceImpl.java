@@ -20,7 +20,7 @@ public class TourServiceImpl implements TourService{
 	}
 
 	@Override
-	public TourVO getTourRead(int tbno) {
+	public TourVO getTourRead(Integer tbno) {
 		return mapper.tourRead(tbno);
 	}
 

@@ -50,10 +50,7 @@
                         <ul class="list_thumType flnon">
                         	<div id="list1">
                         	</div>
-                        	
-                            
-                        </ul>
-                        
+                        </ul>   
                             <!-- paging -->
                         <div class="page_box">
                             <div class="row">
@@ -72,14 +69,14 @@
                         <div class="area_tagList">
                         
                             <ul class="tag_list area_list js_one" id="arealist">
-                                <li id="All"><button type="button" class="btn_all_active"><span>#전체</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>#서울</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>#경기</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>#강원</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>#충청</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>#경상</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>#전라</span></button></li>
-                                <li id="39"><button type="button" class="btn"><span>#제주</span></button></li>
+                                <li id="All"><button type="button" class="btn_all_active"><span>전체</span></button></li>
+                                <li id="1"><button type="button" class="btn"><span>서울</span></button></li>
+                                <li id="1"><button type="button" class="btn"><span>경기</span></button></li>
+                                <li id="1"><button type="button" class="btn"><span>강원</span></button></li>
+                                <li id="1"><button type="button" class="btn"><span>충청</span></button></li>
+                                <li id="1"><button type="button" class="btn"><span>경상</span></button></li>
+                                <li id="1"><button type="button" class="btn"><span>전라</span></button></li>
+                                <li id="39"><button type="button" class="btn"><span>제주</span></button></li>
                             </ul>
                            
                             <ul class="tag_list cnt_list js_multi" id="taglist">
@@ -107,7 +104,7 @@ $(document).ready(function(){
 			$(data.list).each(function(){
 				
 				str += "<ul class='list_thumType flnon'><li class='bdr_nor'> <div class='photo'>"
-                		+"<a href='#'><img src='/resources/assets/img/seoul/tour/"+this.tbimg1+"'></a>"
+                		+"<a href='/board/tourboardget?tbno="+this.tbno+"'><img src='/resources/assets/img/seoul/tour/"+this.tbimg1+"'></a>"
             			+"</div> <div class='area_txt'><div class='tit'>"
                         +"<a href='/board/tourboardget?tbno="+this.tbno+"'>"+this.tbtitle+"</a><p>"+this.tbaddr1+"</p></div></div></li></ul>";
                         
