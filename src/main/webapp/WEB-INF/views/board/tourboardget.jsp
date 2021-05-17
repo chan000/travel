@@ -54,9 +54,9 @@
 						name="slide" id="slide3"> <input type="radio" name="slide"
 						id="slide4">
 					<ul id="imgholder" class="imgs">
-						<li><img src="/resources/assets/img/seoul/tour/경복궁1.png"></li>
-						<li><img src="/resources/assets/img/seoul/tour/경복궁2.png"></li>
-						<li><img src="/resources/assets/img/seoul/tour/경복궁3.png"></li>
+						<li id="tbimg1"></li>
+						<li id="tbimg2"></li>
+						<li id="tbimg3"></li>
 					</ul>
 					<div class="bullets">
 						<label for="slide1">&nbsp;</label> <label for="slide2">&nbsp;</label>
@@ -106,6 +106,9 @@
 			var tbaddr1 = "";
 			var tbaddr2 = "";
 			var tbcontents1 = "";
+			var tbimg1= "";
+			var tbimg2= "";
+			var tbimg3= "";
 			function tourGet() {
 				$.getJSON("/board/tourboardget/" + tbno, function(data) {
 					tbtitle = data.tbtitle;
@@ -119,6 +122,15 @@
 					
 					tbaddr2 = data.tbaddr2;
 					$("#tbaddr2").html(tbaddr2);
+					
+					tbimg1 = "<img src='/resources/assets/img/seoul/tour/"+data.tbimg1+"'>";
+					$("#tbimg1").html(tbimg1);
+					tbimg2 = "<img src='/resources/assets/img/seoul/tour/"+data.tbimg2+"'>";
+					$("#tbimg2").html(tbimg2);
+					tbimg3 = "<img src='/resources/assets/img/seoul/tour/"+data.tbimg3+"'>";
+					$("#tbimg3").html(tbimg3);
+					
+					
 
 				}); // getJSON
 			}// tourGet
