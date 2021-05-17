@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>코레버</title>
+<title>다님길</title>
 <link rel="icon" type="image/x-icon"
 	href="/resources/assets/img/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
@@ -73,52 +73,74 @@
 
 			<div class="col-md-9"
 				style="position: relative; left: 500px; height: 950px;">
-
+					<!-- 서울 -->
 				<div class="seoul">
+				<a href="city/seoulboard"> <!-- 서울 태그  -->
 					<img
 						style="position: absolute; left: 300px; top: 240px; z-index: 1;"
-						class="seoulmain" src="/resources/assets/img/map/서울메인화면1.png">
+						class="seoulmain" src="/resources/assets/img/map/서울메인.png">
+						</a>
 					<img style="position: absolute; left: 300px; top: 240px;"
-						id="seoulmap" src="/resources/assets/img/map/seoul.png">
+						id="seoulmap" src="/resources/assets/img/map/서울.png">
+						
 				</div>
+					<!-- 경기도 -->
 				<div class="gg">
 					<img style="position: absolute; left: 199px; top: 155px;"
-						class="ggmain" src="/resources/assets/img/map/경기도메인화면1.png">
+						class="ggmain" src="/resources/assets/img/map/경기도메인.png">
+						<a href="city/ggboard"> <!-- 경기 태그  -->
 					<img style="position: absolute; left: 199px; top: 155px;"
-						id="ggmap" src="/resources/assets/img/map/경기도1.png">
+						id="ggmap" src="/resources/assets/img/map/경기도.png">
+						</a>
 				</div>
+					<!-- 강원도 -->
 				<div class="gw">
 					<img style="position: absolute; left: 345px; top: 111px;"
-						id="gwmain" src="/resources/assets/img/map/강원도메인화면1.png"> <img
-						style="position: absolute; left: 345px; top: 109px;" id="gwmap"
-						src="/resources/assets/img/map/강원도1.png">
+						id="gwmain" src="/resources/assets/img/map/강원도메인.png">
+						<a href="city/gwboard"> <!-- 강원 태그  -->
+					<img style="position: absolute; left: 345px; top: 109px;" id="gwmap"
+						src="/resources/assets/img/map/강원도.png">
+						</a>
 				</div>
+					<!-- 충청도 -->
 				<div class="cc">
-					<img style="position: absolute; left: 216px; top: 308px;"
-						id="ccmain" src="/resources/assets/img/map/충청도메인화면1.png">
-					<div id="ccmap"
-						style="position: absolute; left: 216px; top: 308px;">
-						<img src="/resources/assets/img/map/충청도1.png">
+					<img style="position: absolute; left: 216px; top: 308px; "
+						id="ccmain" src="/resources/assets/img/map/충청도메인.png">
+					<div id="ccmap" style="position: absolute; left: 216px; top: 308px;">
+						<a href="city/ccboard"> <!-- 충청 태그  -->
+						<img style="border-radius: 7px" src="/resources/assets/img/map/충청도.png">
+						</a>
 					</div>
 
 				</div>
+					<!-- 경상도 -->
 				<div class="gs">
-					<img style="position: absolute; left: 400px; top: 320px;"
-						id="gsmain" src="/resources/assets/img/map/경상도메인화면1.png"> <img
-						style="position: absolute; left: 400px; top: 320px;" id="gsmap"
-						src="/resources/assets/img/map/경상도1.png">
+				
+					<img style="position: absolute; left: 400px; top: 270px; "
+						id="gsmain" src="/resources/assets/img/map/경상도메인.png">
+						<a href="city/gsboard"> <!-- 경상 태그  -->
+						 <img style="position: absolute; left: 401px; top: 269px; height: auto;" id="gsmap"
+						src="/resources/assets/img/map/경상도.png">
+						</a>
 				</div>
+					<!-- 전라도 -->
 				<div class="jl">
+				
 					<img style="position: absolute; left: 175px; top: 473px;"
-						id="jlmain" src="/resources/assets/img/map/전라도메인화면1.png"> <img
-						style="position: absolute; left: 175px; top: 473px;" id="jlmap"
-						src="/resources/assets/img/map/전라도1.png">
+						id="jlmain" src="/resources/assets/img/map/전라도메인.png">
+						<a href="city/jlboard"> <!-- 전라 태그  -->
+						 <img style="position: absolute; left: 175px; top: 473px;" id="jlmap"
+						src="/resources/assets/img/map/전라도.png">
+						</a>
 				</div>
+				<!-- 제주도 -->
 				<div class="jeju">
 					<img style="position: absolute; left: 210px; top: 810px;"
-						id="mainE" src="/resources/assets/img/map/jejumain.png"> <img
-						style="position: absolute; left: 210px; top: 810px;" id="jejumap"
-						src="/resources/assets/img/map/jejumap.png">
+						id="mainE" src="/resources/assets/img/map/제주도메인.png"> 
+						<a href="city/jejuboard"> <!-- 제주 태그  -->
+						<img style="position: absolute; left: 210px; top: 810px;" id="jejumap"
+						src="/resources/assets/img/map/제주도.png">
+						</a>
 				</div>
 			</div>
 		</div>

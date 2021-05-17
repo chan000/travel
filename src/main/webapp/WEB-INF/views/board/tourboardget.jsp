@@ -70,13 +70,13 @@
 					<!-- 상세정보 -->
 					<div id="detailGo">
 						<hr>
-						<!-- 내용더보기 -->
+						
 						<div class="wrap_contView">
-							<h3>상세 주소</h3>
+							<h4>상세 주소</h4>
 							<p id="tbaddr2"></p>
 						</div>
 						<div class="wrap_contView">
-							<h3>상세 정보</h3>
+							<h4>상세 정보</h4>
 
 							<div id="tbcontents1" class="blind"></div>
 							<div class="area_txtView top ms_detail">
@@ -87,7 +87,12 @@
 								</div>
 							</div>
 						</div>
-						<!-- //내용더보기 -->
+						<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
+						style="float: right;">삭제</a>
+						<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
+						style="float: right;">수정</a>
+						<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
+						style="float: right;">목록</a>
 					</div>
 				</div>
 			</div>

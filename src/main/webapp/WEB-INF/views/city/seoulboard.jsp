@@ -85,9 +85,8 @@
 				<!-- footer -->
 				<div class="modal-footer">
 					<!-- 모달 팝업에서 버튼 등 기타 요소들이 여기에 옵니다. -->
-					<button type="button" class="btn btn-primary">확인</button>
-					<button type="button" class="btn btn-danger" data-dismiss="modal">
-						닫기</button>
+					<button type="button" class="btn btn-primary" data-dismiss="modal"> 확인</button>
+					<button type="button" class="btn btn-danger" data-dismiss="modal"> 닫기</button>
 				</div>
 			</div>
 		</div>

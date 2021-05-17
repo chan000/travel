@@ -808,7 +808,7 @@
 .box_leftFull .total_check{width:100%;}
 .box_leftFull .list_thumType{width:100%;}
 
-.page_box{padding-top:20px;text-align:center}
+.page_box{padding-top:10px;text-align:center}
 .page_box a{display:inline-block;width:30px;height:30px;border:1px solid #ccc;font-size:14px;line-height:30px;text-align:center;}
 .page_box a.on{border:1px solid #13294b;background-color:#13294b;color:#fff}
 .page_box .ico{border: 1px solid #ccc; color: transparent;}

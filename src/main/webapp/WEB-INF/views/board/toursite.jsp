@@ -43,13 +43,9 @@
         
                     <!-- 썸네일 리스트 -->
                     <div class="box_leftType1">
-                        <div class="total_check">
-                    
-                        </div>
-                        <h3 class="blind" id="blindsearchtype">최신순</h3>
                         <ul class="list_thumType flnon">
-                        	<div id="list1">
-                        	</div>
+                        	<li id="list1">
+                        	</li>
                         </ul>   
                             <!-- paging -->
                         <div class="page_box">
@@ -128,7 +124,7 @@ $(document).ready(function(){
 		var str = "";
 		
 		if(pageMaker.prev){
-			str += "<li><a href='" + (pageMaker.startPage - 1) + "'> << </a></li>";
+			str += "<li><a href='" + (pageMaker.startPage - 1) + "'> < </a></li>";
 		}
 		
 		for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){
@@ -136,7 +132,7 @@ $(document).ready(function(){
 			str += "<li " + strClass + "><a href='" + i + "'>" + i + "</a></li>";
 		}
 		if(pageMaker.next){
-			str += "<li class='page-item'><a class='page-link' href='" + (pageMaker.endPage + 1) + "'> >> </a></li>";
+			str += "<li><a href='" + (pageMaker.endPage + 1) + "'> > </a></li>";
 		}
 		
 		$('.pagination').html(str);

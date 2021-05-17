@@ -108,23 +108,6 @@
 		<!-- class="container d-flex h-100 align-items-center" -->
 	</header>
 	
-	<script type="text/javascript">
-		$(document).ready(function(data) {
 
-			var fno = 2;
-			console.log(fno);
-			function getFood1() {
-
-				$.getJSON("/city/ccboard/" + fno, function() {
-
-					console.log(data.fname);
-
-				})
-			}
-
-			getFood1();
-
-		})
-	</script>
 </body>
 </html>
