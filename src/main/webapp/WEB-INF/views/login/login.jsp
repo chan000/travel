@@ -39,7 +39,7 @@
 
 						<div class="col-lg-12 login-form">
 							<div class="col-lg-12 login-form">
-								
+								<form>
 									<div class="form-group">
 										<label class="form-control-label">아이디</label> <input
 											type="text" class="form-control">
@@ -56,20 +56,18 @@
 										<div class="col-lg-6 login-btm login-button">
 											<button type="submit" class="btn btn-outline-primary">로그인</button>
 										</div>
-											</div>
-													
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
-									</form>
-									<form action="/login/join" method="get">
 										<div class="col-lg-6 login-btm login-button">
 											<a href="/login/join" type="submit"
 												class="btn btn-outline-primary">회원가입</a>
 										</div>
-									</form>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
 	</header>
 </body>
 </html>

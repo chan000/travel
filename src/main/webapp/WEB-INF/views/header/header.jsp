@@ -32,12 +32,9 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/board/toursite">관광</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/board/culturesite">문화</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/board/foodsite">음식</a></li>
-                        <c:if test="${not empty login}">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/board/freeboard">자유게시판</a></li>
-                        </c:if>
-                        <c:if test="${empty login }">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/login/login">로그인</a></li>
-                 		</c:if>
+                 
                     </ul>
                         </div>
                 </div>

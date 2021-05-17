@@ -5,7 +5,7 @@
 
 <mapper namespace="org.ict.mapper.UserMapper">
 	<select id="login" resultType="org.ict.domain.UserVO">
-		SELECT uno, uid, upwd, uname, unickname, uemail, ugender  
+		SELECT uno, uid, upwd, uname, uemail, ugender  
 		FROM user 
 		WHERE uid=#{uid}
 		and upwd=#{upwd}
@@ -13,8 +13,8 @@
 	</select>
 	
 	<insert id="joinMember">
-	INSERT INTO user(uid, upwd, uname, unickname, uemail, ugender)
-		VALUES(#{uid}, #{upwd}, #{uname}, #{unickname}, #{uemail}, #{ugender})
+	INSERT INTO user(uid, upwd, uname, uemail, ugender)
+		VALUES(#{uid}, #{upwd}, #{uname}, #{uemail}, #{ugender})
 	</insert>
 
 	<select id="getUserInfo" resultType="org.ict.domain.UserVO">
