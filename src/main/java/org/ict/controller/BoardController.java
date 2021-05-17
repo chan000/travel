@@ -4,6 +4,7 @@ import org.ict.domain.BoardVO;
 import org.ict.domain.ListSearchCriteria;
 import org.ict.domain.PageMaker;
 import org.ict.domain.SearchCriteria;
+import org.ict.domain.TourVO;
 import org.ict.service.BoardService;
 import org.ict.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -62,11 +63,11 @@ public class BoardController {
 	}
 	@RequestMapping("/toursite")
 	public void toursite(Model model, ListSearchCriteria cri) {
-		
+		model.addAttribute("list", tourservice.getTourList(cri));
 	}
 	@RequestMapping("/tourboardget")
-	public void tourboardget(Model model) {
-//		model.addAttribute("tourget", tourservice.getTourRead(tbno));
+	public void tourboardget(Model model, Integer tbno) {
+		model.addAttribute("tourget",  tourservice.getTourRead(tbno));
 	}
 
 }

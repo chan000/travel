@@ -27,22 +27,22 @@
 <link href="/resources/css/slide.css" rel="stylesheet" />
 </head>
 <body>
-<%-- <input type="hidden" name="tbno" value="${tour.tbno}"> --%>
+	<input type="hidden" name="tbno" value="${tourget.tbno}">
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
 
 		<div class="col-sm-6 aligned center"
-			style="position: absolute; margin-left: 25%; margin-top: 10%;">
+			style="position: absolute; margin-left: 25%; margin-top: 5%;">
 			<!-- 상단 -->
 			<div class="titleType1">
 				<div class="area_tag">
 
-					<div  class="" style="text-align: center;">
+					<div class="" style="text-align: center;">
 						<h1 id="tbtitle"></h1>
 					</div>
-					<div id="tbaddr1">
-						<h5 style="text-align: center;"id="tbaddr1"></h5>
+					<div id="tbaddr1" style="text-align: center">
+						<h5 style="text-align: center;" id="tbaddr1"></h5>
 						<br>
 					</div>
 
@@ -72,13 +72,17 @@
 						<hr>
 						<!-- 내용더보기 -->
 						<div class="wrap_contView">
-							<h3>상세정보</h3>
+							<h3>상세 주소</h3>
+							<p id="tbaddr2"></p>
+						</div>
+						<div class="wrap_contView">
+							<h3>상세 정보</h3>
 
 							<div id="tbcontents1" class="blind"></div>
 							<div class="area_txtView top ms_detail">
 								<div class="inr_wrap">
 									<div class="inr">
-										<p name="tbcontents1"></p>
+										<p id="tbcontents1"></p>
 									</div>
 								</div>
 							</div>
@@ -95,21 +99,27 @@
 		$(document).ready(function() {
 			var tbno = window.location.search.split("=").reverse()[0];
 			//현재 주소의 파라미터값을 가져온다. split으로 "="로 파라미터를 나눈뒤 reverse로 뒤부터 0번지를 꺼낸다.
-// 			var tbno = "${tbno}";
-// 			var tbno = this.tbno;
-			console.log(tbno);
-			
+			// 			var tbno = $("tbno");
+			// 			var tbno = this.tbno;
+
+			var tbtitle = "";
+			var tbaddr1 = "";
+			var tbaddr2 = "";
+			var tbcontents1 = "";
 			function tourGet() {
 				$.getJSON("/board/tourboardget/" + tbno, function(data) {
-					var tbtitle = data.tbtitle;
-					$("#tbitle").val(tbtitle);
-					console.log(tbtitle);
-					var tbaddr1 = data.tbaddr1;
-					$("#tbaddr1").val(tbaddr1);
-					console.log(tbaddr1);
-					var tbcontents1 = data.tbcontents1;
-					$("#tbcontents1").val(tbcontents1);
-					console.log(tbcontents1);
+					tbtitle = data.tbtitle;
+					$("#tbtitle").html(tbtitle);
+				
+					tbaddr1 = data.tbaddr1;
+					$("#tbaddr1").html(tbaddr1);
+
+					tbcontents1 = data.tbcontents1;
+					$("#tbcontents1").html(tbcontents1);
+					
+					tbaddr2 = data.tbaddr2;
+					$("#tbaddr2").html(tbaddr2);
+
 				}); // getJSON
 			}// tourGet
 			tourGet();
