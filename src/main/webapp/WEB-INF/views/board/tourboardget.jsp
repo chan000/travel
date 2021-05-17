@@ -42,7 +42,7 @@
 						<h1 id="tbtitle"></h1>
 					</div>
 					<div id="tbaddr1">
-						<h5 style="text-align: center;"></h5>
+						<h5 style="text-align: center;"id="tbaddr1"></h5>
 						<br>
 					</div>
 
@@ -95,7 +95,8 @@
 		$(document).ready(function() {
 			var tbno = window.location.search.split("=").reverse()[0];
 			//현재 주소의 파라미터값을 가져온다. split으로 "="로 파라미터를 나눈뒤 reverse로 뒤부터 0번지를 꺼낸다.
-		
+// 			var tbno = "${tbno}";
+// 			var tbno = this.tbno;
 			console.log(tbno);
 			
 			function tourGet() {

@@ -5,6 +5,7 @@ import org.ict.domain.ListSearchCriteria;
 import org.ict.domain.PageMaker;
 import org.ict.domain.SearchCriteria;
 import org.ict.service.BoardService;
+import org.ict.service.TourService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +20,9 @@ public class BoardController {
 
 	@Autowired
 	private BoardService service;
+	
+	@Autowired
+	private TourService tourservice;
 	
 	@RequestMapping("/freeboard")
 	public void freeboard(Model model, SearchCriteria cri) {
@@ -61,8 +65,8 @@ public class BoardController {
 		
 	}
 	@RequestMapping("/tourboardget")
-	public void tourboardget() {
-		
+	public void tourboardget(Model model) {
+//		model.addAttribute("tourget", tourservice.getTourRead(tbno));
 	}
 
 }
