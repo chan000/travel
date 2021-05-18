@@ -4,7 +4,6 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
 import org.ict.domain.ModalCriteria;
-import org.ict.domain.SearchCriteria;
 import org.ict.domain.SeoulVO;
 
 public interface SeoulMapper {

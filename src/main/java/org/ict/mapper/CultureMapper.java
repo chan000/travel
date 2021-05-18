@@ -3,14 +3,14 @@ package org.ict.mapper;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Param;
-import org.ict.domain.FoodVO;
+import org.ict.domain.CultureVO;
 import org.ict.domain.ListSearchCriteria;
 
-public interface FoodMapper {
+public interface CultureMapper {
 
-	public List<FoodVO> foodList(@Param("cri")ListSearchCriteria cri);
+	public List<CultureVO> cultureList(@Param("cri")ListSearchCriteria cri);
 	
-	public FoodVO foodRead(int fbno);
+	public CultureVO cultureRead(Integer cbno);
 	
 	public int countPageNum(ListSearchCriteria cri);
 	

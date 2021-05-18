@@ -7,6 +7,7 @@ import org.ict.domain.TourVO;
 import org.ict.mapper.TourMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class TourServiceImpl implements TourService{
@@ -28,6 +29,20 @@ public class TourServiceImpl implements TourService{
 	public int getCountPage(ListSearchCriteria cri) {
 		return mapper.countPageNum(cri);
 	}
+
+
+	@Override
+	public List<TourVO> getTourDetailList(int lno, ListSearchCriteria cri) {
+		return mapper.tourDetailList(lno, cri);
+	}
+
+	@Override
+	public int getCountLnoNum(int lno, ListSearchCriteria cri) {
+		return mapper.countLnoNum(lno, cri);
+	}
+
+	
+
 
 
 

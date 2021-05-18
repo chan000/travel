@@ -10,8 +10,12 @@ public interface TourMapper {
 	
 	public List<TourVO> tourList(@Param("cri")ListSearchCriteria cri);
 	
+	public List<TourVO> tourDetailList(@Param("lno") int lno ,@Param("cri")ListSearchCriteria cri);
+	
 	public TourVO tourRead(int tno);
 	
 	public int countPageNum(ListSearchCriteria cri);
+	
+	public int countLnoNum(int lno,ListSearchCriteria cri);
 
 }

@@ -6,16 +6,24 @@
 <mapper namespace="org.ict.mapper.FoodMapper">
 	
 	<select id="foodList" resultType="org.ict.domain.FoodVO">
-		select a.fno, a.fname, a.fimg, a.finfo,
-		b.ccno, c.ccarea, c.cctype, c.ccpost
-        from food as a, localkr as b, chungcheong as c
-        where a.lno = b.lno and b.ccno = c.ccno and fno > 0
+		select a.fbno, a.fbtitle, a.fbthumnail, a.fbcontents1, a.fbcontents2, a.fbimg1, a.fbimg2, a.fbimg3, a.fbimg4, a.fbimg5,
+ a.fbaddr1, a.fbaddr2, a.fbupdatedate, b.lno
+	from foodboard as a, localkr as b
+     where a.lno = b.lno and fbno > 0 order by lno asc
+     	limit #{cri.pageStart}, #{cri.number}
 	</select>
 	
 	<select id="foodRead" resultType="org.ict.domain.FoodVO">
-		select a.fno, a.fname, a.fimg, a.finfo,
-		b.ccno, c.ccarea, c.cctype, c.ccpost
-        from food as a, localkr as b, chungcheong as c
-        where a.lno = b.lno and b.ccno = c.ccno and fno = #{fno}
+		select a.fbno, a.fbtitle, a.fbthumnail, a.fbcontents1, a.fbcontents2, a.fbimg1, a.fbimg2, a.fbimg3, a.fbimg4, a.fbimg5,
+ a.fbaddr1, a.fbaddr2, a.fbupdatedate, b.lno
+	from foodboard as a, localkr as b
+     where a.lno = b.lno and fbno = #{fbno}
 	</select>
+	
+	<select id="countPageNum" resultType="int">
+
+			SELECT COUNT(fbno) FROM foodboard WHERE fbno > 0
+	</select>
+	
+	
 </mapper>

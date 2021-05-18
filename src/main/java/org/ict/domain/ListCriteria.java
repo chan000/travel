@@ -6,6 +6,7 @@ import lombok.Data;
 public class ListCriteria {
 	private int page;
 	private int number;
+	private int lno;
 	
 	public ListCriteria () {
 		this.page = 1;

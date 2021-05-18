@@ -10,7 +10,7 @@ public class ListPageMaker {
 	private int endPage;
 	private boolean prev;
 	private boolean next;
-	private int totalReply;
+	private int totalLnoCount;
 	
 	// 페이지당 버튼을 몇 개씩 생성할지
 	private int displayPageNum;
@@ -39,11 +39,35 @@ public class ListPageMaker {
 				totalCount ? false : true;
 		
 	}
+	public void calcData2() {
+		this.displayPageNum = 10;
+		
+		this.endPage = (int)(Math.ceil(cri.getPage() /
+			(double) displayPageNum) *  displayPageNum);
+		
+		this.startPage = (endPage - displayPageNum) + 1;
+		
+		int tempEndPage = (int)(Math.ceil(totalCount /
+				(double)cri.getNumber()));
+		if(endPage > tempEndPage) {
+			endPage = tempEndPage;
+		}
+		
+		prev = startPage == 1 ? false : true;
+		
+		next = endPage * cri.getNumber() >= 
+				totalCount ? false : true;
+		
+	}
 	
 	public void setTotalCount(int totalCount) {
 		this.totalCount = totalCount;
 		
 		calcData();
+	}
+	public void setTotalLnoCount(int totalLnoCount) {
+		this.totalLnoCount = totalLnoCount;
+		calcData2();
 	}
 	
 	

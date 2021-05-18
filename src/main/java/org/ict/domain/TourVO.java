@@ -18,9 +18,5 @@ public class TourVO {
 	private String tbaddr1;
 	private String tbaddr2;
 	private String tbupdatedate;
-	
-	
-	
-	
-	
+
 }

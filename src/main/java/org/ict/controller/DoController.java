@@ -1,8 +1,6 @@
 package org.ict.controller;
 
 import org.ict.domain.ModalCriteria;
-import org.ict.domain.ModalPageMaker;
-import org.ict.domain.PageMaker;
 import org.ict.service.SeoulService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

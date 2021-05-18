@@ -12,14 +12,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import lombok.extern.log4j.Log4j;
+import jdk.internal.org.jline.utils.Log;
+
 
 @RestController
 @RequestMapping("/board/*")
@@ -43,6 +42,36 @@ public class TourRestController {
 
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(count);
+
+		result.put("list", list);
+		result.put("pageMaker", pageMaker);
+
+		try {
+			entity = new ResponseEntity<Map<String, Object>>(result, HttpStatus.OK);
+		} catch (Exception e) {
+			entity = new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+		}
+
+		return entity;
+	}
+	@GetMapping(value = "/toursite/{page}/{lno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	public ResponseEntity<Map<String, Object>> tourDetailList( @PathVariable("lno") int lno, @PathVariable("page") int page, ListSearchCriteria cri) {
+		ResponseEntity<Map<String, Object>> entity = null;
+
+		Map<String, Object> result = new HashMap<>();
+
+		cri.setPage(page);
+		cri.setLno(lno);
+
+		List<TourVO> list = service.getTourDetailList(lno, cri);
+		
+		int count = service.getCountLnoNum(lno,cri);
+		
+
+		ListPageMaker pageMaker = new ListPageMaker();
+
+		pageMaker.setCri(cri);
+		pageMaker.setTotalLnoCount(count);
 
 		result.put("list", list);
 		result.put("pageMaker", pageMaker);

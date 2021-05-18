@@ -66,13 +66,13 @@
                         
                             <ul class="tag_list area_list js_one" id="arealist">
                                 <li id="All"><button type="button" class="btn_all_active"><span>전체</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>서울</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>경기</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>강원</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>충청</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>경상</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>전라</span></button></li>
-                                <li id="39"><button type="button" class="btn"><span>제주</span></button></li>
+                                <li id="1"><button type="button"  class="btn"><span>서울</span></button></li>
+                                <li id="2"><button type="button" class="btn"><span>경기</span></button></li>
+                                <li id="3"><button type="button" class="btn"><span>강원</span></button></li>
+                                <li id="4"><button type="button" class="btn"><span>충청</span></button></li>
+                                <li id="5"><button type="button" class="btn"><span>경상</span></button></li>
+                                <li id="6"><button type="button" class="btn"><span>전라</span></button></li>
+                                <li id="7"><button type="button" data-lno="${7}" class="btn"><span>제주</span></button></li>
                             </ul>
                            
                             <ul class="tag_list cnt_list js_multi" id="taglist">
@@ -99,25 +99,77 @@ $(document).ready(function(){
 			
 			$(data.list).each(function(){
 				
-				str += "<ul class='list_thumType flnon'><li class='bdr_nor'> <div class='photo'>"
+
+// 				$("#1").on("click", function() {
+// 					var lno =1;
+// 					$.ajax({
+// 						type : 'get',
+// 						url : '/board/toursite',
+// 						header : {
+// 							"Content-Type" : "application/json",
+// 							"X-HTTP-Method-Override" : "GET"
+// 						},
+// 						dataType : 'text',
+// 						data : JSON.stringify({
+// 							lno : lno,
+// 							tbtitle : tbtitle,
+// 							tbimg1 : tbimg1,
+// 							tbaddr1 : tbaddr1
+							
+// 						}),
+// 						success : function(result) {
+// 							console.log(result);
+// 							$("#1").show();
+							
+// 						} // success
+						
+// 					}); // ajax
+// 				}); // 서울 버튼
+					
+						str += 	"<ul class='list_thumType flnon'><li class='bdr_nor'> <div class='photo'>"
                 		+"<a href='/board/tourboardget?tbno="+this.tbno+"'><img src='/resources/assets/img/seoul/tour/"+this.tbimg1+"'></a>"
             			+"</div> <div class='area_txt'><div class='tit'>"
                         +"<a href='/board/tourboardget?tbno="+this.tbno+"'>"+this.tbtitle+"</a><p>"+this.tbaddr1+"</p></div></div></li></ul>";
                         
                         
-                        
-			})//each
+			});//each
 			$("#list1").html(str);
 			
 			
 			printPaging(data.pageMaker);
 			
-		})//getJSON
 		
+		});//getJSON
 		
 	}//getTourList
 	getTourList(1);	
 	
+	$('#arealist').on("click", "li button", function(data){
+		var lno = $(this).data("lno");
+		console.log(lno);
+		function getTourLnoList(page){
+			
+		
+		$.getJSON("/board/toursite/" + lno + "/" + page, function(data) {
+
+			var str = "";
+			
+			$(data.list).each(function(){ // for문 같이 each로 jsonData.info를 객체로,
+
+				str += 	"<ul class='list_thumType flnon'><li class='bdr_nor'> <div class='photo'>"
+            		+"<a href='/board/tourboardget?tbno="+this.tbno+"'><img src='/resources/assets/img/seoul/tour/"+this.tbimg1+"'></a>"
+        			+"</div> <div class='area_txt'><div class='tit'>"
+                    +"<a href='/board/tourboardget?tbno="+this.tbno+"'>"+this.tbtitle+"</a><p>"+this.tbaddr1+"</p></div></div></li></ul>"; // this.name은 jsonData.info의 name
+
+		});
+			$("#list1").html(str);
+			
+			
+			printPaging(data.pageMaker);
+		});
+		}//getTourLnoList
+		getTourLnoList(1);
+	});//이벤트위임
 	
 	function printPaging(pageMaker){
 		
@@ -149,7 +201,7 @@ $(document).ready(function(){
 
 	
 	
-})//document
+});//document
 
 	
 </script>
