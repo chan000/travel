@@ -39,7 +39,6 @@
 
 						<div class="col-lg-12 login-form">
 							<div class="col-lg-12 login-form">
-								<form>
 									<div class="form-group">
 										<label class="form-control-label">아이디</label> <input
 											type="text" class="form-control">
@@ -61,7 +60,6 @@
 												class="btn btn-outline-primary">회원가입</a>
 										</div>
 									</div>
-								</form>
 							</div>
 						</div>
 					</div>

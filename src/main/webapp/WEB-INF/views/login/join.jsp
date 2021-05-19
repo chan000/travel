@@ -29,38 +29,44 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		<form action="/login/joinmember" method="post">
+		<form action="/login/join" method="post">
 			<div class="container">
 				<div class="column" style="position: relative; top: 200px;">
 					<h1 style="text-align: center;">회원가입</h1>
-					<form class="form-inline d-flex">
+					<div class="form-inline d-flex">
 						아이디 : <input
 							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							id="uidInput" name="uid" placeholder="아이디를 입력해주세요." /> <span
-							id="checkID">중복체크</span><br> <span id="resultComment"></span>
+							 name="uid" placeholder="아이디를 입력해주세요." /> 
+							<span id="checkID">중복체크</span><br> <span id="resultComment"></span>
 
-					</form>
-					<form class="form-inline d-flex">
+					</div>
+					<div class="form-inline d-flex">
 						비밀번호 : <input
 							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							id="inputEmail" name="upwd" placeholder="비밀번호를 입력해주세요." />
+							 name="upwd" placeholder="비밀번호를 입력해주세요." />
 
-					</form>
-					<form class="form-inline d-flex">
+					</div>
+					<div class="form-inline d-flex">
 						이름 : <input
 							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							id="inputEmail" name="uname" placeholder="이름을 입력해주세요." />
+							 name="uname" placeholder="이름을 입력해주세요." />
 
-					</form>
-					<form class="form-inline d-flex">
+					</div>
+					<div class="form-inline d-flex">
 						이메일 : <input
 							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							id="inputEmail" name="uemail" placeholder="이메일을 입력해주세요." />
+							 name="uemail" placeholder="이메일을 입력해주세요." />
 
-					</form>
-					<div id="inputSubmit">
-						<a class="btn btn-warning ">회원가입</a>
 					</div>
+					<div class="form-inline d-flex">
+						닉네임 : <input
+							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
+							 name="unickname" placeholder="닉네임을 입력해주세요." />
+
+					</div>
+					
+						<a type="submit" class="btn btn-warning ">회원가입</a>
+					
 
 
 				</div>

@@ -35,38 +35,38 @@
 						<li class="seoultext"><a class="seoulline"
 							href="city/seoulboard" style="color: white;">서울</a></li> <img
 							style="position: absolute; left: 894px; top: -68px;"
-							id="seoulmap" src="/resources/assets/img/map/seoul.png">
+							id="seoulmap" src="/resources/assets/img/map/서울.png">
 					</div>
 					<div class="ggglist">
 						<li class="ggtext "><a href="city/ggboard">경기도</a></li> <img
 							style="position: absolute; left: 791px; top: -153px;" id="ggmap"
-							src="/resources/assets/img/map/경기도1.png">
+							src="/resources/assets/img/map/경기도.png">
 					</div>
 
 					<div class="gwlist">
 						<li class="gwtext"><a href="city/gwboard" class="gwicon">강원도</a></li>
 						<img style="position: absolute; left: 939px; top: -200px;"
-							id="gwmap" src="/resources/assets/img/map/강원도1.png">
+							id="gwmap" src="/resources/assets/img/map/강원도.png">
 					</div>
 					<div class="cclist">
 						<li class="cctext"><a href="city/ccboard">충청도</a></li> <img
 							style="position: absolute; left: 810px; top: -1px;" id="ccmap"
-							src="/resources/assets/img/map/충청도1.png">
+							src="/resources/assets/img/map/충청도.png">
 					</div>
 					<div class="gslist">
 						<li class="gstext"><a href="city/gsboard">경상도</a></li> <img
 							style="position: absolute; left: 993px; top: 11px;" id="gsmap"
-							src="/resources/assets/img/map/경상도1.png">
+							src="/resources/assets/img/map/경상도.png">
 					</div>
 					<div class="jllist">
 						<li class="jltext"><a href="city/jlboard">전라도</a></li> <img
 							style="position: absolute; left: 768px; top: 164px;" id="jlmap"
-							src="/resources/assets/img/map/전라도1.png">
+							src="/resources/assets/img/map/전라도.png">
 					</div>
 					<div class="jejulist">
 						<li class="jejutext"><a href="city/jejuboard">제주</a></li> <img
 							style="position: absolute; left: 803px; top: 501px;" id="jejumap"
-							src="/resources/assets/img/map/jejumap.png">
+							src="/resources/assets/img/map/제주도.png">
 					</div>
 					</ul>
 			</div>
