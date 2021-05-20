@@ -63,7 +63,7 @@ public class AuthInterceptor extends HandlerInterceptorAdapter {
 				}
 			}
 			
-			response.sendRedirect("/login/login");
+			response.sendRedirect("/user/login");
 			// false 리턴시 이 로직이 끝난 후 postHandle을 실행하지 않음
 			return false;
 		}

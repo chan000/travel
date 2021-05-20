@@ -29,7 +29,7 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		<form action="/login/join" method="post">
+		<form method="post" action="/user/joinmember">
 			<div class="container">
 				<div class="column" style="position: relative; top: 200px;">
 					<h1 style="text-align: center;">회원가입</h1>
@@ -66,9 +66,6 @@
 					</div>
 					
 						<a type="submit" class="btn btn-warning ">회원가입</a>
-					
-
-
 				</div>
 			</div>
 		</form>

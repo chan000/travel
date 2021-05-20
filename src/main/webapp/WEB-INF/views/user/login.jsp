@@ -28,7 +28,7 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		<form action="/login/loginPost" method="post">
+		<form action="/user/loginPost" method="post">
 
 			<div class="container">
 				<div class="row">
@@ -41,11 +41,11 @@
 							<div class="col-lg-12 login-form">
 									<div class="form-group">
 										<label class="form-control-label">아이디</label> <input
-											type="text" class="form-control">
+											type="text" name="uid" class="form-control">
 									</div>
 									<div class="form-group">
 										<label class="form-control-label">패스워드</label> <input
-											type="password" class="form-control" i>
+											type="password" name="upwd" class="form-control" i>
 									</div>
 
 									<div class="col-lg-12 loginbttm">
@@ -56,7 +56,7 @@
 											<button type="submit" class="btn btn-outline-primary">로그인</button>
 										</div>
 										<div class="col-lg-6 login-btm login-button">
-											<a href="/login/join" type="submit"
+											<a href="/user/joinmember" type="submit"
 												class="btn btn-outline-primary">회원가입</a>
 										</div>
 									</div>

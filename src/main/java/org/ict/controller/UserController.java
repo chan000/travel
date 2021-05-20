@@ -20,8 +20,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.util.WebUtils;
 
 @Controller
-@RequestMapping("/login/*")
+@RequestMapping("/user/*")
 public class UserController {
+
 	@Autowired
 	private UserService service;
 	
@@ -50,14 +51,14 @@ public class UserController {
 		}
 	}
 	
-	@GetMapping("/join")
+	@GetMapping("/joinmember")
 	public void joinMember() {
 		
 	}
-	@PostMapping("/join")
+	@PostMapping("/joinmember")
 	public String joinMember(UserVO vo) {
 		service.joinMember(vo);
-		return "redirect:/login/login";
+		return "redirect:/board/toursite";
 	}
 	
 	@GetMapping("/logout")
@@ -82,9 +83,10 @@ public class UserController {
 				service.keepLogin(vo.getUid(), session.getId(), new Date(System.currentTimeMillis()));
 			}
 		}
-		return "login/logout";
+		return "user/logout";
 	}
 	
 	
 	
 }
+

@@ -51,7 +51,15 @@
 							href="/board/freeboard">자유게시판</a></li>
 					</c:if>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="/login/login">로그인</a></li>
+						href="/user/login">로그인</a></li>
+						<c:when test="${!empty login}">
+          			<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="username">
+								&nbsp;${login.mname}님 환영합니다.
+                            </span>
+                            <b class="caret"></b>
+                     </a>
+          		</c:when>
 
 				</ul>
 			</div>
