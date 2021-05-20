@@ -15,8 +15,5 @@ public interface TourService {
 
 	public int getCountPage(ListSearchCriteria cri);
 	
-	public int getCountSNum(ListSearchCriteria cri);
-	public int getCountGGNum(ListSearchCriteria cri);
-	public int getCountGWNum(ListSearchCriteria cri);
-	public int getCountCCNum(ListSearchCriteria cri);
+	public int getCountLnoNum(int lno, ListSearchCriteria cri);
 }
