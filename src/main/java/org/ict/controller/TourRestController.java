@@ -53,24 +53,22 @@ public class TourRestController {
 
 		return entity;
 	}
-	@GetMapping(value = "/toursite/{page}/{lno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	@GetMapping(value = "/toursite/{lno}/{page}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public ResponseEntity<Map<String, Object>> tourDetailList( @PathVariable("lno") int lno, @PathVariable("page") int page, ListSearchCriteria cri) {
 		ResponseEntity<Map<String, Object>> entity = null;
 
 		Map<String, Object> result = new HashMap<>();
 
 		cri.setPage(page);
-		cri.setLno(lno);
 
 		List<TourVO> list = service.getTourDetailList(lno, cri);
 		
-		int count = service.getCountLnoNum(lno,cri);
-		
+		int count = service.getCountSNum(cri);
 
 		ListPageMaker pageMaker = new ListPageMaker();
 
 		pageMaker.setCri(cri);
-		pageMaker.setTotalLnoCount(count);
+		pageMaker.setTotalSCount(count);
 
 		result.put("list", list);
 		result.put("pageMaker", pageMaker);

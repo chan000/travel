@@ -33,9 +33,24 @@
 			SELECT COUNT(tbno) FROM tourboard WHERE tbno > 0
 
 	</select>
-		<select id="countLnoNum" resultType="int">
+		<select id="countSNum" resultType="int">
 
-			SELECT COUNT(tbno) FROM tourboard WHERE lno = #{lno} and tbno > 0
+			SELECT COUNT(tbno) FROM tourboard WHERE lno = 1 and tbno > 0
+
+	</select>
+	<select id="countGGNum" resultType="int">
+
+			SELECT COUNT(tbno) FROM tourboard WHERE lno = 2 and tbno > 0
+
+	</select>
+	<select id="countGWNum" resultType="int">
+
+			SELECT COUNT(tbno) FROM tourboard WHERE lno = 3 and tbno > 0
+
+	</select>
+	<select id="countCCNum" resultType="int">
+
+			SELECT COUNT(tbno) FROM tourboard WHERE lno = 4 and tbno > 0
 
 	</select>
 </mapper>
