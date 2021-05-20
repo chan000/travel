@@ -31,7 +31,7 @@
 	<nav class="navbar navbar-expand-lg navbar-light fixed-top"
 		id="mainNav">
 		<div class="container">
-			<a class="navbar-brand js-scroll-trigger" href="/">메인페이지</a>
+			<a class="navbar-brand js-scroll-trigger" href="/">다님길</a>
 			<button class="navbar-toggler navbar-toggler-right" type="button"
 				data-toggle="collapse" data-target="#navbarResponsive"
 				aria-controls="navbarResponsive" aria-expanded="false"
@@ -46,23 +46,26 @@
 						href="/board/culturesite">문화</a></li>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
 						href="/board/foodsite">음식</a></li>
-					<c:if test="${!empty login }">
-						<li class="nav-item"><a class="nav-link js-scroll-trigger"
-							href="/board/freeboard">자유게시판</a></li>
-					</c:if>
 					<li class="nav-item"><a class="nav-link js-scroll-trigger"
-						href="/user/login">로그인</a></li>
-						<c:when test="${!empty login}">
-          			<a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="username">
-								&nbsp;${login.mname}님 환영합니다.
-                            </span>
-                            <b class="caret"></b>
-                     </a>
-          		</c:when>
+						href="/board/freeboard">자유게시판</a></li>
+					<c:if test="${empty login }">
+						<li class="nav-item"><a class="nav-link js-scroll-trigger"
+							href="/user/login">로그인</a></li>
+					</c:if>
+
 
 				</ul>
 			</div>
+			<c:if test="${!empty login }">
+			<div class="dropdown">
+				<a class="nav-link js-scroll-trigger">내 정보</a>
+				<div class="dropdown-content">
+					<a href="#">내 정보 수정</a>
+					<a class="nav-item js-scroll-trigger"
+							href="/user/logout">로그아웃</a>
+				</div>
+			</div>
+			</c:if>
 		</div>
 
 	</nav>

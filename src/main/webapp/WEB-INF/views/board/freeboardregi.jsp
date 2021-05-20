@@ -28,14 +28,13 @@
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
 		<form action="/board/freeboardregi" method="post">
-		</form>
+		
 		<section class="container">
                   <div class="row" style="width:1000px">
                   </div>
                   <div class="column">
                     <div >
-                        <div class="panel-body" >
-                          <form  class="container " method="post" style="margin-top: 17%;">
+                        <div class="panel-body" style="margin-top: 17%">
                         <h1 style="text-align: center;">자유게시판</h1>
                             <div class="form-group">
                               <label class="col-sm-1 ">제목</label>
@@ -49,32 +48,20 @@
                                 <input class="form-control"  type="text" name="writer" >
                               </div>
                             </div>
-                            <input type="hidden" name="mno" >
-                            <div class="form-group">
-                              <label class="col-sm-1 control-label">작성일</label>
-                              <div class="col-sm-11">
-                                <input class="form-control" name="date" type="text" value="" >
-                              </div>
-                            </div>
                             <div class="form-group">
                               <label class="col-sm-1 control-label">내용</label>
                               <div class="col-sm-11">
-                                <textarea class="form-control" rows="6" id="contents" name="bcontent"></textarea>
+                                <textarea class="form-control" rows="6"  name="contents"></textarea>
                               </div>
                             </div>
-                            <div class="container">
-                              <div class="row">
-                                <div class="col-sm-11"></div>
-                                <a href="" type="submit"
-                                class="btn btn-warning">등록</a>
-                            </div>
-                            </div>
-                          </form>
+                          <input id="submitBtn" class="btn btn-primary" type="submit" value="제출">
+                          
                         </div>
                     </div>
                   </div>
                   <!-- page end-->
               </section>
+              </form>
 	</header>
 </body>
 </html>

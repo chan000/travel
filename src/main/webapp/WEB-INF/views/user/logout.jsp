@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +8,10 @@
 </head>
 <body>
 
-	<h1>로그아웃 했습니다.</h1>
-	
+	<script type="text/javascript">
+		alert("로그아웃 되었습니다.");
+		self.location = "/";
+	</script>
+
 </body>
 </html>

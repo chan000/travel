@@ -32,13 +32,13 @@ public class UserController {
 	}
 	
 	@PostMapping("/loginPost")
-	public void loginPost(LoginDTO dto, HttpSession session, Model model)
+	public String loginPost(LoginDTO dto, HttpSession session, Model model)
 		throws Exception{
 		
 		UserVO vo = service.login(dto);
 		
 		if(vo == null) {
-			return;
+			return "/user/loginerror";
 		}
 		model.addAttribute("userVO", vo);
 		
@@ -49,6 +49,7 @@ public class UserController {
 			
 			service.keepLogin(vo.getUid(), session.getId(), sessionLimit);
 		}
+		return "/user/loginPost";
 	}
 	
 	@GetMapping("/joinmember")
@@ -58,7 +59,7 @@ public class UserController {
 	@PostMapping("/joinmember")
 	public String joinMember(UserVO vo) {
 		service.joinMember(vo);
-		return "redirect:/board/toursite";
+		return "redirect:/user/login";
 	}
 	
 	@GetMapping("/logout")

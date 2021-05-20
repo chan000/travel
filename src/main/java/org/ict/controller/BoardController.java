@@ -54,6 +54,8 @@ public class BoardController {
 		service.register(board);
 
 		rttr.addFlashAttribute("result", board.getBno());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
 
 		return "redirect:/board/freeboard";
 	}

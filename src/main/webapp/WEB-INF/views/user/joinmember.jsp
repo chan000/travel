@@ -65,7 +65,7 @@
 
 					</div>
 					
-						<a type="submit" class="btn btn-warning ">회원가입</a>
+						<input id="submitBtn" class="btn btn-primary" type="submit" value="제출">
 				</div>
 			</div>
 		</form>

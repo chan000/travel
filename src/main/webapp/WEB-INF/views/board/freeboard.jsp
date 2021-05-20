@@ -22,7 +22,8 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
@@ -48,7 +49,8 @@
 								<c:forEach var="board" items="${freeboard}">
 									<tr>
 										<td>${board.bno }</td>
-										<td><a href="/board/freeboardget?bno=${board.bno}&page=${cri.page}">${board.title }</a></td>
+										<td><a
+											href="/board/freeboardget?bno=${board.bno}&page=${cri.page}">${board.title }</a></td>
 										<td>${board.contents }</td>
 										<td>${board.writer }</td>
 										<td>${board.date }</td>
@@ -58,16 +60,37 @@
 
 						</table>
 
+						<div class="row">
+							<div class="text-body">
+								<select name="searchType">
+									<option value="n"
+										<c:out value="${cri.searchType == null ? 'selected' : '' }" />>
+										선택</option>
+									<option value="t"
+										<c:out value="${cri.searchType eq 't' ? 'selected' : '' }" />>
+										제목</option>
+									<option value="c"
+										<c:out value="${cri.searchType eq 'c' ? 'selected' : '' }" />>
+										내용</option>
+									<option value="w"
+										<c:out value="${cri.searchType eq 'w' ? 'selected' : '' }" />>
+										글쓴이</option>
+								</select> <input type="text" name="keyword" id="keywordInput"
+									value="${cri.keyword }">
+								<button id="searchBtn">Search</button>
+
+							</div>
+						</div>
 
 						<div class="container">
 							<div class="row">
 								<div class="col-md-9">
-						
+
 									<ul class="pagination">
-									<!-- 이전 페이지 버튼 -->
+										<!-- 이전 페이지 버튼 -->
 										<c:if test="${pageMaker.prev }">
 											<li class="page-item"><a class="page-link"
-												href="/board/freeboard?page=${pageMaker.startPage -1 }">
+												href="/board/freeboard?page=${pageMaker.startPage -1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">
 													&laquo; </a></li>
 										</c:if>
 
@@ -75,16 +98,16 @@
 										<c:forEach begin="${pageMaker.startPage }"
 											end="${pageMaker.endPage }" var="idx">
 											<li class="page-item
-	   									 		<c:out value="${pageMaker.cri.page == idx ? 'active' : '' }" />">
-												<a class="page-link"
-												href="/board/freeboard?page=${idx }">${idx }</a>
-											</li>
+										    		<c:out value="${pageMaker.cri.page == idx ? 'active' : '' }" />">
+										    		<a class="page-link"
+										    			href="/board/freeboard?page=${idx }&searchType=${cri.searchType}&keyword=${cri.keyword}">${idx }</a>
+										    	</li>
 										</c:forEach>
 
 										<!-- 다음 페이지 버튼 -->
 										<c:if test="${pageMaker.next && pageMaker.endPage >0 }">
 											<li class="page-item"><a class="page-link"
-												href="/board/freeboard?page=${pageMaker.endPage +1 }">
+												href="/board/freeboard?page=${pageMaker.endPage +1 }&searchType=${cri.searchType}&keyword=${cri.keyword}">
 													&raquo; </a></li>
 										</c:if>
 									</ul>
@@ -102,4 +125,16 @@
 		</div>
 	</header>
 </body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		
+		$('#searchBtn').on("click", function(event) {
+			self.location ="freeboard"
+				+ "?page=1"
+				+ "&searchType="
+				+ $("select option:selected").val()
+				+ "&keyword=" + $("#keywordInput").val();
+		}); // searchBtn
+	}); // document
+</script>
 </html>

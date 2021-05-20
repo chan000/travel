@@ -5,16 +5,20 @@
 
 <mapper namespace="org.ict.mapper.BoardMapper">
 	<select id="getList" resultType="org.ict.domain.BoardVO">
-		SELECT * FROM board WHERE bno > 0
+		SELECT * FROM board WHERE bno >
+		0
 
 	</select>
 	<select id="read" resultType="org.ict.domain.BoardVO">
-		SELECT * FROM board WHERE bno = #{bno}
+		SELECT * FROM board WHERE bno =
+		#{bno}
 	</select>
 
 	<insert id="insert">
-	INSERT INTO board(title, contents, writer)
-		VALUES(#{title}, #{contents}, #{writer})
+		INSERT INTO
+		 board(title, contents, writer)
+		VALUES
+		(#{title}, #{contents}, #{writer})
 	</insert>
 
 	<select id="listPage" resultType="org.ict.domain.BoardVO">
@@ -23,21 +27,38 @@
 				FROM board
 				WHERE bno > 0
 		]]>	
-		
+			<include refid="search"></include>
 		<![CDATA[				
 			ORDER BY bno DESC
 			limit #{pageStart}, #{number}
 		]]>
 	</select>
 
+	<sql id="search">
+		<!-- 동적쿼리 부분 -->
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">
+				and (title like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'c'.toString()">
+				and (contents like CONCAT('%', #{keyword}, '%'))
+			</if>
+			<if test="searchType == 'w'.toString()">
+				and (writer like CONCAT('%', #{keyword}, '%'))
+			</if>
+
+		</if>
+
+	</sql>
+
 	<select id="countPageNum" resultType="int">
 	<![CDATA[
 		SELECT COUNT(bno) FROM board WHERE bno > 0
 		]]>
-		
+
 	</select>
-	
+
 	<select id="getMaxBno" resultType="long">
-	SELECT MAX(bno) FROM board
+		SELECT MAX(bno) FROM board
 	</select>
 </mapper>

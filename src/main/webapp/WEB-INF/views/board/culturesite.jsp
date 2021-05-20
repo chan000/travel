@@ -66,13 +66,13 @@
                         
                             <ul class="tag_list area_list js_one" id="arealist">
                                 <li id="All"><button type="button" class="btn_all_active"><span>전체</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>서울</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>경기</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>강원</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>충청</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>경상</span></button></li>
-                                <li id="1"><button type="button" class="btn"><span>전라</span></button></li>
-                                <li id="39"><button type="button" class="btn"><span>제주</span></button></li>
+                                <li id="seoul"><button type="button" class="btn"><span>서울</span></button></li>
+                                <li id="2"><button type="button" class="btn"><span>경기</span></button></li>
+                                <li id="3"><button type="button" class="btn"><span>강원</span></button></li>
+                                <li id="4"><button type="button" class="btn"><span>충청</span></button></li>
+                                <li id="5"><button type="button" class="btn"><span>경상</span></button></li>
+                                <li id="6"><button type="button" class="btn"><span>전라</span></button></li>
+                                <li id="7"><button type="button" class="btn"><span>제주</span></button></li>
                             </ul>
                            
                             <ul class="tag_list cnt_list js_multi" id="taglist">
