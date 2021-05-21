@@ -29,8 +29,8 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		<form method="get" action="/user/myinfo">
 		<div class="form">
+		<form method="get" action="/user/myinfo">
 		<input type="hidden" name="uno" value="${login.uno}" />
 			<div class="container">
 				<div class="column" style="position: relative; top: 200px;">
@@ -45,11 +45,12 @@
 					<div class="form-inline d-flex">
 						비밀번호 : <input
 							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="upwd" placeholder="비밀번호를 입력해주세요." />
+							id="upwd" name="upwd" type="password"  />
 
 					</div>
 					<div class="form-inline d-flex">
-						이름 : <input value="${login.uname }"
+						이름 : 
+						<input value="${login.uname }"
 							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
 							 name="uname" placeholder="이름을 입력해주세요." />
 
@@ -57,13 +58,13 @@
 					<div class="form-inline d-flex">
 						이메일 : <input
 							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="uemail" placeholder="이메일을 입력해주세요." />
+							 id="uemail" name="uemail"  />
 
 					</div>
 					<div class="form-inline d-flex">
 						닉네임 : <input value="${login.unickname }"
 							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="unickname" placeholder="닉네임을 입력해주세요." />
+							id="unickname" name="unickname"  />
 
 					</div>
 					
@@ -73,8 +74,8 @@
                     </div>
 				</div>
 			</div>
-			</div>
 		</form>
+			</div>
 
 
 	</header>
@@ -91,8 +92,10 @@
 			$.getJSON("/myRest/" + uno, function(data) {
 				var uname = data.uname;
 				$("#uname").val(uname);
-				var upwd = data.upwd;
-				$("#upwd").val(upwd);
+				var uemail = data.uemail;
+				$("#uemail").val(uemail);
+				var unickname = data.unickname;
+				$("#unickname").val(unickname);
 // 				var maddress = data.maddress;
 // 				$("#maddress").val(maddress);
 // 				var gender = data.gender;
@@ -115,6 +118,18 @@
 			
 			var upwd = $("#upwd").val();
 			var uemail = $("#uemail").val();
+			var unickname = $("#unickname").val();
+			
+			
+			console.log(upwd);
+			console.log(unickname);
+			console.log(uemail);
+			
+			if (upwd == "") {
+				alert("비밀번호를 입력해 주세요!")
+				$("#upwd").focus();
+				return;
+			}
 // 			var mpnum = $("#upnum").val();
 			
 // 			if (upwd == "") {
@@ -138,6 +153,7 @@
 				data : JSON.stringify({
 					upwd : upwd,
 					uemail : uemail,
+					unickname : unickname,
 // 					mpnum : mpnum,
 				}),
 				dataType : 'text',
