@@ -27,9 +27,9 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		<form action="/board/freeboardregi" method="post">
 		
 		<section class="container">
+		<form action="/board/freeboardregi" method="post">
                   <div class="row" style="width:1000px">
                   </div>
                   <div class="column">
@@ -39,19 +39,19 @@
                             <div class="form-group">
                               <label class="col-sm-1 ">제목</label>
                               <div class="col-sm-11">
-                                <input type="text" class="form-control"  name="title" >
+                                <input type="text" class="form-control" id="title" name="title" >
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-1 control-label">작성자</label>
                               <div class="col-sm-11">
-                                <input class="form-control"  type="text" name="writer" >
+                                <input class="form-control" value="${login.uname }" readonly type="text" name="writer" >
                               </div>
                             </div>
                             <div class="form-group">
                               <label class="col-sm-1 control-label">내용</label>
                               <div class="col-sm-11">
-                                <textarea class="form-control" rows="6"  name="contents"></textarea>
+                                <textarea class="form-control" rows="6" id="contents" name="contents"></textarea>
                               </div>
                             </div>
                           <input id="submitBtn" class="btn btn-primary" type="submit" value="제출">
@@ -60,8 +60,8 @@
                     </div>
                   </div>
                   <!-- page end-->
-              </section>
               </form>
+              </section>
 	</header>
 </body>
 </html>

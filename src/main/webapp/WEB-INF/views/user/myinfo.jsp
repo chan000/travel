@@ -55,7 +55,7 @@
 					<div class="form-inline d-flex">
 						이메일 : <input	value="${login.uemail }"
 							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="uemail" placeholder="이메일을 입력해주세요." />
+							id="uemail" name="uemail" readonly/>
 
 					</div>
 					<div class="form-inline d-flex">
@@ -80,6 +80,8 @@
 				$("#uemail").val(uemail);
 				var upwd = data.upwd;
 				$("#upwd").val(upwd);
+				var uninkname = data.uninkname;
+				$("#uninkname").val(uninkname);
 				
 			})
 		}

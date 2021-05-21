@@ -26,6 +26,7 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void register(BoardVO board) {
+		mapper.insert(board);
 
 	}
 

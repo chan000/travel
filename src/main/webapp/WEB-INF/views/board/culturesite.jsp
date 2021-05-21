@@ -100,10 +100,9 @@ $(document).ready(function(){
 			$(data.list).each(function(){
 				
 				str += "<ul class='list_thumType flnon'><li class='bdr_nor'> <div class='photo'>"
-                		+"<a href='/board/cultureboardget?cbno="+this.cbno+"'><img src='/resources/assets/img/seoul/culture/"+this.cbimg1+"'></a>"
+                		+"<a href='/board/cultureboardget?cbno="+this.cbno+"'><img src='/resources/assets/img/culture/thum/"+this.cbthumnail+"'></a>"
             			+"</div> <div class='area_txt'><div class='tit'>"
-                        +"<a href='/board/cultureboardget?cbno="+this.cbno+"'>"+this.cbtitle+"</a><p>"+this.cbaddr1+"</p></div></div></li></ul>";
-                        
+                        +"<a href='/board/cultureboardget?cbno="+this.cbno+"'>"+this.cbtitle+"</a><p>"+this.cbinfo+"</p></div></div></li></ul>";
                         
                         
 			})//each

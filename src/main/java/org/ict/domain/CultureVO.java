@@ -8,6 +8,7 @@ public class CultureVO {
 	private int lno;
 	private String cbtitle;
 	private String cbthumnail;
+	private String cbinfo;
 	private String cbimg1;
 	private String cbimg2;
 	private String cbimg3;

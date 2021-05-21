@@ -5,25 +5,27 @@
 
 <mapper namespace="org.ict.mapper.CultureMapper">
 	<select id="cultureList" resultType="org.ict.domain.CultureVO">
-	 select a.Cbno, a.cbtitle, a.cbthumnail, a.cbcontents1, a.cbcontents2, a.cbimg1, a.cbimg2, a.cbimg3, a.cbimg4, a.cbimg5,
- a.cbaddr1, a.cbaddr2, a.cbupdatedate, b.lno
-	from cultureboard as a, localkr as b
-     where a.lno = b.lno and cbno > 0 order by lno asc
-     	limit #{cri.pageStart}, #{cri.number}
+		select a.cbno, a.cbtitle, a.cbthumnail, a.cbcontents1, a.cbcontents2,
+		a.cbinfo ,a.cbimg1, a.cbimg2, a.cbimg3, a.cbimg4, a.cbimg5,
+		a.cbaddr1, a.cbaddr2, a.cbupdatedate, b.lno
+		from cultureboard as a, localkr as b
+		where a.lno = b.lno and cbno > 0 order by lno asc
+		limit #{cri.pageStart}, #{cri.number}
 	</select>
-	<!-- 투어 테이블의 리스트를 1번부터 오름차순으로 뽑는다 1번 서울 부터 뽑기 위해서  -->
-	
+	<!-- 투어 테이블의 리스트를 1번부터 오름차순으로 뽑는다 1번 서울 부터 뽑기 위해서 -->
+
 	<select id="cultureRead" resultType="org.ict.domain.CultureVO">
-	select a.cbno, a.cbtitle, a.cbthumnail, a.cbcontents1, a.cbcontents2, a.cbimg1, a.cbimg2, a.cbimg3, a.cbimg4, a.cbimg5,
- a.cbaddr1, a.cbaddr2, a.cbupdatedate, b.lno
-	from cultureboard as a, localkr as b
-     where a.lno = b.lno and cbno = #{cbno}
+		select a.cbno, a.cbtitle, a.cbthumnail, a.cbinfo, a.cbcontents1,
+		a.cbcontents2, a.cbimg1, a.cbimg2, a.cbimg3, a.cbimg4, a.cbimg5,
+		a.cbaddr1, a.cbaddr2, a.cbupdatedate, b.lno
+		from cultureboard as a, localkr as b
+		where a.lno = b.lno and cbno = #{cbno}
 	</select>
-	
+
 	<select id="countPageNum" resultType="int">
 
-			SELECT COUNT(cbno) FROM cultureboard WHERE cbno > 0
+		SELECT COUNT(cbno) FROM cultureboard WHERE cbno > 0
 
-	
+
 	</select>
 </mapper>
