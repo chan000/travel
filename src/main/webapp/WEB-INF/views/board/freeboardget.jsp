@@ -23,43 +23,68 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
 </head>
-	<header class="masthead">
-<body>
-	<%@ include file="/WEB-INF/views/header/header.jsp"%>
+<header class="masthead">
+	<body>
+		<%@ include file="/WEB-INF/views/header/header.jsp"%>
 		<!-- 메인 내용 들어가는 곳 -->
 		<section id="main-content">
 			<section class="wrapper">
 				<div class="row"></div>
 			</section>
 			<form>
-			<input type="hidden" name="bno" value="${freeboard.bno}">
-			<div class="panel-body">
-				<div class="table-responsive" style="margin-top: 17%;">
-					<table class="table table-bordered">
-						<tbody>
-							<div style="text-align: center;">
-								<h3>${freeboard.title }</h3>
-							</div>
-							<tr>
-								<td class="text-center gr"><strong>작성자</strong></td>
-								<td>${freeboard.writer }</td>
-							</tr>
-							<tr>
-								<td class="text-center gr"><strong>작성일</strong></td>
-								<td>${freeboard.date }</td>
-							</tr>
-							<tr>
-								<td class="text-center gr"><strong>내용 </strong></td>
-								<td>${freeboard.contents }</td>
-							</tr>
-						</tbody>
-					</table>
-					<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
-						style="float: right;">목록</a>
+				<input type="hidden" name="bno" value="${freeboard.bno}">
+				<div class="panel-body">
+					<div class="table-responsive" style="margin-top: 17%;">
+						<table class="table table-bordered">
+							<tbody>
+								<div style="text-align: center;">
+									<h3>${freeboard.title }</h3>
+								</div>
+								<tr>
+									<td class="text-center gr"><strong>작성자</strong></td>
+									<td>${freeboard.writer }</td>
+								</tr>
+								<tr>
+									<td class="text-center gr"><strong>작성일</strong></td>
+									<td>${freeboard.date }</td>
+								</tr>
+								<tr>
+									<td class="text-center gr"><strong>내용 </strong></td>
+									<td>${freeboard.contents }</td>
+								</tr>
+							</tbody>
+						</table>
+						<a href="/board/freeboard?page=${cri.page}"
+							class="btn btn-primary" style="float: right;">목록</a>
+						<button type="submit" 
+							data-oper="modify"
+							class="btn btn-warning useboard">수정</button>
+					<button type="submit"
+							data-oper="remove"
+							class="btn btn-danger useboard">삭제</button>
+					</div>
 				</div>
-			</div>
 			</form>
-			</section>
-	</header>
+		</section>
+</header>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var formObj = $("form");
+		$('.useboard').on("click", function(e) {
+			e.preventDefault();
+
+			var operation = $(this).data("oper");
+			formObj.attr("method", "post");
+
+			if (operation === "modify") {
+				formObj.attr("action", "/board/freeboardmodify");
+			} else if (operation === "remove") {
+				formObj.attr("action", "/board/remove");
+				alert("삭제되었습니다.");
+			}
+			formObj.submit();
+		});
+	}); // document
+</script>
 </body>
 </html>

@@ -11,7 +11,7 @@ public interface BoardMapper {
 
 	public List<BoardVO> getList();
 
-	public int update(BoardVO board);
+	public boolean update(BoardVO board);
 
 	public boolean delete(Long bno);
 	

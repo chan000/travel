@@ -44,4 +44,9 @@ public class BoardServiceImpl implements BoardService {
 		return mapper.countPageNum(cri);
 	}
 
+	@Override
+	public boolean modify(BoardVO board) {
+		return mapper.update(board);
+	}
+
 }

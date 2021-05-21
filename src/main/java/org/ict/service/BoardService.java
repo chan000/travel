@@ -12,6 +12,8 @@ public interface BoardService {
 	public BoardVO get(Long bno);
 
 	public void register(BoardVO board);
+	
+	boolean modify(BoardVO board);
 
 	public boolean remove(Long bno);
 

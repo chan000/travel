@@ -38,5 +38,20 @@ public class UserServiceImpl implements UserService {
 	public UserVO checkLoginBefore(String value) {
 		return mapper.checkUserWithSessionKey(value);
 	}
+
+	@Override
+	public UserVO detailMyInfo(Integer uno) {
+		return mapper.getMyInfo(uno);
+	}
+
+	@Override
+	public String verifyPwd(Integer uno) {
+		return mapper.verifyPwd(uno);
+	}
+
+	@Override
+	public void modifyInfo(UserVO vo) {
+		mapper.updateInfo(vo);
+	}
 	
 }

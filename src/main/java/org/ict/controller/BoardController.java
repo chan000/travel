@@ -1,5 +1,6 @@
 package org.ict.controller;
 
+
 import org.ict.domain.BoardVO;
 import org.ict.domain.ListSearchCriteria;
 import org.ict.domain.PageMaker;
@@ -64,6 +65,52 @@ public class BoardController {
 	public String register() {
 		return "/board/freeboardregi";
 	}
+	
+	@PostMapping("/freeboardmodify")
+	public String modify(Model model, SearchCriteria cri, Long bno) {
+		
+		BoardVO board = service.get(bno);
+		
+		model.addAttribute("board", board);
+		
+		model.addAttribute("cri", cri);
+		
+		return "/board/freeboardmodify";
+	}
+	@PostMapping("/modifyrun")
+	public String modify(BoardVO board,
+					SearchCriteria cri,
+					RedirectAttributes rttr) {
+		// 넘겨받은 글 정보를 갱신 등록
+		service.modify(board);
+		
+		// 수정된 글 번호 정보를 저장
+		rttr.addFlashAttribute("bno",board.getBno());
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		// 디테일 페이지로 넘어가기 위해 redirect 주소 설정
+		return "redirect:/board/freeboardget?bno=" + board.getBno();
+	}
+	
+	@PostMapping("/remove")
+	public String remove(Long bno, 
+				RedirectAttributes rttr, 
+				SearchCriteria cri,
+				Model model) {
+		
+		service.remove(bno);
+		rttr.addFlashAttribute("bno", bno);
+		
+		rttr.addAttribute("page", cri.getPage());
+		rttr.addAttribute("searchType", cri.getSearchType());
+		rttr.addAttribute("keyword", cri.getKeyword());
+		
+		
+		return "redirect:/board/freeboard";
+	}
+	
 
 	// 관광 게시판 리스트
 	@RequestMapping("/toursite")

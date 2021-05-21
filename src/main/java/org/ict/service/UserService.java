@@ -16,4 +16,10 @@ public interface UserService {
 	public void keepLogin(String uid, String sessionId, Date next) throws Exception;
 	
 	public UserVO checkLoginBefore(String value);
+	
+	public UserVO detailMyInfo(Integer uno);
+	
+	public String verifyPwd(Integer uno);
+	
+	public void modifyInfo(UserVO vo);
 }

@@ -7,37 +7,60 @@
 <mapper namespace="org.ict.mapper.UserMapper">
 
 	<select id="login" resultType="org.ict.domain.UserVO">
-		SELECT uno, uid, upwd, uname, unickname, uemail
-			FROM user
-			WHERE uid = #{uid}
-			AND upwd = #{upwd}
+		SELECT uno, uid, upwd, uname,
+		unickname, uemail
+		FROM user
+		WHERE uid = #{uid}
+		AND upwd = #{upwd}
 	</select>
-	
+
 	<insert id="joinMember">
 		INSERT INTO user(uid, upwd, uname, uemail, unickname)
-			VALUES (#{uid}, #{upwd}, #{uname}, #{uemail}, #{unickname})
+		VALUES (#{uid}, #{upwd}, #{uname}, #{uemail}, #{unickname})
 	</insert>
-	
+
 	<select id="getUserInfo" resultType="org.ict.domain.UserVO">
-		SELECT * FROM user 
-			WHERE uid = #{uid}
+		SELECT * FROM user
+		WHERE uid = #{uid}
 	</select>
-	
+
 	<update id="keepLogin">
 		UPDATE user
-			SET sessionKey = #{sessionId},
-			    sessionLimit = #{next}
-			WHERE uid = #{uid}
+		SET sessionKey = #{sessionId},
+		sessionLimit = #{next}
+		WHERE uid = #{uid}
 	</update>
-	
-	
-	<select id="checkUserWithSessionKey" resultType="org.ict.domain.UserVO">
+
+
+	<select id="checkUserWithSessionKey"
+		resultType="org.ict.domain.UserVO">
 		SELECT * FROM user
-			WHERE sessionKey = #{value}
-			AND sessionLimit > now()
+		WHERE sessionKey = #{value}
+		AND sessionLimit > now()
 	</select>
-	
-	
-	
-	
+
+
+	<select id="getMyInfo" resultType="org.ict.domain.UserVO">
+		SELECT uno, uid, upwd, uname,
+		unickname, uemail
+		FROM user
+		WHERE uno = #{uno}
+	</select>
+
+	<select id="verifyPwd" resultType="String">
+		SELECT upwd
+		FROM user
+		WHERE uno
+		= #{uno}
+	</select>
+
+	<update id="updateInfo">
+		UPDATE user
+		SET upwd=#{upwd}, uemail=#{uemail},
+		unickname=#{unickname}
+		WHERE uno = #{uno}
+	</update>
+
+
+
 </mapper>

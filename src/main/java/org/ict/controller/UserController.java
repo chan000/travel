@@ -88,6 +88,19 @@ public class UserController {
 	}
 	
 	
+	@GetMapping("/myinfo")
+	public String myinfo() {
+		
+		return "/user/myinfo";
+	}
+	
+	@GetMapping("/myinfomodify")
+	public String myinfomodify() {
+		
+		return "/user/myinfomodify";
+	}
+	
+	
 	
 }
 

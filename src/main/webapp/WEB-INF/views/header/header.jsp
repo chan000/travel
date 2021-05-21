@@ -58,9 +58,9 @@
 			</div>
 			<c:if test="${!empty login }">
 			<div class="dropdown">
-				<a class="nav-link js-scroll-trigger">내 정보</a>
+				<a href="/user/myinfo" class="nav-link js-scroll-trigger">내 정보</a>
 				<div class="dropdown-content">
-					<a href="#">내 정보 수정</a>
+					<a href="#">내 정보</a>
 					<a class="nav-item js-scroll-trigger"
 							href="/user/logout">로그아웃</a>
 				</div>

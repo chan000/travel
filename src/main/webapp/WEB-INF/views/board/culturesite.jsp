@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>관광 게시판</title>
+<title>문화 게시판</title>
 <link rel="icon" type="image/x-icon"
 	href="/resources/assets/img/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
@@ -34,7 +34,7 @@
 
                 <div class="tit_cont">
                    
-                    <h2 class="tag">관광지</h2>
+                    <h2 class="tag">문화</h2>
                    
                     
                 </div>
@@ -91,8 +91,8 @@
 $(document).ready(function(){
 	
 	
-	function getTourList(page){
-		$.getJSON("/board/toursite/"+page, function(data){
+	function getcultureList(page){
+		$.getJSON("/board/culturesite/"+page, function(data){
 			
 			console.log(data.list);
 			var str = "";
@@ -100,9 +100,9 @@ $(document).ready(function(){
 			$(data.list).each(function(){
 				
 				str += "<ul class='list_thumType flnon'><li class='bdr_nor'> <div class='photo'>"
-                		+"<a href='/board/tourboardget?tbno="+this.tbno+"'><img src='/resources/assets/img/seoul/tour/"+this.tbimg1+"'></a>"
+                		+"<a href='/board/cultureboardget?cbno="+this.cbno+"'><img src='/resources/assets/img/seoul/culture/"+this.cbimg1+"'></a>"
             			+"</div> <div class='area_txt'><div class='tit'>"
-                        +"<a href='/board/tourboardget?tbno="+this.tbno+"'>"+this.tbtitle+"</a><p>"+this.tbaddr1+"</p></div></div></li></ul>";
+                        +"<a href='/board/cultureboardget?cbno="+this.cbno+"'>"+this.cbtitle+"</a><p>"+this.cbaddr1+"</p></div></div></li></ul>";
                         
                         
                         
@@ -115,8 +115,8 @@ $(document).ready(function(){
 		})//getJSON
 		
 		
-	}//getTourList
-	getTourList(1);	
+	}//getcultureList
+	getcultureList(1);	
 	
 	
 	function printPaging(pageMaker){
@@ -144,7 +144,7 @@ $(document).ready(function(){
 		
 		formPage = $(this).attr("href");
 		
-		getTourList(formPage);
+		getcultureList(formPage);
 	});
 
 	

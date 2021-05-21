@@ -19,4 +19,10 @@ public interface UserMapper {
 						@Param("next") Date next);
 	
 	public UserVO checkUserWithSessionKey(String value);
+	
+	public UserVO getMyInfo(Integer uno);
+	
+	public String verifyPwd(Integer uno);
+	
+	public void updateInfo(UserVO vo);
 }
