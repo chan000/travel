@@ -8,7 +8,7 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 <meta name="description" content="" />
 <meta name="author" content="" />
-<title>음식상세보기</title>
+<title>음식 상세보기</title>
 <link rel="icon" type="image/x-icon"
 	href="/resources/assets/img/favicon.ico" />
 <!-- Font Awesome icons (free version)-->
@@ -128,11 +128,11 @@
 					fbaddr2 = data.fbaddr2;
 					$("#fbaddr2").html(fbaddr2);
 					
-					fbimg1 = "<img src='/resources/assets/img/seoul/food/"+data.fbimg1+"'>";
+					fbimg1 = "<img src='/resources/assets/img/seoul/food/contents/"+data.fbimg1+"'>";
 					$("#fbimg1").html(fbimg1);
-					fbimg2 = "<img src='/resources/assets/img/seoul/food/"+data.fbimg2+"'>";
+					fbimg2 = "<img src='/resources/assets/img/seoul/food/contents/"+data.fbimg2+"'>";
 					$("#fbimg2").html(fbimg2);
-					fbimg3 = "<img src='/resources/assets/img/seoul/food/"+data.fbimg3+"'>";
+					fbimg3 = "<img src='/resources/assets/img/seoul/food/contents/"+data.fbimg3+"'>";
 					$("#fbimg3").html(fbimg3);
 					
 					
