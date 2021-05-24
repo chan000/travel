@@ -25,5 +25,11 @@
 			SELECT COUNT(fbno) FROM foodboard WHERE fbno > 0
 	</select>
 	
+	<select id="List" resultType="org.ict.domain.FoodVO">
+		select a.fbno, a.fbtitle, a.fbthumnail, a.fbcontents1, a.fbcontents2, a.fbimg1, a.fbimg2, a.fbimg3, a.fbimg4, a.fbimg5,
+ a.fbaddr1, a.fbaddr2, a.fbupdatedate, b.lno
+	from foodboard as a, localkr as b
+     where a.lno = b.lno and a.lno = #{lno}
+	</select>
 	
 </mapper>

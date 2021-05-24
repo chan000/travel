@@ -65,67 +65,67 @@
 
 				<!-- ---------- 애월읍 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 250px; top: 90px; height: 100px; width: 100px; border-radius: 30px;"
+					style="position: absolute; left: 250px; top: 90px; height: 100px; width: 100px; border-radius: 30px; opacity: 0;"
 					class="w3-button w3-black">애월읍</button>
 
 
 				<!-- ---------- 조천읍 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 350px; top: 80px; height: 100px; width: 100px; border-radius: 30px;"
+					style="position: absolute; left: 350px; top: 80px; height: 100px; width: 100px; border-radius: 30px; opacity: 0;"
 					class="w3-button w3-black">조천읍</button>
 
 
 				<!-- ---------- 구좌읍 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 470px; top: 20px; height: 130px; width: 300px; border-radius: 30px;"
+					style="position: absolute; left: 470px; top: 20px; height: 130px; width: 300px; border-radius: 30px; opacity: 0;"
 					class="w3-button w3-black">구좌읍</button>
 
 
 				<!-- ---------- 우도면 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 819px; top: 60px; width: 60px; height: 60px; border-radius: 30px;"
+					style="position: absolute; left: 819px; top: 60px; width: 60px; height: 60px; border-radius: 30px; opacity: 0;"
 					class="w3-button w3-black">우도면</button>
 
 
 				<!-- ---------- 성산읍 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 630px; top: 150px; height: 220px; width: 130px; border-radius: 30px;"
+					style="position: absolute; left: 630px; top: 150px; height: 220px; width: 130px; border-radius: 30px; opacity: 0;"
 					class="w3-button w3-black">성산읍</button>
 
 
 				<!-- ---------- 표선면 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 480px; top: 180px; height: 220px; width: 145px; border-radius: 30px;"
+					style="position: absolute; left: 480px; top: 180px; height: 220px; width: 145px; border-radius: 30px; opacity: 0;"
 					class="w3-button w3-black">표선면</button>
 
 
 				<!-- ---------- 남원읍 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 330px; top: 195px; height: 220px; width: 125px; border-radius: 30px; transform: rotate(10deg);"
+					style="position: absolute; left: 330px; top: 195px; height: 220px; width: 125px; border-radius: 30px; transform: rotate(10deg); opacity: 0;"
 					class="w3-button w3-black">남원읍</button>
 
 
 				<!-- ---------- 안덕면 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 220px; top: 195px; height: 190px; width: 100px; border-radius: 30px; transform: rotate(15deg);"
+					style="position: absolute; left: 220px; top: 195px; height: 190px; width: 100px; border-radius: 30px; transform: rotate(15deg); opacity: 0;"
 					class="w3-button w3-black">안덕면</button>
 
 
 				<!-- ---------- 대정읍 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 0px; top: 380px; width: 380px; height: 70px; border-radius: 30px; transform: rotate(15deg);"
+					style="position: absolute; left: 0px; top: 380px; width: 380px; height: 70px; border-radius: 30px; transform: rotate(15deg); opacity: 0;"
 					class="w3-button w3-black">대정읍</button>
 
 
 				<!-- ---------- 한경면 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 50px; top: 200px; height: 160px; width: 110px; border-radius: 30px; transform: rotate(-35deg);"
+					style="position: absolute; left: 50px; top: 200px; height: 160px; width: 110px; border-radius: 30px; transform: rotate(-35deg); opacity: 0;"
 					class="w3-button w3-black">한경면</button>
 
 
 				<!-- ---------- 한림읍 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 130px; top: 120px; height: 170px; width: 120px; border-radius: 30px;"
+					style="position: absolute; left: 130px; top: 120px; height: 170px; width: 120px; border-radius: 30px; opacity: 0;"
 					class="w3-button w3-black">한림읍</button>
 
 			</div>

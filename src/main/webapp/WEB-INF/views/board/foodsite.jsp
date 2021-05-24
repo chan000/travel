@@ -88,6 +88,7 @@
 	</header>
 </body>
 <script type="text/javascript">
+
 $(document).ready(function(){
 	
 	
@@ -146,37 +147,6 @@ $(document).ready(function(){
 		
 		getFoodList(formPage);
 	});
-
-	$("#gg").on("click", function(data) {
-		var lno=2;
-		$(data).each(function(data,list){
-			
-			$.ajax({
-				type : 'get',
-				url : '/board/foodsite',
-				header : {
-					"Content-Type" : "application/json",
-					"X-HTTP-Method-Override" : "GET"
-				},
-				dataType : 'text',
-				data : JSON.stringify({
-					fbno : fbno,
-					fbimg1 : fbimg1,
-					fbtitle : fbtitle,
-					fbaddr1 : fbaddr1,
-				}),
-				success : function(result) {
-						console.log(result);
-						$("#list1").html(lno);
-					
-					} // success
-			});// ajax
-                    
-                    
-                    
-		})//each
-		
-	}); // seoul
 	
 })//document
 

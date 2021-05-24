@@ -101,38 +101,38 @@
 
 				<!-- ---------- 종로구 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1' data-sno="${1}"
-					style="position: absolute; left: 390px; top: 200px; height: 150px; width: 70px;"
+					style="position: absolute; left: 390px; top: 200px; height: 150px; width: 70px; opacity: 0;"
 					class="w3-button w3-black">종로구</button>	
 
 				<!-- ---------- 마포구 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1' data-sno="${2}"
-					style="position: absolute; left: 250px; top: 270px; height: 200px; width: 60px; transform: rotate(-52deg);"
+					style="position: absolute; left: 250px; top: 270px; height: 200px; width: 60px; transform: rotate(-52deg); opacity: 0;"
 					class="w3-button w3-black">마포구</button>
 
 
 				<!-- ---------- 중구 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1' data-sno="${3}"
-					style="position: absolute; left: 400px; top: 360px; height: 40px; width: 100px;"
+					style="position: absolute; left: 400px; top: 360px; height: 40px; width: 100px; opacity: 0;"
 					class="w3-button w3-black">중구</button>
 
 				<!-- ---------- 영등포구 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1' data-sno="${4}"
-					style="position: absolute; left: 230px; top: 430px; height: 90px; width: 80px; transform: rotate(25deg);"
+					style="position: absolute; left: 230px; top: 430px; height: 90px; width: 80px; transform: rotate(25deg); opacity: 0;"
 					class="w3-button w3-black">영등포구</button>
 
 				<!-- ---------- 용산구 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1' data-sno="${5}"
-					style="position: absolute; left: 380px; top: 410px; height: 80px; width: 100px;"
+					style="position: absolute; left: 380px; top: 410px; height: 80px; width: 100px; opacity: 0;"
 					class="w3-button w3-black">용산구</button>	
 				
 				<!-- ---------- 강남구 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1' data-sno="${6}"
-					style="position: absolute; left: 550px; top: 430px; height: 250px; width: 80px; transform: rotate(-40deg);"
+					style="position: absolute; left: 550px; top: 430px; height: 250px; width: 80px; transform: rotate(-40deg); opacity: 0;"
 					class="w3-button w3-black">강남구</button>
 				
 				<!-- ---------- 송파구 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1' data-sno="${7}" id="songpa" 
-					style="position: absolute; left: 650px; top: 430px; height: 170px; width: 90px; transform: rotate(-33deg);"
+					style="position: absolute; left: 650px; top: 430px; height: 170px; width: 90px; transform: rotate(-33deg); opacity: 0;"
 					class="w3-button w3-black">송파구</button>
 
 			</div>

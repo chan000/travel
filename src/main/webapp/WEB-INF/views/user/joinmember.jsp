@@ -29,78 +29,164 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		<form method="post" action="/user/joinmember">
-			<div class="container">
-				<div class="column" style="position: relative; top: 200px;">
-					<h1 style="text-align: center;">회원가입</h1>
-					<div class="form-inline d-flex">
-						아이디 : <input
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="uid" placeholder="아이디를 입력해주세요." /> 
-							<span id="checkID">중복체크</span><br> <span id="resultComment"></span>
+		<div class="form">
+			<form method="post" action="/user/joinmember">
+
+				<div class="container">
+					<div class="column" style="position: relative; top: 100px;">
+						<h1 style="text-align: center;">회원가입</h1>
+						<br>
+
+						<table width="700" height="600" cellpadding="0"
+							style="border-collapse: collapse; font-size: 12pt; margin-left: 150px;">
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;">*</td>
+								<td width="15%">아이디</td>
+								<td><input type="text" id="uid" name="uid"
+									placeholder="아이디 입력" required="required" /><button id="checkId">중복체크</button><br>
+									<span id="resultComment"></span></td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;">*</td>
+								<td width="15%">비밀번호</td>
+								<td><input type="password" id="upwd" name="upwd"
+									placeholder="비밀번호 입력" required="required" /></td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;">*</td>
+								<td width="20%">비밀번호 확인</td>
+								<td><input type="password" name="reupwd" id="reupwd"
+									placeholder="비밀번호 재확인" required="required" />
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;">*</td>
+								<td width="15%">이 름</td>
+								<td><input type="text" id="uname" name="uname"
+									required="required" placeholder="이름 입력" /></td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;">*</td>
+								<td width="15%">성 별</td>
+								<td>남 성<input type="radio" name="ugender" value="1" checked />&nbsp;
+									여 성<input type="radio" name="wUserGender" value="2" />
+								</td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;">*</td>
+								<td width="15%">이메일</td>
+								<td><input type="email" id="uemail" name="uemail"
+									required="required" placeholder="이메일 입력" /></td>
+							</tr>
+
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;">*</td>
+								<td width="15%">닉네임</td>
+								<td><input type="text" id="unickname" name="unickname"
+									required="required" placeholder="닉네임 입력" /></td>
+							</tr>
+
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+						</table>
+
+						<button style="width: 300px; margin-left: 150px;"
+							class="btn btn-info " id="submitbtn" type="submit">가입하기
+						</button>
+						<a style="width: 300px;" class="btn btn-info" type="button"
+							href="/user/login">뒤로</a>
 
 					</div>
-					<div class="form-inline d-flex">
-						비밀번호 : <input
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="upwd" placeholder="비밀번호를 입력해주세요." />
-
-					</div>
-					<div class="form-inline d-flex">
-						이름 : <input
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="uname" placeholder="이름을 입력해주세요." />
-
-					</div>
-					<div class="form-inline d-flex">
-						이메일 : <input
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="uemail" placeholder="이메일을 입력해주세요." />
-
-					</div>
-					<div class="form-inline d-flex">
-						닉네임 : <input
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="unickname" placeholder="닉네임을 입력해주세요." />
-
-					</div>
-					
-						<input id="submitBtn" class="btn btn-primary" type="submit" value="제출">
 				</div>
-			</div>
-		</form>
-
+			</form>
+		</div>
 
 	</header>
-
 	<script type="text/javascript">
-		$("checkID").on("click", function(e) {
+		$("#checkId").on("click", function(e) {
 			e.preventDefault();
 
-			var uidValue = $("#uidInput").val();
-
+			var uidValue = $("#uid").val();
 			var str = "";
 
 			$.ajax({
 				type : 'post',
-				url : '/login/check/' + uidValue,
+				url : '/myRest/'+uidValue,
 				headers : {
-					"Content-Type" : "Application/json",
+					"Content-Type" : "application/json",
 					"X-HTTP-Method-Override" : "POST"
 				},
 				dataType : 'text',
 				success : function(result) {
 					if (result.uid === uidValue) {
-						str += "아이디 사용 가능합니다.";
-						$("resultComment").html(str);
+						str += "아이디 체크가 완료되었습니다.";
+						$("#resultComment").html(str);
+						alert("아이디 중복입니다.");
 					}
-
+					console.log(result);
 				},
 				error : function(result) {
-
+					console.log("에러발생");
 				}
-			}); // ajax
-		}); // checkID
+			});
+		});
+	</script>
+
+	<script type="text/javascript">
+		var formObj = $("form");
+
+		$("#submitbtn").on("click", function(e) {
+			e.preventDefault();
+			var upwd = $("#upwd").val();
+
+			if ($("#uid").val() == "") {
+				alert("아이디를 입력해 주세요!");
+				$("#uid").focus();
+				return;
+			} else if (upwd == "") {
+				alert("비밀번호를 입력해 주세요!");
+				$("#upwd").focus();
+				return;
+			} else if (upwd != $("#reupwd").val()) {
+				alert("비밀번호가 일치하지 않습니다!");
+				$("#reupwd").focus();
+				return;
+			} else if ($("uname").val() == "") {
+				alert("이름을 입력해 주세요!");
+				$("#uname").focus();
+				return;
+			} else if ($("#uemail").val() == "") {
+				alert("이메일을 입력해 주세요!");
+				$("#uemail").focus();
+				return;
+
+			} else if ($("unickname").val() == "") {
+				alert("닉네임을 입력해 주세요!");
+				$("#unickname").focus();
+				return;
+			} else {
+				alert("회원가입이 완료되었습니다.")
+				formObj.submit();
+			}
+		})
 	</script>
 </body>
 </html>

@@ -65,37 +65,37 @@
 				<img src="/resources/assets/img/do/경상도.png">
 				<!-- ---------- 영주시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 250px; top: 50px; height: 70px;"
+					style="position: absolute; left: 250px; top: 50px; height: 70px; opacity: 0;"
 					class="w3-button w3-black">영주시</button>
 
 
 				<!-- ---------- 안동시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 280px; top: 130px; height: 90px; width: 120px;"
+					style="position: absolute; left: 280px; top: 130px; height: 90px; width: 120px; opacity: 0;"
 					class="w3-button w3-black">안동시</button>
 
 
 				<!-- ---------- 포항시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 440px; top: 290px; height: 50px; width: 120px; transform: rotate(45deg);"
+					style="position: absolute; left: 440px; top: 290px; height: 50px; width: 120px; transform: rotate(45deg); opacity: 0;"
 					class="w3-button w3-black">포항시</button>
 
 
 				<!-- ---------- 경주시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 420px; top: 350px; height: 80px; width: 120px;"
+					style="position: absolute; left: 420px; top: 350px; height: 80px; width: 120px; opacity: 0;"
 					class="w3-button w3-black">경주시</button>
 
 
 				<!-- ---------- 창녕군 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 250px; top: 460px; height: 90px; width: 80px;"
+					style="position: absolute; left: 250px; top: 460px; height: 90px; width: 80px; opacity: 0;"
 					class="w3-button w3-black">창녕군</button>
 
 
 				<!-- ---------- 부산광역시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 400px; top: 580px; height: 60px; width: 160px; transform: rotate(-40deg);"
+					style="position: absolute; left: 400px; top: 580px; height: 60px; width: 160px; transform: rotate(-40deg); opacity: 0;"
 					class="w3-button w3-black">부산광역시</button>
 
 			</div>

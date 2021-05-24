@@ -10398,7 +10398,7 @@ a {
   min-height: 50rem;
   padding: 50rem 0;
   z-index: 2;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 1) 100%), url("../assets/img/back.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.4) 0%), url("../assets/img/back.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: local;

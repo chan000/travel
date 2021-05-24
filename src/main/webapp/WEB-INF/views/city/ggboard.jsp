@@ -75,13 +75,13 @@
 
 				<!-- ---------- 인천광역시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 120px; top: 350px; height: 90px; width: 180px; border-radius: 50px;"
+					style="position: absolute; left: 120px; top: 350px; height: 90px; width: 180px; border-radius: 50px; opacity: 0;"
 					class="w3-button w3-black">인천광역시</button>
 
 
 				<!-- ---------- 가평군 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 570px; top: 140px; height: 200px; width: 110px; border-radius: 50px;"
+					style="position: absolute; left: 570px; top: 140px; height: 200px; width: 110px; border-radius: 50px; opacity: 0;"
 					class="w3-button w3-black">가평군</button>
 
 
@@ -89,20 +89,20 @@
 
 				<!-- ---------- 수원시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 385px; top: 485px; width: 60px;"
+					style="position: absolute; left: 385px; top: 485px; width: 60px; opacity: 0;"
 					class="w3-button w3-black">수원시</button>
 
 
 				<!-- ---------- 용인시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 470px; top: 470px; width: 100px; height: 120px; border-radius: 30px;"
+					style="position: absolute; left: 470px; top: 470px; width: 100px; height: 120px; border-radius: 30px; opacity: 0;"
 					class="w3-button w3-black">용인시</button>
 
 
 				<!-- ---------- 이천시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 610px; top: 465px; width: 60px; height: 150px; transform: rotate(-45deg);
-                    border-radius: 20px;"
+					style="position: absolute; left: 610px; top: 465px; width: 60px; height: 150px; transform: rotate(-45deg) s;
+                    border-radius: 20px; opacity: 0;"
 					class="w3-button w3-black">이천시</button>
 			</div>
 			<!-- style="position: relative; top: 30px;" -->

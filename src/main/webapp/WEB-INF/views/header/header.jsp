@@ -52,20 +52,16 @@
 						<li class="nav-item"><a class="nav-link js-scroll-trigger"
 							href="/user/login">로그인</a></li>
 					</c:if>
-
+					<c:if test="${!empty login }">
+						<li class="nav-item"><a class="nav-link js-scroll-trigger"
+							href="/user/myinfo">내 정보</a></li>
+						<li class="nav-item"><a class="nav-link js-scroll-trigger"
+							href="/user/logout">로그아웃</a></li>
+					</c:if>
 
 				</ul>
 			</div>
-			<c:if test="${!empty login }">
-			<div class="dropdown">
-				<a href="/user/myinfo" class="nav-link js-scroll-trigger">내 정보</a>
-				<div class="dropdown-content">
-					<a href="#">내 정보</a>
-					<a class="nav-item js-scroll-trigger"
-							href="/user/logout">로그아웃</a>
-				</div>
-			</div>
-			</c:if>
+
 		</div>
 
 	</nav>

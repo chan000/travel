@@ -75,30 +75,30 @@
 				<!-- ---------- 태안 버튼 ------------>
 
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 20px; top: 170px; height: 130px; width: 80px;"
+					style="position: absolute; left: 20px; top: 170px; height: 130px; width: 80px; opacity: 0;"
 					class="w3-button w3-black">태안</button>
 
 
 				<!-- ---------- 보령 버튼 ------------>
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 175px; top: 380px; height: 130px; width: 80px;"
+					style="position: absolute; left: 175px; top: 380px; height: 130px; width: 80px; opacity: 0;"
 					class="w3-button w3-black">보령</button>
 
 
 				<!-- ---------- 대전광역시 버튼 ------------>
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 530px; top: 380px; height: 110px; width: 55px;"
+					style="position: absolute; left: 530px; top: 380px; height: 110px; width: 55px; opacity: 0;"
 					class="w3-button w3-black">대전</button>
 
 
 				<!-- ---------- 세종특별 버튼 ------------>
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 475px; top: 280px; height: 110px; width: 55px; transform: rotate(-33deg);"
+					style="position: absolute; left: 475px; top: 280px; height: 110px; width: 55px; transform: rotate(-33deg); opacity: 0;"
 					class="w3-button w3-black">세종</button>
 
 				<!-- ---------- 청주시 버튼 ------------>
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 540px; top: 260px; height: 60px;"
+					style="position: absolute; left: 540px; top: 260px; height: 60px; opacity: 0;"
 					class="w3-button w3-black">청주</button>
 
 

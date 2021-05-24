@@ -54,7 +54,7 @@ public class FoodRestController {
 	}
 
 	@GetMapping(value = "/foodboardget/{fbno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<FoodVO> tourRead(@PathVariable("fbno") int fbno) {
+	public ResponseEntity<FoodVO> foodRead(@PathVariable("fbno") int fbno) {
 
 		ResponseEntity<FoodVO> entity = null;
 

@@ -65,49 +65,49 @@
 
 				<!-- ---------- 군산시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 230px; top: 60px; height: 70px; width: 110px;"
+					style="position: absolute; left: 230px; top: 60px; height: 70px; width: 110px; opacity: 0;"
 					class="w3-button w3-black">군산시</button>
 
 
 				<!-- ---------- 전주시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 390px; top: 120px; height: 70px; width: 80px; border-radius: 50px;"
+					style="position: absolute; left: 390px; top: 120px; height: 70px; width: 80px; border-radius: 50px; opacity: 0;"
 					class="w3-button w3-black">전주시</button>
 
 
 				<!-- ---------- 담양군 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 360px; top: 360px; height: 80px; width: 60px; transform: rotate(-30deg); border-radius: 50px;"
+					style="position: absolute; left: 360px; top: 360px; height: 80px; width: 60px; transform: rotate(-30deg); border-radius: 50px; opacity: 0;"
 					class="w3-button w3-black">담양군</button>
 
 
 				<!-- ---------- 순천시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 460px; top: 470px; height: 90px; width: 110px; border-radius: 50px;"
+					style="position: absolute; left: 460px; top: 470px; height: 90px; width: 110px; border-radius: 50px; opacity: 0;"
 					class="w3-button w3-black">순천시</button>
 
 
 				<!-- ---------- 여수시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 550px; top: 550px; height: 100px; width: 100px; border-radius: 50px;"
+					style="position: absolute; left: 550px; top: 550px; height: 100px; width: 100px; border-radius: 50px; opacity: 0;"
 					class="w3-button w3-black">여수시</button>
 
 
 				<!-- ---------- 보성군 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 400px; top: 530px; height: 100px; width: 100px; border-radius: 50px;"
+					style="position: absolute; left: 400px; top: 530px; height: 100px; width: 100px; border-radius: 50px; opacity: 0;"
 					class="w3-button w3-black">보성군</button>
 
 
 				<!-- ---------- 영암군 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 207px; top: 545px; height: 80px; width: 120px; border-radius: 50px;"
+					style="position: absolute; left: 207px; top: 545px; height: 80px; width: 120px; border-radius: 50px; opacity: 0;"
 					class="w3-button w3-black">영암군</button>
 
 
 				<!-- ---------- 해남군 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 200px; top: 620px; height: 120px; width: 100px; border-radius: 50px;"
+					style="position: absolute; left: 200px; top: 620px; height: 120px; width: 100px; border-radius: 50px; opacity: 0;"
 					class="w3-button w3-black">해남군</button>
 
 

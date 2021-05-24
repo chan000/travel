@@ -66,25 +66,25 @@
 
 				<!-- ---------- 춘천시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 150px; top: 250px; height: 120px; width: 130px;"
+					style="position: absolute; left: 150px; top: 250px; height: 120px; width: 130px; opacity: 0;"
 					class="w3-button w3-black">춘천시</button>
 
 
 				<!-- ---------- 속초시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 430px; top: 170px;"
+					style="position: absolute; left: 430px; top: 170px; opacity: 0;"
 					class="w3-button w3-black">속초시</button>
 
 
 				<!-- ---------- 평창군 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 410px; top: 350px; height: 180px; width: 100px; transform: rotate(30deg);"
+					style="position: absolute; left: 410px; top: 350px; height: 180px; width: 100px; transform: rotate(30deg); opacity: 0;"
 					class="w3-button w3-black">평창군</button>
 
 
 				<!-- ---------- 강릉시 버튼 ---------- -->
 				<button data-toggle='modal' data-target='#testModal1'
-					style="position: absolute; left: 550px; top: 300px; height: 150px; width: 70px; transform: rotate(-45deg);"
+					style="position: absolute; left: 550px; top: 300px; height: 150px; width: 70px; transform: rotate(-45deg); opacity: 0;"
 					class="w3-button w3-black">강릉시</button>
 
 			</div>

@@ -12,4 +12,6 @@ public interface FoodService {
 	public int getCountPage(ListSearchCriteria cri);
 
 	public FoodVO getFoodRead(Integer fbno);
+	
+	public List<FoodVO> getList(Integer lno);
 }

@@ -30,6 +30,11 @@ public class FoodServiceImpl implements FoodService{
 		return mapper.countPageNum(cri);
 	}
 
+	@Override
+	public List<FoodVO> getList(Integer lno) {
+		return mapper.List(lno);
+	}
+
 	
 	
 }

@@ -130,17 +130,6 @@
 				$("#upwd").focus();
 				return;
 			}
-// 			var mpnum = $("#upnum").val();
-			
-// 			if (upwd == "") {
-// 				alert("비밀번호를 입력해 주세요!")
-// 				$("#upwd").focus();
-// 				return;
-// 			} else if (upwd != $("#repwd").val()){
-// 				alert("비밀번호가 일치하지 않습니다!");
-// 				$("#repwd").focus();
-// 				return;
-// 			}
 
 			$.ajax({
 				type : 'put',
@@ -154,7 +143,7 @@
 					upwd : upwd,
 					uemail : uemail,
 					unickname : unickname,
-// 					mpnum : mpnum,
+
 				}),
 				dataType : 'text',
 				success : function(result) {

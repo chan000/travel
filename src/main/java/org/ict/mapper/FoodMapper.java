@@ -14,4 +14,6 @@ public interface FoodMapper {
 	
 	public int countPageNum(ListSearchCriteria cri);
 	
+	public List<FoodVO> List(Integer lno);
+	
 }
