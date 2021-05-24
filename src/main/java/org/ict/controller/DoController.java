@@ -1,8 +1,6 @@
 package org.ict.controller;
 
 import org.ict.domain.ModalCriteria;
-import org.ict.service.SeoulService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,8 +10,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/city/*")
 public class DoController {
 	
-	@Autowired
-	private SeoulService service;
 	
 	@GetMapping("/seoulboard")
 	public void seoul(Model model, ModalCriteria cri) {

@@ -10577,7 +10577,7 @@ a {
 .seoullist:hover #seoulmap{display:inline-block}
 
 .ggglist #ggmap{display:none}
-.gglist:hover #ggmap{display:inline-block}
+.ggglist:hover #ggmap{display:inline-block}
 
 .gwlist #gwmap{display: none;}
 .gwlist:hover #gwmap{display: inline-block;}
@@ -10603,6 +10603,7 @@ a {
 
 .seoultext{
   font-size: 30px;
+  color:white;
 }
 
 .ggtext{

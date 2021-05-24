@@ -45,7 +45,7 @@
 									</div>
 									<div class="form-group">
 										<label class="form-control-label">패스워드</label> <input
-											type="password" name="upwd" class="form-control" i>
+											type="password" name="upwd" class="form-control">
 									</div>
 
 									<div class="col-lg-12 loginbttm">

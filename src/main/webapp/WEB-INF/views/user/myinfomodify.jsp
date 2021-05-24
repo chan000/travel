@@ -33,47 +33,83 @@
 		<form method="get" action="/user/myinfo">
 		<input type="hidden" name="uno" value="${login.uno}" />
 			<div class="container">
-				<div class="column" style="position: relative; top: 200px;">
-					<h1 style="text-align: center;">회원가입</h1>
-					<div class="form-inline d-flex">
-						아이디 : <input value="${login.uid }"
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="uid" placeholder="아이디를 입력해주세요." /> 
-							<span id="checkID">중복체크</span><br> <span id="resultComment"></span>
+					<div class="column" style="position: relative; top: 100px;">
+						<h1 style="text-align: center;">내 정보</h1>
+						<br>
+
+						<table style="width:700; height: 600; border-collapse: collapse; 
+								font-size: 12pt; margin-left: 150px; cellpadding= 0">
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">아이디</td>
+								<td><input type="text" id="uid" name="uid" disabled="disabled" /></td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;">*</td>
+								<td width="15%">비밀번호</td>
+								<td><input type="password" id="upwd" name="upwd" required="required" /></td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;">*</td>
+								<td width="20%">비밀번호 확인</td>
+								<td><input type="password" name="reupwd" id="reupwd"
+									 required="required" />
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+								
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">이 름</td>
+								<td><input type="text" id="uname" name="uname" disabled="disabled"/></td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">성 별</td>
+								<td>남 성<input type="radio" name="ugender" value="1" checked />&nbsp;
+									여 성<input type="radio" name="wUserGender" value="2" />
+								</td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">이메일</td>
+								<td><input type="email" id="uemail" name="uemail" /></td>
+							</tr>
+
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">닉네임</td>
+								<td><input type="text" id="unickname" name="unickname" /></td>
+							</tr>
+
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+						</table>
+
+						<a style="width: 300px; margin-left: 150px;" href="/user/myinfomodify"
+							class="btn btn-info " id="modifybtn" type="submit">수정하기</a>
+						<a style="width: 300px;" class="btn btn-info" type="button" href="/user/myinfo">취소</a>
 
 					</div>
-					<div class="form-inline d-flex">
-						비밀번호 : <input
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							id="upwd" name="upwd" type="password"  />
-
-					</div>
-					<div class="form-inline d-flex">
-						이름 : 
-						<input value="${login.uname }"
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="uname" placeholder="이름을 입력해주세요." />
-
-					</div>
-					<div class="form-inline d-flex">
-						이메일 : <input
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 id="uemail" name="uemail"  />
-
-					</div>
-					<div class="form-inline d-flex">
-						닉네임 : <input value="${login.unickname }"
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							id="unickname" name="unickname"  />
-
-					</div>
-					
-						  <div class="form-group row">
-                        <button class="btn btn-primary btn-lg col-lg-1 col-lg-offset-4" id="modifybtn" type="submit"><i class="icofont-check-circled"></i></button>
-                        <a href="/user/myinfo" class="btn btn-default btn-lg col-lg-1 col-lg-offset-1" type="button"><i class="icofont-close-circled"></i></a>
-                    </div>
 				</div>
-			</div>
+<!--                         <button class="btn btn-primary btn-lg col-lg-1 col-lg-offset-4" id="modifybtn" type="submit"><i class="icofont-check-circled"></i></button> -->
 		</form>
 			</div>
 
@@ -92,20 +128,8 @@
 			$.getJSON("/myRest/" + uno, function(data) {
 				var uname = data.uname;
 				$("#uname").val(uname);
-				var uemail = data.uemail;
-				$("#uemail").val(uemail);
-				var unickname = data.unickname;
-				$("#unickname").val(unickname);
-// 				var maddress = data.maddress;
-// 				$("#maddress").val(maddress);
-// 				var gender = data.gender;
-// 				$("#gender").val(gender);
-// 				var military = data.military;
-// 				$("#military").val(military);
-// 				var marry = data.marry;
-// 				$("#marry").val(marry);
-// 				var vacachk = data.vacachk;
-// 				$("#vacachk").val(vacachk);
+				var uid = data.uid;
+				$("#uid").val(uid);
 			})
 		}
 		getMyInfo();
@@ -113,21 +137,18 @@
     	$("#modifybtn").on("click", function(e) {
 			e.preventDefault();
 			
-			
-			
-			
 			var upwd = $("#upwd").val();
 			var uemail = $("#uemail").val();
 			var unickname = $("#unickname").val();
 			
 			
-			console.log(upwd);
-			console.log(unickname);
-			console.log(uemail);
-			
 			if (upwd == "") {
 				alert("비밀번호를 입력해 주세요!")
 				$("#upwd").focus();
+				return;
+			} else if (upwd != $("#reupwd").val()) {
+				alert("비밀번호가 일치하지 않습니다!");
+				$("#reupwd").focus();
 				return;
 			}
 
@@ -153,19 +174,12 @@
 					}
 				}
 				
-			}) // 수정 요함
-			
+			}) // ajax
 
+    	
+    	}) // 수정버튼
 	
-    	
-    	})
-		
-    	
-    	
-//     	var deptno = $("#hidememdeptno").data("deptno");
-    	
-//     	$('#deptno').val(deptno).prop("selected", true);
-	});
+	}); // document
 
 
     </script>

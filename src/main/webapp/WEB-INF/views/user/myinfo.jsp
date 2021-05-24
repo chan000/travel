@@ -29,45 +29,74 @@
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
-		
-			<div class="container">
-				<div class="column" style="position: relative; top: 200px;">
-					<h1 style="text-align: center;">회원가입</h1>
-					<div class="form-inline d-flex">
-						아이디 : <input value="${login.uid }"
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="uid" placeholder="아이디를 입력해주세요." /> 
-							<span id="checkID">중복체크</span><br> <span id="resultComment"></span>
+
+				<div class="container">
+					<div class="column" style="position: relative; top: 100px;">
+						<h1 style="text-align: center;">내 정보</h1>
+						<br>
+
+						<table style="width:700; height: 600; border-collapse: collapse; 
+								font-size: 12pt; margin-left: 150px; cellpadding= 0">
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">아이디</td>
+								<td><input type="text" id="uid" name="uid" disabled="disabled" /></td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">비밀번호</td>
+								<td><input type="password" id="upwd" name="upwd" disabled="disabled"/></td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">이 름</td>
+								<td><input type="text" id="uname" name="uname" disabled="disabled"/></td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">성 별</td>
+								<td>남 성<input type="radio" name="ugender" value="1" checked />&nbsp;
+									여 성<input type="radio" name="wUserGender" value="2" />
+								</td>
+							</tr>
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">이메일</td>
+								<td><input type="email" id="uemail" name="uemail" disabled="disabled"/></td>
+							</tr>
+
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+							<tr class="register" height="30">
+								<td width="5%" style="text-align: center;"></td>
+								<td width="15%">닉네임</td>
+								<td><input type="text" id="unickname" name="unickname" disabled="disabled"/></td>
+							</tr>
+
+							<tr height="7">
+								<td colspan="3"><hr /></td>
+							</tr>
+						</table>
+
+						<a style="width: 300px; margin-left: 150px;" href="/user/myinfomodify"
+							class="btn btn-info " id="submitbtn" type="submit">수정</a>
+						<a style="width: 300px;" class="btn btn-info" type="button" href="/">뒤로</a>
 
 					</div>
-					<div class="form-inline d-flex">
-						비밀번호 : <input
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="upwd" placeholder="비밀번호를 입력해주세요." />
-
-					</div>
-					<div class="form-inline d-flex">
-						이름 : <input value="${login.uname }"
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="uname" placeholder="이름을 입력해주세요." />
-
-					</div>
-					<div class="form-inline d-flex">
-						이메일 : <input	value="${login.uemail }"
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							id="uemail" name="uemail" readonly/>
-
-					</div>
-					<div class="form-inline d-flex">
-						닉네임 : <input value="${login.unickname }"
-							class="form-control flex-fill mr-0 mr-sm-2 mb-3 mb-sm-0"
-							 name="unickname" placeholder="닉네임을 입력해주세요." />
-
-					</div>
-					
-						  <a class="btn btn-success btn-lg col-lg-1 col-lg-offset-1 col-md-1 col-md-offset-1 col-xs-1 col-xs-offset-1 col-sm-1 col-sm-offset-1" data-oper="modify" type="button" href="/user/myinfomodify"><i class="icofont-edit"></i></a>
 				</div>
-			</div>
 
 	</header>
  <script type="text/javascript">
@@ -76,17 +105,22 @@
 		
 		function getMyInfo(){
 			$.getJSON("/myRest/" + uno, function(data) {
+				
+				var uid = data.uid;
+				$("#uid").val(uid);
+				var uname = data.uname;
+				$("#uname").val(uname);
 				var uemail = data.uemail;
 				$("#uemail").val(uemail);
 				var upwd = data.upwd;
 				$("#upwd").val(upwd);
-				var uninkname = data.uninkname;
-				$("#uninkname").val(uninkname);
+				var unickname = data.unickname;
+				$("#unickname").val(unickname);
 				
-			})
-		}
+			}) // getJSON
+		}	// getMyInfo
 		getMyInfo();
-	});
+	});	// document
     </script>
 	
 </body>

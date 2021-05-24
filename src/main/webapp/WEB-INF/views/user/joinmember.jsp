@@ -37,8 +37,7 @@
 						<h1 style="text-align: center;">회원가입</h1>
 						<br>
 
-						<table width="700" height="600" cellpadding="0"
-							style="border-collapse: collapse; font-size: 12pt; margin-left: 150px;">
+						<table style="border-collapse: collapse; font-size: 12pt; margin-left: 150px; width: 700; height: 600; cellpadding: 0">
 							<tr class="register" height="30">
 								<td width="5%" style="text-align: center;">*</td>
 								<td width="15%">아이디</td>
@@ -186,7 +185,7 @@
 				alert("회원가입이 완료되었습니다.")
 				formObj.submit();
 			}
-		})
+		}) // submit버튼
 	</script>
 </body>
 </html>
