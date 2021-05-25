@@ -64,7 +64,7 @@ public class TourRestController {
 
 		List<TourVO> list = service.getTourDetailList(lno, cri);
 		
-		int count = service.getCountLnoNum(lno,cri);
+		int count = service.getCountLnoNum(lno);
 		
 
 		ListPageMaker pageMaker = new ListPageMaker();

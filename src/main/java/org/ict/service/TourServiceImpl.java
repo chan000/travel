@@ -36,8 +36,8 @@ public class TourServiceImpl implements TourService{
 	}
 
 	@Override
-	public int getCountLnoNum(int lno, ListSearchCriteria cri) {
-		return mapper.countLnoNum(lno, cri);
+	public int getCountLnoNum(int lno) {
+		return mapper.countLnoNum(lno);
 	}
 
 	

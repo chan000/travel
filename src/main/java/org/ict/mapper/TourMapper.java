@@ -16,6 +16,6 @@ public interface TourMapper {
 	
 	public int countPageNum(ListSearchCriteria cri);
 	
-	public int countLnoNum(int lno,ListSearchCriteria cri);
+	public int countLnoNum(int lno);
 
 }
