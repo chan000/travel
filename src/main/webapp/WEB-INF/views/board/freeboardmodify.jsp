@@ -31,39 +31,59 @@
 		<input type="hidden" name="bno" value=${board.bno } />
 			<section class="container">
 				<div class="row" style="width: 1000px"></div>
+				<form>
 				<div class="column">
 					<div>
 						<div class="panel-body" style="margin-top: 17%">
-							<h1 style="text-align: center;">자유게시판</h1>
-							<div class="form-group">
-								<label class="col-sm-1 ">제목</label>
-								<div class="col-sm-11">
-									<input type="text" class="form-control" name="title"
-										value="${board.title }">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-1 control-label">작성자</label>
-								<div class="col-sm-11">
-									<input class="form-control" type="text" name="writer"
-										value="${board.writer }">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-sm-1 control-label">내용</label>
-								<div class="col-sm-11">
-									<textarea class="form-control" rows="6" name="contents">${board.contents }</textarea>
-								</div>
-							</div>
-							<input id="submitBtn" class="btn btn-primary" type="submit"
-								value="제출">
-
+							<h1 style="text-align: center;">${board.title }</h1>
+							<table class="table table-striped">
+                                <tr>
+                                 <td>작성자</td>
+                                 <td><input type="text"  class="form-control" value="${login.uname }" readonly="readonly" name="writer"></td>
+                                </tr>
+                                <tr>
+                                 <td>제목</td>
+                                 <td><input type="text"  class="form-control"  name="title" ></td>
+                                </tr>
+                                <tr>
+                                 <td>작성일</td>
+                                 <td><input type="text"  class="form-control"  name="date" readonly="readonly" value="${board.date }"></td>
+                                </tr>
+                                <tr>
+                                <tr>
+                                 <td>글내용</td>
+                                 <td><textarea rows="10" cols="50" name="contents" class="form-control" ></textarea></td>
+                                </tr>
+                                 <tr> 
+                                 <td colspan="2"  class="text-center">       
+								<button style="width: 300px;" type="submit" data-oper="success" class="btn btn-warning useboard">완료</button>
+                                 <a style="width: 300px;" class="btn btn-info" type="button" href="/board/freeboard">취소</a>
+                                 </td>
+                                </tr>
+                                </table>
 						</div>
 					</div>
 				</div>
-				<!-- page end-->
-			</section>
+				</form>
+		</section>
 		</form>
+				<!-- page end-->
 	</header>
+	<script type="text/javascript">
+	$(document).ready(function() {
+		var formObj = $("form");
+		$('.useboard').on("click", function(e) {
+			e.preventDefault();
+
+			var operation = $(this).data("oper");
+			formObj.attr("method", "post");
+
+			if (operation === "success") {
+				alert("수정이 완료되었습니다.");
+			}
+			formObj.submit();
+		});
+	}); // document
+	</script>
 </body>
 </html>
