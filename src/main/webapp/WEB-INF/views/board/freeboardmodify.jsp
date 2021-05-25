@@ -43,7 +43,7 @@
                                 </tr>
                                 <tr>
                                  <td>제목</td>
-                                 <td><input type="text"  class="form-control"  name="title" ></td>
+                                 <td><input type="text"  class="form-control" id="title" name="title" required="required" ></td>
                                 </tr>
                                 <tr>
                                  <td>작성일</td>
@@ -78,7 +78,11 @@
 			var operation = $(this).data("oper");
 			formObj.attr("method", "post");
 
-			if (operation === "success") {
+			if(data.("title")==""){
+				alert("제목을 입력해주세요.")
+				$("#title").focus();
+				return;
+			} else if (operation === "success") {
 				alert("수정이 완료되었습니다.");
 			}
 			formObj.submit();

@@ -55,9 +55,10 @@
                                 </tr>
                                  <tr> 
                                  <td colspan="2"  class="text-center">       
-                        
+                        		<c:if test="${freeboard.writer == login.uname || login.uno == 1 || login.uno == 2}">
 								<button style="width: 200px;" type="submit" data-oper="modify" class="btn btn-warning useboard">수정</button>
 								<button style="width: 200px;" type="submit" data-oper="remove" class="btn btn-danger useboard">삭제</button>
+                        		</c:if>
                                  <a style="width: 200px;" class="btn btn-info" type="button" href="/board/freeboard">목록보기</a>
                                  </td>
                                 </tr>
