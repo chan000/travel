@@ -22,116 +22,51 @@
 	rel="stylesheet" />
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
-<link href="/resources/css/footprint.css" rel="stylesheet" />
-    <link href="/resources/css/common.css" rel="stylesheet" />
-    <link href="/resources/css/content.css" rel="stylesheet" />
+<link href="/resources/css/button.css" rel="stylesheet" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
-	<header class="masthead">
-		<!-- 메인 내용 들어가는 곳 -->
-		<div id="contents" style="position: relative; top: 85px;">
-
-                <div class="tit_cont">
-                   
-                    <h2 class="tag">문화</h2>
-                   
-                    
-                </div>
-        
-                <div class="wrap_contView clfix">
-        
-                    <!-- 썸네일 리스트 -->
-                    <div class="box_leftType1">
-                        <ul class="list_thumType flnon">
-                        	<li id="list1">
-                        	</li>
-                        </ul>   
-                            <!-- paging -->
-                        <div class="page_box">
-                            <div class="row">
-            
-           					 <ul class="pagination">
-            
-           					 </ul>
-   						 </div>
-                        </div>
-                        <!-- //paging -->
-                    </div>
-                    <!-- //썸네일 리스트 -->
-        
-                    <div class="box_rightType1">
-                        <!-- 태그 리스트 -->
-                        
-    
-                </div>
-            </div>
-            
-            
-            </div>
-            <!-- //contents -->
+	<header class="masthead1">
+		<h1>문화</h1>
 	</header>
+ <section class="about-section text-center" id="about">
+	
+		<div class="row1">
+		</div>
+</section>
 </body>
 <script type="text/javascript">
 $(document).ready(function(){
 	
-	
-	function getcultureList(page){
+	function getCultureList(page){
 		$.getJSON("/board/culturesite/"+page, function(data){
 			
-			console.log(data.list);
 			var str = "";
 			
 			$(data.list).each(function(){
 				
-				str += "<ul class='list_thumType flnon'><li class='bdr_nor'> <div class='photo'>"
-                		+"<a href='/board/cultureboardget?cbno="+this.cbno+"'><img src='/resources/assets/img/culture/thum/"+this.cbthumnail+"'></a>"
-            			+"</div> <div class='area_txt'><div class='tit'>"
-                        +"<a href='/board/cultureboardget?cbno="+this.cbno+"'>"+this.cbtitle+"</a><p>"+this.cbinfo+"</p></div></div></li></ul>";
-                        
-                        
-			})//each
-			$("#list1").html(str);
+				str +=  "<div class='col-xs-12 col-sm-6 col-md-3'>"
+                + "<div class='thumbnail'>"
+                + "<img src='/resources/assets/img/culture/thum/"+this.cbthumnail+"'>"
+                + "<div class='caption'>"
+                + "<h3>"+this.cbtitle+"</h3>"
+                + "<p>"+this.cbinfo+"</p>"
+                + "<div class='button-container-1'><span class='mas'>"+this.cbtitle+"</span>"
+                + "<button id='work' type='button' name='Hover'>"+this.cbinfo+"</button>"
+                + "</div></div></div></div>"
+                
+                   
+				
+				
+			});//each
+			$(".row1").html(str);
 			
-			
-			printPaging(data.pageMaker);
-			
-		})//getJSON
+		});//getJson
 		
 		
-	}//getcultureList
-	getcultureList(1);	
-	
-	
-	function printPaging(pageMaker){
 		
-		var str = "";
-		
-		if(pageMaker.prev){
-			str += "<li><a href='" + (pageMaker.startPage - 1) + "'> < </a></li>";
-		}
-		
-		for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){
-			var strClass = pageMaker.page == i ? 'class=active':'';
-			str += "<li " + strClass + "><a href='" + i + "'>" + i + "</a></li>";
-		}
-		if(pageMaker.next){
-			str += "<li><a href='" + (pageMaker.endPage + 1) + "'> > </a></li>";
-		}
-		
-		$('.pagination').html(str);
-		
-		
-	}
-	$(".pagination").on("click", "li a", function(e) {
-		e.preventDefault();
-		
-		formPage = $(this).attr("href");
-		
-		getcultureList(formPage);
-	});
-
-	
+	}//getCultureList
+	getCultureList(1);
 	
 })//document
 
