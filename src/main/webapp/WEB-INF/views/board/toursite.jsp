@@ -65,7 +65,7 @@
                         <div class="area_tagList">
                         
                             <ul class="tag_list area_list js_one" id="arealist">
-                                <li id="All"><button type="button" class="btn_all_active"><span>전체</span></button></li>
+                                <li id="All"><button type="button" class="btn_all_active"><a href="/board/toursite"><span>전체</span></a></button></li>
                                 <li id="1"><button type="button"  data-lno="${1}"class="btn"><span>서울</span></button></li>
                                 <li id="2"><button type="button" data-lno="${2}"class="btn"><span>경기</span></button></li>
                                 <li id="3"><button type="button" data-lno="${3}"class="btn"><span>강원</span></button></li>
@@ -163,12 +163,22 @@ $(document).ready(function(){
 
 		});
 			$("#list1").html(str);
-			console.log(data.pageMaker);
+			
 			
 			printPaging(data.pageMaker);
 			
+		
+			
 		});//getJSON
 		}//getTourLnoList
+		$(".pagination").on("click", "li a", function(e) {
+			e.preventDefault();
+			
+			formPage = $(this).attr("href");
+			
+			getTourLnoList(formPage);
+			
+		});
 		getTourLnoList(1);
 	});//이벤트위임
 	
