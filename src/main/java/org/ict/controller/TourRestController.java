@@ -17,6 +17,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import jdk.internal.org.jline.utils.Log;
+
 
 
 @RestController
@@ -53,14 +55,14 @@ public class TourRestController {
 
 		return entity;
 	}
-	@GetMapping(value = "/toursite/{page}/{lno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
+	@GetMapping(value = "/toursite/{lno}/{page}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
 	public ResponseEntity<Map<String, Object>> tourDetailList( @PathVariable("lno") int lno, @PathVariable("page") int page, ListSearchCriteria cri) {
 		ResponseEntity<Map<String, Object>> entity = null;
 
 		Map<String, Object> result = new HashMap<>();
 
 		cri.setPage(page);
-		cri.setLno(lno);
+		
 
 		List<TourVO> list = service.getTourDetailList(lno, cri);
 		
@@ -74,6 +76,8 @@ public class TourRestController {
 
 		result.put("list", list);
 		result.put("pageMaker", pageMaker);
+		result.put("cri", cri);
+		
 
 		try {
 			entity = new ResponseEntity<Map<String, Object>>(result, HttpStatus.OK);

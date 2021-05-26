@@ -163,10 +163,11 @@ $(document).ready(function(){
 
 		});
 			$("#list1").html(str);
-			
+			console.log(data.pageMaker);
 			
 			printPaging(data.pageMaker);
-		});
+			
+		});//getJSON
 		}//getTourLnoList
 		getTourLnoList(1);
 	});//이벤트위임
@@ -180,7 +181,7 @@ $(document).ready(function(){
 		}
 		
 		for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){
-			var strClass = pageMaker.page == i ? 'class=active':'';
+			var strClass = pageMaker.cri.page == i ? 'class=active':'';
 			str += "<li " + strClass + "><a href='" + i + "'>" + i + "</a></li>";
 		}
 		if(pageMaker.next){
@@ -197,6 +198,7 @@ $(document).ready(function(){
 		formPage = $(this).attr("href");
 		
 		getTourList(formPage);
+		
 	});
 
 	

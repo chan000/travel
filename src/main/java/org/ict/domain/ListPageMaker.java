@@ -47,7 +47,7 @@ public class ListPageMaker {
 		
 		this.startPage = (endPage - displayPageNum) + 1;
 		
-		int tempEndPage = (int)(Math.ceil(totalCount /
+		int tempEndPage = (int)(Math.ceil(totalLnoCount /
 				(double)cri.getNumber()));
 		if(endPage > tempEndPage) {
 			endPage = tempEndPage;
@@ -56,7 +56,7 @@ public class ListPageMaker {
 		prev = startPage == 1 ? false : true;
 		
 		next = endPage * cri.getNumber() >= 
-				totalCount ? false : true;
+				totalLnoCount ? false : true;
 		
 	}
 	
