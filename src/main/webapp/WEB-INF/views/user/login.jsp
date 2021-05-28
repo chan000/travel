@@ -52,11 +52,11 @@
 										<div class="col-lg-6 login-btm login-text">
 											<!-- Error Message -->
 										</div>
-										<div class="col-lg-6 login-btm login-button">
-											<button type="submit" class="btn btn-outline-primary">로그인</button>
+										<div class="login-btm login-button">
+											<button type="submit" style="width: 500px;color: #fff;" class="btn btn-outline-primary">로그인</button>
 										</div>
-										<div class="col-lg-6 login-btm login-button">
-											<a href="/user/joinmember" type="submit"
+										<div class="login-btm login-button">
+											<a href="/user/joinmember" style="width: 500px; color: #fff;" type="submit"
 												class="btn btn-outline-primary">회원가입</a>
 										</div>
 									</div>

@@ -119,35 +119,6 @@
 		</div>
 
 	</header>
-	<script type="text/javascript">
-		$("#checkId").on("click", function(e) {
-			e.preventDefault();
-
-			var uidValue = $("#uid").val();
-			var str = "";
-
-			$.ajax({
-				type : 'post',
-				url : '/myRest/'+uidValue,
-				headers : {
-					"Content-Type" : "application/json",
-					"X-HTTP-Method-Override" : "POST"
-				},
-				dataType : 'text',
-				success : function(result) {
-					if (result.uid === uidValue) {
-						str += "아이디 체크가 완료되었습니다.";
-						$("#resultComment").html(str);
-						alert("아이디 중복입니다.");
-					}
-					console.log(result);
-				},
-				error : function(result) {
-					console.log("에러발생");
-				}
-			});
-		});
-	</script>
 
 	<script type="text/javascript">
 		var formObj = $("form");
@@ -186,6 +157,37 @@
 				formObj.submit();
 			}
 		}) // submit버튼
+		
+		
+		$("#checkId").on("click", function(e) {
+			e.preventDefault();
+		
+			var idCheck = $("#uid").val();
+			var str = '';
+			console.log(idCheck);
+			
+			$.ajax({
+				type : 'post',
+				url : '/myRest/'+idCheck,
+				headers : {
+					"Content-Type" : "application/json",
+					"X-HTTP-Method-Override" : "POST"
+				},
+				dataType : 'json',
+				success : function(data) {
+					if (data.uid === idCheck) {
+						alert("아이디 중복입니다.");
+						$("#resultComment").html(str);
+					}
+					console.log(data);
+				},
+				error : function() {
+					alert("사용가능한 아이디 입니다.");
+					console.log("아이디 사용 가능");
+				}
+				
+			});
+		});
 	</script>
 </body>
 </html>

@@ -204,6 +204,11 @@ img {
   vertical-align: middle;
   border-style: none;
 }
+cimg {
+  vertical-align: middle;
+  border-style: none;
+  margin-top: 3vh;
+}
 
 svg {
   overflow: hidden;
@@ -609,6 +614,7 @@ pre code {
   width: 100%;
   padding-right: 0.75rem;
   padding-left: 0.75rem;
+  padding-top: 1rem;
 }
 
 .col {
@@ -10514,7 +10520,7 @@ a {
 }
 
 .about-section {
-  padding-top: 10rem;
+  padding-top: 5rem;
   background: linear-gradient(to bottom,
       #000000 0%,
       rgba(0, 0, 0, 0.1) 10%,

@@ -62,25 +62,29 @@
 					<br>
 					
 				</div>
-				<div class="container1">
-							<div class="row">
-								<div class="col-md-9">
-									<ul class="pagination">
+<!-- 				<div class="container1"> -->
+<!-- 					<div class="row"> -->
+<!-- 						<div class="col-md-9"> -->
+<!-- 							<ul class="pagination"> -->
 
-									</ul>
-								</div>
-							</div>
-						</div>
-				<div class="modal-body" style="margin-top: 2%">
+<!-- 							</ul> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
+<!-- 				</div> -->
+				<div class="modal-body">
 					<!-- 모달 팝업의 내용은 여기에 옵니다. -->
-					<hr>
+					
 					<h4>음식</h4>
-					<h5 id="tourbody1"> </h5>
-					<!-- 데이터 넣으면 되려나 -->
+					
+					<h5 id="foodbody"> </h5>
+					
 					<h6 style="float: right;">
-						<a href="/board/toursite">상세보기</a>
+						<a href="/board/foodsite">상세보기
+						</a>
+						
 					</h6>
 					<br>
+					
 				</div>
 				<!-- footer -->
 				<div class="modal-footer">
@@ -154,7 +158,7 @@
 					$.getJSON("/city/seoulboard/tour/" + sno + "/" + page, function(data) {
 			
 						var str = "";
-						var str1 = "";
+						var foodstr = "";
 						var btntitle = "";
 
 						
@@ -166,6 +170,8 @@
 							
 							$("#tourbody").html(str);
 							$("#btntitle").html(btntitle);
+							
+							$("#foodbody").html(foodstr);
 						
 						}); // each	
 						printPaging(data.pageMaker);
@@ -196,7 +202,7 @@
 			$(".pagination").on("click", "li a", function(e) {
 				e.preventDefault();
 				
-				formPage = $(this).attr("href");
+				formPage = $(this).html("href");
 				
 				getSeoulList(formPage);
 			});

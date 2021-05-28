@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -21,6 +23,7 @@ public class UserRestController {
 
 	@Autowired
 	private UserService service;
+	
 
 	@GetMapping(value = "/{uno}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE, MediaType.APPLICATION_XML_VALUE })
 	public ResponseEntity<UserVO> detailMyInfO(@PathVariable("uno") Integer uno) {
@@ -63,6 +66,11 @@ public class UserRestController {
 			return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
 		}
 
+	}
+	@RequestMapping(value = "/{idCheck}", method = RequestMethod.GET)
+	@ResponseBody
+	public UserVO idCheck(@RequestParam("userId")String uid) {
+		 return service.getUserInfo(uid);
 	}
 
 }
