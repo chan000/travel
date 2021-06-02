@@ -42,7 +42,8 @@
 								<td width="5%" style="text-align: center;">*</td>
 								<td width="15%">아이디</td>
 								<td><input type="text" id="uid" name="uid"
-									placeholder="아이디 입력" required="required" /><button id="checkId">중복체크</button><br>
+									placeholder="아이디 입력" required="required" />
+									<button style="width: 80px; border-radius: 10px;" id="checkId">중복체크</button><br>
 									<span id="resultComment"></span></td>
 							</tr>
 							<tr height="7">
@@ -72,16 +73,7 @@
 								<td><input type="text" id="uname" name="uname"
 									required="required" placeholder="이름 입력" /></td>
 							</tr>
-							<tr height="7">
-								<td colspan="3"><hr /></td>
-							</tr>
-							<tr class="register" height="30">
-								<td width="5%" style="text-align: center;">*</td>
-								<td width="15%">성 별</td>
-								<td>남 성<input type="radio" name="ugender" value="1" checked />&nbsp;
-									여 성<input type="radio" name="wUserGender" value="2" />
-								</td>
-							</tr>
+							
 							<tr height="7">
 								<td colspan="3"><hr /></td>
 							</tr>
@@ -108,7 +100,7 @@
 						</table>
 
 						<button style="width: 300px; margin-left: 150px;"
-							class="btn btn-info " id="submitbtn" type="submit">가입하기
+							class="btn btn-warning " id="submitbtn" type="submit">가입하기
 						</button>
 						<a style="width: 300px;" class="btn btn-info" type="button"
 							href="/user/login">뒤로</a>

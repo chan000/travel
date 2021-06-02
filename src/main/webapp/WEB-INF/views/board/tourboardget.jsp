@@ -87,12 +87,8 @@
 								</div>
 							</div>
 						</div>
-						<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
-						style="float: right;">삭제</a>
-						<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
-						style="float: right;">수정</a>
-						<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
-						style="float: right;">목록</a>
+						<a href="/board/toursite" class="btn btn-primary"
+						style="float: right; width: 150px; border-radius: 50px;">목록</a>
 					</div>
 				</div>
 			</div>

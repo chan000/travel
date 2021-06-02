@@ -23,6 +23,22 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
 <link href="/resources/css/button.css" rel="stylesheet" />
+<link href="/resources/css/common.css" rel="stylesheet" />
+<link href="/resources/css/content.css" rel="stylesheet" />
+<style type="text/css">
+.pagelist{
+    clear: both;
+    text-align: center;
+    color: #999;
+    margin: 50px 0px 0px 0px;
+}
+.pagination1{
+	display: flex;
+    justify-content: center;
+    list-style: none;
+    border-radius: 0.25rem;
+}
+</style>
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
@@ -32,6 +48,13 @@
  <section class="about-section text-center" id="about">
 	
 		<div class="row1">
+		</div>
+		<div class="page_box">
+		<div class="pagelist">
+            
+               <ul class="pagination1">
+            	</ul>
+   		 </div>
 		</div>
 </section>
 </body>
@@ -52,7 +75,7 @@ $(document).ready(function(){
                 + "<h3>"+this.cbtitle+"</h3>"
                 + "<p>"+this.cbinfo+"</p>"
                 + "<div class='button-container-1'><span class='mas'>"+this.cbtitle+"</span>"
-                + "<button id='work' type='button' name='Hover'>"+this.cbinfo+"</button>"
+                + "<button id='work' type='button'name='Hover' onclick=location.href='/board/cultureboardget?cbno=" +this.cbno+"' >"+this.cbinfo+"</button>"
                 + "</div></div></div></div>"
                 
                    
@@ -61,12 +84,42 @@ $(document).ready(function(){
 			});//each
 			$(".row1").html(str);
 			
+			printPaging(data.pageMaker);
+			
 		});//getJson
 		
 		
 		
 	}//getCultureList
 	getCultureList(1);
+	
+function printPaging(pageMaker){
+		
+		var str = "";
+		
+		if(pageMaker.prev){
+			str += "<li><a href='" + (pageMaker.startPage - 1) + "'> < </a></li>";
+		}
+		
+		for(var i = pageMaker.startPage, len = pageMaker.endPage; i <= len; i++){
+			var strClass = pageMaker.page == i ? 'class=active':'';
+			str += "<li " + strClass + "><a href='" + i + "'>" + i + "</a></li>";
+		}
+		if(pageMaker.next){
+			str += "<li><a href='" + (pageMaker.endPage + 1) + "'> > </a></li>";
+		}
+		
+		$('.pagination1').html(str);
+		
+		
+	}
+	$(".pagination1").on("click", "li a", function(e) {
+		e.preventDefault();
+		
+		formPage = $(this).attr("href");
+		
+		getCultureList(formPage);
+	});
 	
 })//document
 

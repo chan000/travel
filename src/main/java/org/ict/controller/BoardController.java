@@ -2,6 +2,7 @@ package org.ict.controller;
 
 
 import org.ict.domain.BoardVO;
+import org.ict.domain.CultureSearchCriteria;
 import org.ict.domain.ListSearchCriteria;
 import org.ict.domain.PageMaker;
 import org.ict.domain.SearchCriteria;
@@ -138,7 +139,7 @@ public class BoardController {
 
 	// 문화 게시판 리스트
 	@RequestMapping("/culturesite")
-	public void culturesite(Model model, ListSearchCriteria cri) {
+	public void culturesite(Model model, CultureSearchCriteria cri) {
 		model.addAttribute("culturelist", cultureservice.getCultureList(cri));
 	}
 

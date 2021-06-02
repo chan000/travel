@@ -27,7 +27,6 @@
 <link href="/resources/css/slide.css" rel="stylesheet" />
 </head>
 <body>
-<%-- 	<input type="hidden" name="fbno" value="${foodget.fbno}"> --%>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>
 	<header class="masthead">
 		<!-- 메인 내용 들어가는 곳 -->
@@ -87,12 +86,8 @@
 								</div>
 							</div>
 						</div>
-						<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
-						style="float: right;">삭제</a>
-						<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
-						style="float: right;">수정</a>
-						<a href="/board/freeboard?page=${cri.page}" class="btn btn-primary"
-						style="float: right;">목록</a>
+						<a href="/board/foodsite" class="btn btn-primary"
+						style="float: right; width: 150px; border-radius: 50px;">목록</a>
 					</div>
 				</div>
 			</div>

@@ -23,8 +23,8 @@
 <!-- Core theme CSS (includes Bootstrap)-->
 <link href="/resources/css/styles.css" rel="stylesheet" />
 <link href="/resources/css/footprint.css" rel="stylesheet" />
-    <link href="/resources/css/common.css" rel="stylesheet" />
-    <link href="/resources/css/content.css" rel="stylesheet" />
+<link href="/resources/css/common.css" rel="stylesheet" />
+<link href="/resources/css/content.css" rel="stylesheet" />
 </head>
 <body>
 	<%@ include file="/WEB-INF/views/header/header.jsp"%>

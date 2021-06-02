@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.ict.domain.CulturePageMaker;
+import org.ict.domain.CultureSearchCriteria;
 import org.ict.domain.CultureVO;
-import org.ict.domain.ListPageMaker;
-import org.ict.domain.ListSearchCriteria;
 import org.ict.service.CultureService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -26,7 +26,7 @@ public class CultureRestController {
 	private CultureService service;
 
 	@GetMapping(value = "/culturesite/{page}", produces = { MediaType.APPLICATION_JSON_UTF8_VALUE })
-	public ResponseEntity<Map<String, Object>> cultureList(@PathVariable("page") int page, ListSearchCriteria cri) {
+	public ResponseEntity<Map<String, Object>> cultureList(@PathVariable("page") int page, CultureSearchCriteria cri) {
 		ResponseEntity<Map<String, Object>> entity = null;
 
 		Map<String, Object> result = new HashMap<>();
@@ -36,7 +36,7 @@ public class CultureRestController {
 		List<CultureVO> list = service.getCultureList(cri);
 		int count = service.getCountPage(cri);
 
-		ListPageMaker pageMaker = new ListPageMaker();
+		CulturePageMaker pageMaker = new CulturePageMaker();
 
 		pageMaker.setCri(cri);
 		pageMaker.setTotalCount(count);

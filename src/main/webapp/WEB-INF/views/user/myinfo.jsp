@@ -58,16 +58,7 @@
 								<td width="15%">이 름</td>
 								<td><input type="text" id="uname" name="uname" disabled="disabled"/></td>
 							</tr>
-							<tr height="7">
-								<td colspan="3"><hr /></td>
-							</tr>
-							<tr class="register" height="30">
-								<td width="5%" style="text-align: center;"></td>
-								<td width="15%">성 별</td>
-								<td>남 성<input type="radio" name="ugender" value="1" checked />&nbsp;
-									여 성<input type="radio" name="wUserGender" value="2" />
-								</td>
-							</tr>
+							
 							<tr height="7">
 								<td colspan="3"><hr /></td>
 							</tr>
@@ -92,7 +83,7 @@
 						</table>
 
 						<a style="width: 300px; margin-left: 150px;" href="/user/myinfomodify"
-							class="btn btn-info " id="submitbtn" type="submit">수정</a>
+							class="btn btn-warning " id="submitbtn" type="submit">수정</a>
 						<a style="width: 300px;" class="btn btn-info" type="button" href="/">뒤로</a>
 
 					</div>

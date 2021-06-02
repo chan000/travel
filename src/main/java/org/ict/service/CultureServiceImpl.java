@@ -2,8 +2,8 @@ package org.ict.service;
 
 import java.util.List;
 
+import org.ict.domain.CultureSearchCriteria;
 import org.ict.domain.CultureVO;
-import org.ict.domain.ListSearchCriteria;
 import org.ict.mapper.CultureMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,12 +15,12 @@ public class CultureServiceImpl implements CultureService {
 	private CultureMapper mapper;
 
 	@Override
-	public List<CultureVO> getCultureList(ListSearchCriteria cri) {
+	public List<CultureVO> getCultureList(CultureSearchCriteria cri) {
 		return mapper.cultureList(cri);
 	}
 
 	@Override
-	public int getCountPage(ListSearchCriteria cri) {
+	public int getCountPage(CultureSearchCriteria cri) {
 		return mapper.countPageNum(cri);
 	}
 
